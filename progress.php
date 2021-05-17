@@ -87,8 +87,8 @@
                 }
 
                 to {
-                    width: <?php echo $count_final ?>%;
                     padding: 10px;
+                    width: <?php echo $count_final; ?>%;
                 }
             }
         </style>
@@ -112,92 +112,7 @@
             }
         }
         ?>
-        <style>
-            body::-webkit-scrollbar {
-                display: none;
-            }
 
-            body {
-                -ms-overflow-style: none;
-                /* IE and Edge */
-                scrollbar-width: none;
-                /* Firefox */
-            }
-
-            #flip-card-back::-webkit-scrollbar {
-                display: none;
-            }
-
-            #flip-card-back {
-                -ms-overflow-style: none;
-                /* IE and Edge */
-                scrollbar-width: none;
-                /* Firefox */
-            }
-
-            #card {
-                width: 100%;
-                ;
-            }
-
-            #card,
-            #flip-card {
-                width: 100%;
-                height: 200px;
-            }
-
-            #flip-card {
-                transition: transform .5s ease-in-out;
-                transform-origin: 50% 50%;
-                transform-style: preserve-3d;
-            }
-
-            #flip-card:Hover {
-                transform: rotateY(180deg);
-            }
-
-            #flip-card-front {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-            }
-
-            #flip-card-back {
-                position: absolute;
-                top: 0;
-                left: 0;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-            }
-
-            #flip-card-front,
-            #flip-card-back {
-                border-radius: 10px;
-                backface-visibility: hidden;
-                font-family: Verdana;
-                font-size: 1em;
-            }
-
-            #flip-card-back {
-                box-shadow: 0 0 5px rgb(230, 230, 230);
-                background-color: rgb(230, 230, 230);
-                transform: rotateY(180deg);
-                color: #222;
-            }
-
-            #flip-card-front {
-                border: 2px dashed #258e70;
-                background-color: #67ce8b;
-                color: #fff;
-            }
-        </style>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.js"></script>
