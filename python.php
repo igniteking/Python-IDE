@@ -110,12 +110,10 @@
     </nav>
 
     <?php
-    $code = "print('Hello, $user')";
     $course_int = "Welcome, $user<br> To Python IDE... <br><br><br> All The Best!<br>";
     $id = $_GET['id'];
     $query = "SELECT * from courses Where id = '$id'";
     $result = mysqli_query($conn, $query);
-
     while ($rows = mysqli_fetch_assoc($result)) {
       $Course_id = $rows['id'];
       $course_topic = $rows['course_topic'];
@@ -126,41 +124,48 @@
       $answer = $rows['answer'];
     }
     ?>
-  <?php
+    <?php
     $check = @$_POST['substance'];
     $code = strip_tags(@$_POST['codearea']);
     if ($check) {
-        $answer_check = "SELECT answer from courses WHERE id='$id'";
-        $result = mysqli_query($conn, $answer_check);
-          while ($rows = mysqli_fetch_assoc($result)) {
-            $course_answer = $rows['answer'];
-          }
-          if ($code == $course_answer) {
-            mysqli_query($conn, "INSERT INTO match_id (`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '')");
-            $id ++;
-            echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>Correct Answer <a href='python.php?id=$id' style='text-decoration: underline;'>Next >></a></p>";
-          } else {
-            echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #ff6767; border: 1px solid #ff6767; border-radius: 4px;">The Checked Answer Is Wrong Please Check The Input / Output and Answer First...</p>';
-          }
+      $answer_check = "SELECT answer from courses WHERE id='$id'";
+      $result = mysqli_query($conn, $answer_check);
+      while ($rows = mysqli_fetch_assoc($result)) {
+        $course_answer = $rows['answer'];
       }
-  ?>
-  <?php
-$id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
-$result = mysqli_query($conn, $id_check);
-$result_check = mysqli_num_rows($result);
-if (!$result_check == 0) {
-  echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;">You Have Already Completed This Module...</p>';
-}
-?>
+      if ($code == $course_answer) {
+        mysqli_query($conn, "INSERT INTO match_id (`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '')");
+        $id++;
+        echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>Correct Answer <a href='python.php?id=$id' style='text-decoration: underline;'>Next >></a></p>";
+      } else {
+        echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #ff6767; border: 1px solid #ff6767; border-radius: 4px;">The Checked Answer Is Wrong Please Check The Input / Output and Answer First...</p>';
+      }
+    }
+    ?>
+    <?php
+    $id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
+    $result = mysqli_query($conn, $id_check);
+    $result_check = mysqli_num_rows($result);
+    if (!$result_check == 0) {
+      echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;">You Have Already Completed This Module...</p>';
+      $sql2 = "SELECT * FROM courses WHERE id='$id'";
+      $query2 = mysqli_query($conn, $sql2);
+      while ($row = mysqli_fetch_assoc($query2)) {
+        $code = $row['answer'];
+      }
+    } else {
+      $code = "print('Hello, $user')";
+    }
+    ?>
     <div class="row mt-12">
       <h2 class="col-md-4" id="head"><?php echo $course_category; ?></h2>
       <h2 class="col-md-4" id="subhead">Code Here!</h2>
       <div class="col-md-4"><a href="report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger float-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a></div>
       <script>
-function showAlert() {
-  alert("Hello! Please Take a Screen Shot For Our Reference!!..");
-}
-</script>
+        function showAlert() {
+          alert("Hello! Please Take a Screen Shot For Our Reference!!..");
+        }
+      </script>
     </div>
     <div class="row mt-3">
       <div class="col-md-4" id="collums" style="margin-top :60px;">
@@ -174,15 +179,15 @@ function showAlert() {
         <!-- IDE CODE START HERE -->
         <div class="trytopnav">
           <div class="w3-bar" style="overflow:auto">
-          <?php
-$id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
-$result = mysqli_query($conn, $id_check);
-$result_check = mysqli_num_rows($result);
-if ($result_check == 0) {
-          ?>
-            <input type="submit" value="Check Answer" name="checkanswer" class="w3-button w3-bar-item" style="font-size:17px;">
             <?php
-}
+            $id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
+            $result = mysqli_query($conn, $id_check);
+            $result_check = mysqli_num_rows($result);
+            if ($result_check == 0) {
+            ?>
+              <input type="submit" value="Check Answer" name="checkanswer" class="w3-button w3-bar-item" style="font-size:17px;">
+            <?php
+            }
             ?>
             <button class="w3-bar-item w3-button" onclick="retheme()" title="Change Theme" style="font-size:17px; margin-top:-2px;" title="Change Theme">Change Theme</button>
             <button id="run" class="w3-button w3-bar-item ws-green w3-hover-white" onclick="submitTryit(1);ga('send', 'event', 'runCodePython', 'click');snhb.queue.push(function(){googletag.pubads().setTargeting('page_section',(function () {var folder = location.pathname;folder = folder.replace('/', ''); folder = folder.substr(0, folder.indexOf('/')); return folder + 'tryitUA'; })());snhb.startAuction(['try_it_leaderboard']);});">Run &raquo;</button>
