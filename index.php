@@ -125,7 +125,7 @@
 <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
 <div class="carousel-cell">
   <div style="padding: 20px;">
-  <img src="images/python.png" height="100px">
+  <img src="images/python.jpg" height="100px">
   <h5>Python</h5><br>
   <h6>High-level programming language</h6>
   Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.
