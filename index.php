@@ -29,6 +29,8 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   </head>
   <body>
   <div id="content" class="p-4 p-md-5">
@@ -110,45 +112,38 @@
     <?php
         } else {
 ?> 
-
-<h2 class='mb-4'>Modules You Have Completed</h2>
-<div class='row mt-3' id='boss'>
+<div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
+<div class="carousel-cell">
+  <div style="padding: 20px;">
+  <img src="images/python.png" height="100px">
+  <h5>Python</h5><br>
+  <h6>High-level programming language</h6>
+  Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.
+</div>
+</div>
+<div class="carousel-cell">
+  <div style="padding: 20px;">
+  <img src="images/js.png" height="100px">
+  <h5>Javascript</h5><br>
+  <h6>Programming language</h6>
+  JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.</div>
+</div>
+<div class="carousel-cell">
+  <div style="padding: 20px;">
+  <img src="images/c.png" height="100px">
+  <h5>C#</h5><br>
+  <h6>Programming language</h6>
+  C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</div>
+</div>
+<div class="carousel-cell">
+  <div style="padding: 20px;">
+  <img src="images/c++.svg" height="100px">
+  <h5>C++</h5>
+  <h6>Programming language</h6>
+  C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".</div>
+</div>
+</div>
 <?php
-        $query = "SELECT * from courses";
-        $result = mysqli_query($conn, $query);
-
-        while($rows = mysqli_fetch_assoc($result))
-        {
-        $id = $rows['id'];
-        $course_topic = $rows['course_topic'];
-        $course_category = $rows['course_category'];
-        $course_data = $rows['course_data'];
-        $youtube_link = $rows['youtube_link'];
-        $hints = $rows['hints'];
-        $answer = $rows['answer'];
-        ?>
-        <?php  if ($ut == 'student') { 
-          echo "
-        <a href='python.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div id='flip-card'>
-          <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-          <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-        </div></a>
-      </div>"; }
-      else {
-        echo "
-        <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div id='flip-card'>
-          <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-          <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-        </div></a>
-      </div>"; 
-      }?>
-
-    <?php } ?>
-    </div>
-    <br><br>
-    <?php
         $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
         $result = mysqli_query($conn, $query);
 
@@ -166,20 +161,19 @@
         $additional = $rows['additional'];
         $user_type = $rows['user_type'];
         }
-    ?>
+    ?><br><br>
 <h2 class='mb-4'>Hi! <?php echo $user; ?></h2>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="row">
-<div class="col-12 col-md-16">
-  <div class="row">
-  <div class="col-md-4">
-      <div class="card user-card">
-          <div class="card-header">
-              <h6>Profile</h6>
-          </div>
-          <div class="card-block">
-              <div class="user-image">
-              <?php 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile" >
+            <form method="post" style="padding: 20px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                        <?php 
               $check_pic = mysqli_query($conn, "SELECT profile_pic from users WHERE email = '$email'");
               $get_pic_row = mysqli_fetch_assoc($check_pic);
               $profile_pic_db = $get_pic_row['profile_pic'];
@@ -192,66 +186,317 @@
                     echo "<img src='$profile_pic2' class='img-radius' alt='User-Profile-Image'>";
                 }
               ?>
-              </div>
-              <h6 class="f-w-600 m-t-25 m-b-10"><?php echo $user ?></h6>
-              <p class="text-muted"><?php echo $active ?>Active | <?php echo $user_type ?> | <?php echo $country ?></p>
-              <hr>
-              <p class="text-muted m-t-15">Module Completion Level: 87%</p>
-              <ul class="list-unstyled activity-leval">
-                  <li class="active"></li>
-                  <li class="active"></li>
-                  <li class="active"></li>
-                  <li></li>
-                  <li></li>
-              </ul>
-              <p class="m-t-15 text-muted"><?php echo $bio ?></p>
-              <hr>
-              <div class="row justify-content-center user-social-link">
-                <a href="profile.php"><button type="button" class="btn btn-outline-primary">Visit Profile</button></a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-12 col-md-8">
-<div id="lala" style="background-color : #eee; border: 1px solid black; padding : 30px; border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-    border: none;border-top: none;
-    -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,0.05), 0 -2px 1px -2px rgba(0,0,0,0.04), 0 0 0 -1px rgba(0,0,0,0.05);
-    box-shadow: 0 0 1px 2px rgba(0,0,0,0.05), 0 -2px 1px -2px rgba(0,0,0,0.04), 0 0 0 -1px rgba(0,0,0,0.05);
-    -webkit-transition: all 150ms linear;
-    transition: all 150ms linear;background-color: transparent;">
-<form>
-<h6>Report Us If somethig is wrong</h6><br>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Username">
-    </div>
-  </div><br>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">E-mail</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputPassword3" placeholder="E-mail">
-    </div>
-  </div><br>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Query</label>
-    <div class="col-sm-10">
-      <textarea class="form-control" id="inputPassword3" style="height: 100px;"></textarea>
-    </div>
-    <br>
-  </div><br>
-  <div class="form-group row">
-    <div class="col-sm-10">
-    <label class="form-label" for="customFile">Upload a Screen shot for our reference</label>
-    <input class="form-control" type="file" id="formFileMultiple" multiple /> <br>
-      <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</form>
-  </div></div>
-</div>
-<style>
+                            
+                            <a href="profile.php"><div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="button" name="file"/>
+                            </div></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                    <?php echo $user; ?>
+                                    </h5>
+                                    <h6>
+                                    <?php echo $user_type; ?> || <?php echo $active; ?>
+                                    </h6><?php
+        $sql = "SELECT * FROM courses";
+        $query = mysqli_query($conn, $sql);
+        $count_total_course = mysqli_num_rows($query);
+
+        $sql2 = "SELECT * FROM match_id WHERE student_id='$user_id'";
+        $query2 = mysqli_query($conn, $sql2);
+        $count_total_course_done = mysqli_num_rows($query2);
+
+        //Algorithm Part
+        $count = $count_total_course_done / $count_total_course * 100;
+        $count_final = bcdiv($count, 1, 0);
+        ?>
+        <h5>Completed Modules <i class="fa fa-check" aria-hidden="true" style="color: #67ce8b;"></i></h5>
+        <div style='margin-top: 20px; margin-bottom: 20px; width: 100%; border-radius: 8px; border: 1px solid #eee;'>
+            <div id="progress">
+                COMPLETED <?php echo $count_final ?>%
+            </div>
+        </div>
+        <style type="text/css">
+            #progress {
+                padding: 10px;
+                color: #fff;
+                font-size: 12px;
+                border-radius: 8px;
+                background: #80ddb8;
+                transition: all 5s ease;
+                animation: imganim 2s linear both;
+                
+            }
+
+            @keyframes imganim {
+                from {
+                    width: 0px;
+                    padding: 10px;
+                }
+
+                to {
+                    width: <?php echo $count_final; ?>%;
+                }
+            }
+        </style>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Extras</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="profile.php"><input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Web Links</p>
+                            <a href="about.php">About Us</a><br/>
+                            <a href="contact.php">Contact Us</a><br/>
+                            <a href="tandc.php">Terms and Conditions</a>
+                            <p>Languages</p>
+                            <a href="python_module.php">Python</a><br/>
+                            <a href="commingsoon.php">JavaScript</a><br/>
+                            <a href="commingsoon.php">C#</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $user; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $user; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $email; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $mobile; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Bio</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $bio; ?></p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Country</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $country; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>State</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $state; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Additional Info</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $additional; ?></p>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+  <style>
+    body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+    .realtives {
+        position: relative;
+    }
+
+    .carousel {
+        background: transparent;
+        text-align: center;
+    }
+
+    .carousel-cell {
+        width: 26%;
+        border: 1px solid #ccc;
+        height: 400px;
+        background: #fff;
+        margin-right: 40px;
+        border-radius: 5px;
+        -webkit-box-shadow: 3px 9px 9px -1px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: 3px 9px 9px -1px rgba(0, 0, 0, 0.09);
+        box-shadow: 3px 9px 9px -1px rgba(0, 0, 0, 0.09);
+    }
+
+    @media screen and (max-width: 800px) {
+        .carousel-cell {
+            width: 50%;
+        }
+    }
+
+    /* cell number */
+    .carousel-cell:before {
+        display: block;
+        text-align: center;
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+    }
+
+  body {
+  background: #e2e1e0;
+}
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+#python {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#python:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
   .card.user-card {
       border-top: none;
       -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,0.05), 0 -2px 1px -2px rgba(0,0,0,0.04), 0 0 0 -1px rgba(0,0,0,0.05);
@@ -259,178 +504,6 @@
       -webkit-transition: all 150ms linear;
       transition: all 150ms linear;
   }
-
-  .card {
-      border-radius: 5px;
-      -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-      box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-      border: none;
-      margin-bottom: 30px;
-      -webkit-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
-  }
-
-  .card .card-header {
-      background-color: transparent;
-      border-bottom: none;
-      padding: 25px;
-  }
-
-  .card .card-header h5 {
-      margin-bottom: 0;
-      color: #222;
-      font-size: 14px;
-      font-weight: 600;
-      display: inline-block;
-      margin-right: 10px;
-      line-height: 1.4;
-  }
-
-  .card .card-header+.card-block, .card .card-header+.card-block-big {
-      padding-top: 0;
-  }
-
-  .user-card .card-block {
-      text-align: center;
-  }
-
-  .card .card-block {
-      padding: 25px;
-  }
-
-  .user-card .card-block .user-image {
-      position: relative;
-      margin: 0 auto;
-      display: inline-block;
-      padding: 5px;
-      width: 110px;
-      height: 110px;
-  }
-
-  .user-card .card-block .user-image img {
-      z-index: 20;
-      position: absolute;
-      top: 5px;
-      left: 5px;
-          width: 100px;
-      height: 100px;
-  }
-
-  .img-radius {
-      border-radius: 50%;
-  }
-
-  .f-w-600 {
-      font-weight: 600;
-  }
-
-  .m-b-10 {
-      margin-bottom: 10px;
-  }
-
-  .m-t-25 {
-      margin-top: 25px;
-  }
-
-  .m-t-15 {
-      margin-top: 15px;
-  }
-
-  .card .card-block p {
-      line-height: 1.4;
-  }
-
-  .text-muted {
-      color: #919aa3!important;
-  }
-
-  .user-card .card-block .activity-leval li.active {
-      background-color: #2ed8b6;
-  }
-
-  .user-card .card-block .activity-leval li {
-      display: inline-block;
-      width: 15%;
-      height: 4px;
-      margin: 0 3px;
-      background-color: #ccc;
-  }
-
-  .user-card .card-block .counter-block {
-      color: #fff;
-  }
-
-  .bg-c-blue {
-      background: linear-gradient(45deg,#4099ff,#73b4ff);
-  }
-
-  .bg-c-green {
-      background: linear-gradient(45deg,#2ed8b6,#59e0c5);
-  }
-
-  .bg-c-yellow {
-      background: linear-gradient(45deg,#FFB64D,#ffcb80);
-  }
-
-  .bg-c-pink {
-      background: linear-gradient(45deg,#FF5370,#ff869a);
-  }
-
-  .m-t-10 {
-      margin-top: 10px;
-  }
-
-  .p-20 {
-    padding: 20px;
-}
-
-.user-card .card-block .user-social-link i {
-    font-size: 30px;
-}
-
-.text-facebook {
-    color: #3B5997;
-}
-
-.text-twitter {
-    color: #42C0FB;
-}
-
-.text-dribbble {
-    color: #EC4A89;
-}
-
-.user-card .card-block .user-image:before {
-    bottom: 0;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-.user-card .card-block .user-image:after, .user-card .card-block .user-image:before {
-    content: "";
-    width: 100%;
-    height: 48%;
-    border: 2px solid #4099ff;
-    position: absolute;
-    left: 0;
-    z-index: 10;
-}
-
-.user-card .card-block .user-image:after {
-    top: 0;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-}
-
-.user-card .card-block .user-image:after, .user-card .card-block .user-image:before {
-    content: "";
-    width: 100%;
-    height: 48%;
-    border: 2px solid #4099ff;
-    position: absolute;
-    left: 0;
-    z-index: 10;
-}
 </style>
         
       </div>
