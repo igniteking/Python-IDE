@@ -61,6 +61,17 @@
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
         </li>
+        <li class="nav-item">
+        <div class="input-group">
+  <div class="form-outline">
+    <form action="search.php" method="GET">
+    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
+  <button type="submit" class="btn btn-primary">Search
+    <i class="fa fa-search"></i>
+  </button></form>
+</div>
+        </li>
+      </ul>
       </ul>
     </div>
   </div>
@@ -88,7 +99,12 @@ if ( isset( $_POST['save_profile'] ) )
 }
 
 ?>
-<h2 class="mb-4">Edit Profile</h2>
+<h2 class="" style="float: left;">Edit Profile</h2><a href="report.php" target="_blank"><button type="button" onclick="showAlert()" style="float: right;" class="btn btn-outline-danger float-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
+      <br><script>
+        function showAlert() {
+          alert("Hello! Please Take a Screen Shot For Our Reference!!..");
+        }
+      </script>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">

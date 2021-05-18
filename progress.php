@@ -45,6 +45,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
                         </li>
+                        <li class="nav-item">
+        <div class="input-group">
+  <div class="form-outline">
+    <form action="search.php" method="GET">
+    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
+  <button type="submit" class="btn btn-primary">Search
+    <i class="fa fa-search"></i>
+  </button></form>
+</div>
+        </li>
+      </ul>
                     </ul>
                 </div>
             </div>

@@ -57,6 +57,16 @@
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
         </li>
+        <li class="nav-item">
+        <div class="input-group">
+  <div class="form-outline">
+    <form action="search.php" method="GET">
+    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
+  <button type="submit" class="btn btn-primary">Search
+    <i class="fa fa-search"></i>
+  </button></form>
+</div>
+        </li>
       </ul>
     </div>
   </div>
@@ -162,7 +172,7 @@
         $user_type = $rows['user_type'];
         }
     ?><br><br>
-<h2 class='mb-4'>Hi! <?php echo $user; ?></h2>
+<h2 class='mb-4'>Hi! <?php echo $user; ?></h2> 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

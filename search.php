@@ -11,6 +11,8 @@
         echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
         exit();
     }
+    
+    $q = @$_GET['find'];
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,12 +52,11 @@
             </div>
         </nav>
         <form action="search.php" method="GET">
-            <input type="text" name="q" placeholder="Find your questions and all the python modules..." style="width: 90%; padding-top: 10px; padding-bottom: 10px; border: 1px solid #ccc; border: 0 none; border-bottom: 2px solid #eee; outline: none; background: #fcfcfc; padding-left: 10px;" />
+            <input type="text" name="q" placeholder="Find your questions and all the python modules..." value="<?php echo $q;?>" style="width: 90%; padding-top: 10px; padding-bottom: 10px; border: 1px solid #ccc; border: 0 none; border-bottom: 2px solid #eee; outline: none; background: #fcfcfc; padding-left: 10px;" />
             <input type="submit" name="find" value="Search" style="width: 9%; background: #67ce8b; color: #fff; border: 0 none; padding-top: 10px; padding-bottom: 10px;" />
         </form>
         <?php
         $output = "";
-        $q = @$_GET['q'];
         $submit = @$_GET['find'];
         $query = strip_tags(@$_GET['find']);
         if ($submit) {
