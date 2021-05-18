@@ -98,7 +98,7 @@ if (isset($_SESSION['email'])) {
                 </ul>
               </li>
               <li>
-                  <a href='#'>Progress</a>
+                  <a href='progress.php'>Progress</a>
               </li>
               <li>
                 <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Language</a>
