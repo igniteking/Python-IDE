@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,19 +50,19 @@ if ($reg) {
                                 $mail->isSMTP();
                                 $mail->SMTPAuth = true;
                                 $mail->SMTPSecure = 'ssl';
-                                $mail->Host = 'smtpout.secureserver.net';
+                                $mail->Host = 'smtp.hostinger.com';
                                 $mail->Port = '465';
                                 $mail->isHTML();
-                                $mail->Username = 'info@ramblerhalts.com';
-                                $mail->Password = 'R0hit@123';
-                                $mail->SetFrom('info@ramblerhalts.com');
-                                $mail->Subject = "Welcome To Ramblerhalts";
-                                $mail->Body = "Dear $username, </br> Your Account Has Been Created On Ramblerhalts. Click the link below to verify your account!
+                                $mail->Username = 'info@glowedu.co.in';
+                                $mail->Password = 'Website@123';
+                                $mail->SetFrom('info@glowedu.co.in');
+                                $mail->Subject = "Welcome To Learn GlowEDU";
+                                $mail->Body = "Dear $username, </br> Your Account Has Been Created On Learn GlowEDU. Click the link below to verify your account!
                                 <br><br>
-                                <a href='https://www.ramblerhalts.com/verify.php?=$vkey'>www.ramblerhalts.com/verify.php?vkey=$vkey</a>
+                                <a href='https://learn.glowedu.co.in/verify.php?=$vkey'>https://learn.glowedu.co.in/verify.php?vkey=$vkey</a>
                                 <br><br>
-                                </br></br> www.ramblerhalts.com";
-                                $mail->AddAddress($username);
+                                </br></br> https://learn.glowedu.co.in";
+                                $mail->AddAddress($email);
                                 $mail->Send();
                                 echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
                             } else {
