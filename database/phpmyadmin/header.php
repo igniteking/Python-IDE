@@ -12,6 +12,7 @@ if (isset($_SESSION['email'])) {
     $user = $rows['username'];
     $em = $rows['email'];
     $ut = $rows['user_type'];
+    $active = $rows['active'];
   }
 } else {
 }
@@ -96,11 +97,19 @@ if (isset($_SESSION['email'])) {
                       <a href='contact.php'>Contact Us</a>
                   </li>
                 </ul>
-              </li>
-              <li>
+              </li>";
+              if($active == 1) {
+                $active = "Active";
+                echo "<li>
                   <a href='progress.php'>Progress</a>
-              </li>
-              <li>
+                </li>";
+                $dialog = "";
+            } else {
+               
+            }
+             ?> 
+              <?php 
+               echo " <li>
                 <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Language</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>

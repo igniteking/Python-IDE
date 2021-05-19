@@ -1,27 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
+<?php include_once("database/phpmyadmin/header.php"); ?>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-
+  <head>
+  <?php
+  if (isset($_SESSION['email'])) {
+} else {
+    echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
+    exit();
+}
+?>
+  	<title>Upload Form</title>
+    <meta charset="utf-8">
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
-    <?php
-    if (isset($_SESSION['username'])) {
-        echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
-        exit();
-    } else {
-    }
-    ?>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/css/style.css">
+  </head>
+  <body>
+  <div id="content" class="p-4 p-md-5">
 
-<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+      <i class="fa fa-bars"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <?php
 $reg = @$_POST['reg'];
 $username = strip_tags(@$_POST['username']);
@@ -38,52 +70,9 @@ if ($reg) {
         $result_check = mysqli_num_rows($result);
         if (!$result_check > 0) {
             if ($password == $r_pswd) {
-                if (preg_match("/\d/", $password)) {
-                    if (preg_match("/[A-Z]/", $password)) {
-                        if (preg_match("/[a-z]/", $password)) {
-                            if (preg_match("/\W/", $password)) {
                                 $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`) VALUES (NULL, '$username','$email','$mobile_number', '$hashedPwd','','$date    ','0','$vkey', 'student')");
-                                require 'class/class.phpmailer.php';
-                                $mail = new PHPMailer();
-                                $mail->isSMTP();
-                                $mail->SMTPAuth = true;
-                                $mail->SMTPSecure = 'ssl';
-                                $mail->Host = 'smtp.hostinger.com';
-                                $mail->Port = '465';
-                                $mail->isHTML();
-                                $mail->Username = 'info@glowedu.co.in';
-                                $mail->Password = 'Website@123';
-                                $mail->SetFrom('info@glowedu.co.in');
-                                $mail->Subject = "Welcome To Learn GlowEDU";
-                                $mail->Body = "Dear $username, </br> Your Account Has Been Created On Learn GlowEDU. Click the link below to verify your account!
-                                <br><br>
-                                <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a>
-                                <br><br>
-                                </br></br> https://learn.glowedu.co.in";
-                                $mail->AddAddress($email);
-                                $mail->Send();
-                                echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
-                            } else {
-                                echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one special character</f>
-            </center></div>";
+                                mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`) VALUES (NULL, '$username','$email','$mobile_number', '$hashedPwd','','$date    ','1','$vkey', 'admin')");
                             }
-                        } else {
-                            echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one small Letter</f>
-            </center></div>";
-                        }
-                    } else {
-                        echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one Capital Letter</f>
-            </center></div>";
-                    }
-                } else {
-                    echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one digit</f>
-        </center></div>";
-                }
             } else {
                 echo "<div class='error-styler'><center>
         <f style='padding-top: 10px; padding-bottom: 10px;'>Both Password's Dont Match!</f>
@@ -99,7 +88,6 @@ if ($reg) {
         <f style='padding-top: 10px; padding-bottom: 10px;'>Please Fill In All Fields!</f>
         </center></div>";
     }
-}
 ?>
 
 
@@ -109,8 +97,8 @@ if ($reg) {
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Register</h2>
-                        <form method="POST" action='regester.php' class="register-form" id="register-form">
+                        <h2 class="form-title">Insert Admin Details</h2>
+                        <form method="POST" action='admin-create.php' class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="name" placeholder="Your Name"/>
@@ -134,7 +122,6 @@ if ($reg) {
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="tandc.php" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="reg" id="signup" class="form-submit" value="Register"/>
@@ -143,22 +130,21 @@ if ($reg) {
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="login.php" class="signup-image-link">I am already member</a>
+                        
                     </div>
                 </div>
             </div>
             </section>
     </div>
-<br>
-    <center>
-        <p style="font-size: 13.5px; color: #555;">&copy; 2021 </p>
-    </center>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- JS -->
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</body>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+  </body>
 </html>

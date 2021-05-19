@@ -21,12 +21,37 @@
         $user = $rows['username'];
         }
     ?>
+    <?php
+        $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
+        $result = mysqli_query($conn, $query);
+
+        while($rows = mysqli_fetch_assoc($result))
+        {
+        $user = $rows['username'];
+        $email = $rows['email'];
+        $mobile = $rows['mobile'];
+        $active = $rows['active'];
+        if($active == 1) {
+            $active = "Active";
+            $dialog = "";
+        } else {
+            $active = "Verify Your Email!";
+            $dialog = "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>$active</p>";
+        }
+        $bio = $rows['bio'];
+        $state = $rows['state'];
+        $postalcode = $rows['postalcode'];
+        $education = $rows['education'];
+        $country = $rows['country'];
+        $additional = $rows['additional'];
+        $user_type = $rows['user_type'];
+        }
+    ?>
   	<title>Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -71,6 +96,7 @@
     </div>
   </div>
 </nav>
+<?php echo $dialog; ?>
 <?php
         if ($ut == 'admin') {
             ?>
@@ -153,25 +179,7 @@
   C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".</div>
 </div>
 </div>
-<?php
-        $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
-        $result = mysqli_query($conn, $query);
-
-        while($rows = mysqli_fetch_assoc($result))
-        {
-        $user = $rows['username'];
-        $email = $rows['email'];
-        $mobile = $rows['mobile'];
-        $active = $rows['active'];
-        $bio = $rows['bio'];
-        $state = $rows['state'];
-        $postalcode = $rows['postalcode'];
-        $education = $rows['education'];
-        $country = $rows['country'];
-        $additional = $rows['additional'];
-        $user_type = $rows['user_type'];
-        }
-    ?><br><br>
+<br><br>
 <h2 class='mb-4'>Hi! <?php echo $user; ?></h2> 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

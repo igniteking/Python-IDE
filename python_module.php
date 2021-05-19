@@ -25,6 +25,7 @@
         while($rows = mysqli_fetch_assoc($result))
         {
         $ut = $rows['user_type'];
+        $active = $rows['active'];
         }
       } else {
         
@@ -87,14 +88,25 @@
         $answer = $rows['answer'];
         ?>
         <?php  if ($ut == 'student') { 
-          echo "
-        <a href='python.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div id='flip-card'>
-          <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-          <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-        </div></a>
-      </div>"; }
-      else {
+          if($active == 1) {
+            $active = "Active";
+            echo "<a href='python.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
+            <div id='flip-card'>
+              <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
+              <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
+            </div></a>
+          </div>";
+            $dialog = "";
+          } else {
+          echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
+          <div id='flip-card'>
+            <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
+            <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
+          </div>
+        </div>";}}
+        ?>
+        <?php
+        if ($ut == 'admin') {
         echo "
         <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
         <div id='flip-card'>
@@ -102,6 +114,8 @@
           <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
         </div></a>
       </div>"; 
+      } else {
+        echo "hello";
       }?>
 
     <?php } ?>

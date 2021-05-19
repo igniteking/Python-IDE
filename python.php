@@ -22,7 +22,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/css/style.css">
@@ -106,13 +105,6 @@
             </li>
             <li class="nav-item">
         <div class="input-group">
-  <div class="form-outline">
-    <form action="search.php" method="GET">
-    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
-  <button type="submit" class="btn btn-primary">Search
-    <i class="fa fa-search"></i>
-  </button></form>
-</div>
         </li>
       </ul>
           </ul>
@@ -158,7 +150,8 @@
     $result = mysqli_query($conn, $id_check);
     $result_check = mysqli_num_rows($result);
     if (!$result_check == 0) {
-      echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;">You Have Already Completed This Module...</p>';
+      $id++;
+      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>You have already completed the module...  <a href='python.php?id=$id' style='text-decoration: underline;'>Next >></a></p>";
       $sql2 = "SELECT * FROM courses WHERE id='$id'";
       $query2 = mysqli_query($conn, $sql2);
       while ($row = mysqli_fetch_assoc($query2)) {
