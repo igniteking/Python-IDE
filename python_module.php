@@ -115,7 +115,6 @@
         </div></a>
       </div>"; 
       } else {
-        echo "hello";
       }?>
 
     <?php } ?>
