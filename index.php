@@ -36,7 +36,7 @@
             $dialog = "";
         } else {
             $active = "Verify Your Email!";
-            $dialog = "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>$active</p>";
+            $dialog = "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>$active <a href='resend.php?id=$id' style='color: #eee'><u>Resend Verification Code!</u></a></p>";
         }
         $bio = $rows['bio'];
         $state = $rows['state'];
