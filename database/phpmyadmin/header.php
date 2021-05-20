@@ -90,6 +90,9 @@ if (isset($_SESSION['email'])) {
               <li class='active'>
                 <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
+                <li>
+                      <a href='index.php'>Home</a>
+                  </li>
                   <li>
                       <a href='about.php'>About Us</a>
                   </li>
@@ -133,6 +136,9 @@ if (isset($_SESSION['email'])) {
               <li class='active'>
                 <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
+                <li>
+                      <a href='index.php'>Home</a>
+                  </li>
                   <li>
                       <a href='about.php'>About Us</a>
                   </li>

@@ -102,47 +102,120 @@
             ?>
 <h2 class="mb-4">Hi! <?php echo $user;?></h2>
 <?php
-    $query = "SELECT count(user_type) AS 'count' FROM users GROUP BY user_type HAVING user_type='student'";
-    $result = mysqli_query($conn, $query);
-    if ($result)
-    {
-        $student = mysqli_num_rows($result);?>
-<?php
-    $query = "SELECT count(user_type) AS 'count' FROM users GROUP BY user_type HAVING user_type='admin'";
-    $result = mysqli_query($conn, $query);
-    if ($result)
-    {
-        $admin = mysqli_num_rows($result);?>
-<?php
-    $query = "SELECT count(course_category) AS 'count' FROM courses GROUP BY course_category HAVING course_category='python'";
-    $result = mysqli_query($conn, $query);
-    if ($result)
-    {
-        $coueses = mysqli_num_rows($result);?>
+$sql="SELECT user_type FROM users WHERE user_type ='student' ORDER BY user_type";
 
-<div class='row mt-3'>
-    <div id='card' class='col-md-4' style="margin-top: 15px;">
-    <div id='flip-card'>
-      <div id='flip-card-front1'>Number of Students</div>
-      <div id='flip-card-back'>Total Students: <?php echo $student;?> <br> Verified Students: <?php echo $student;?> <br> Unverified Students: <?php echo $student; }?></div>
-    </div>
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "<div class='row mt-3'>
+  <div id='card' class='col-md-4' style='margin-top: 15px;'>
+  <div id='flip-card'>
+    <div id='flip-card-front1'>Number of Students</div>
+    <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$rowcount</p></div>
   </div>
-  <div id='card' class='col-md-4' style="margin-top: 15px;">
-    <div id='flip-card'>
-      <div id='flip-card-front2'>Number of Admins</div>
-      <div id='flip-card-back'>Admins: <?php echo $admin; }?></div>
-    </div>
-  </div>
-  <div id='card' class='col-md-4' style="margin-top: 15px;">
-    <div id='flip-card'>
-      <div id='flip-card-front3'>Number of Courses</div>
-      <div id='flip-card-back'>Python Courses: <?php echo $coueses;}?></div>
-    </div>
-  </div>
+</div>";
+  }
+  // Free result set
+?>
+        
+        <?php
+$sql="SELECT user_type FROM users WHERE user_type ='admin' ORDER BY user_type";
+
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
+ <div id='flip-card'>
+   <div id='flip-card-front2'>Number of Admins</div>
+   <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
+ </div>
+</div>";
+  }
+  // Free result set
+?>
+<?php
+$sql="SELECT * FROM courses WHERE course_category = 'python'";
+
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
+ <div id='flip-card'>
+   <div id='flip-card-front3'>Number of Courses</div>
+   <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
+ </div>
 </div>
+</div>";
+  }
+  // Free result set
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+$sql="SELECT user_type FROM users WHERE active ='1' AND user_type = 'student' ORDER BY user_type";
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "<div class='row mt-3'>
+ <div id='card' class='col-md-4' style='margin-top: 15px;'>
+ <div id='flip-card'>
+   <div id='flip-card-front1'>Number Verified Students</div>
+   <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$rowcount</p></div>
+ </div>
+</div>";
+  }
+  // Free result set
+?>
+<?php
+
+$sql="SELECT user_type FROM users WHERE active ='0' AND user_type = 'student' ORDER BY user_type";
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
+ <div id='flip-card'>
+   <div id='flip-card-front2'>Number Unverified Students</div>
+   <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
+ </div>
+</div>";
+  }
+  // Free result set
+?>
+<?php
+
+$sql="SELECT user_type FROM users WHERE active ='0' AND user_type = 'student' ORDER BY user_type";
+if ($result=mysqli_query($conn,$sql))
+  {
+  // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+ echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
+ <div id='flip-card'>
+   <div id='flip-card-front3'>Number of Languages</div>
+   <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
+ </div>
+</div>";
+  }
+  // Free result set
+?>
       <!-- // code here // -->
       <div id='card' class='md-4'>
-      <div class="mt-5"><a href="download.php"><input class="btn btn-success profile-button" type="submit" name="upload_cover" value="Download" /></a></div>
+      <div class="mt-5"><a href="download.php"><button class="btn btn-success profile-button" type="submit" name="upload_cover"><i class="fa fa-download"></i> Download .csv</button></a></div>
  </div>
  
     <?php
