@@ -67,37 +67,37 @@
                                     echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
                                 } else {
                                     echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one special character</f>
-            </center></div>";
+                                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
+                                    </center></div>";
                                 }
                             } else {
                                 echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one small Letter</f>
+                                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one small Letter</p>
             </center></div>";
                             }
                         } else {
                             echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one Capital Letter</f>
+                            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one Capital Letter</p>
             </center></div>";
                         }
                     } else {
                         echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Password should contain at least one digit</f>
+                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one digit</p>
         </center></div>";
                     }
                 } else {
                     echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Both Password's Dont Match!</f>
+                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Both Password's Dont Match!</p>
         </center></div>";
                 }
             } else {
                 echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Username already exist!</f>
+                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username already exist!</p>
         </center></div>";
             }
         } else {
             echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Please Fill In All Fields!</f>
+            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
         </center></div>";
         }
     }
@@ -152,7 +152,7 @@
     </div>
     <br>
     <center>
-        <p style="font-size: 13.5px; color: #555;">&copy; 2021 </p>
+        <p style="font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
     </center>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

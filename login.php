@@ -29,17 +29,13 @@ if (isset($_POST['submit'])) {
   //Error Handlers
   //Check if inputs are empty
   if (empty($email) || empty($pwd)) {
-    echo "<div class='error-styler'><center>
-        <f style='padding-top: 10px; padding-bottom: 10px;'>Username and Password Inputs Are Empty</f>
-        </center></div>";
+    echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username and Password are Empty!</p>";
   } else {
     $sql = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck < 1) {
-      echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Username is incorrent!</f>
-            </center></div>";
+      echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail is Incorrect!</p>";
     } else {
       if ($row = mysqli_fetch_assoc($result)) {
         $id_login = $row['id'];
@@ -48,9 +44,7 @@ if (isset($_POST['submit'])) {
         //dehashing the password        
         $hashedPwdCheck = password_verify($pwd, $row['password']);
         if ($hashedPwdCheck == false) {
-          echo "<div class='error-styler'><center>
-            <f style='padding-top: 10px; padding-bottom: 10px;'>Password is incorrect!</f>
-            </center></div>";
+          echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password is Incorrect!!</p>";
         } elseif ($hashedPwdCheck == true) {
           $_SESSION['id'] = $id_login;
           $_SESSION['email'] = $email_login;

@@ -25,6 +25,7 @@
         $education = $rows['education'];
         $country = $rows['country'];
         $additional = $rows['additional'];
+        $active = $rows['active'];
         }
     ?>
   	<title>Profile</title>
@@ -137,7 +138,14 @@ if ( isset( $_POST['save_profile'] ) )
                     <div class="col-md-6"><label class="labels">Mobile Number</label><input type="text" name="mobile" class="form-control" placeholder="Mobile Number" value="<?php echo $mobile?>"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">E-mail ID</label><input type="text" name="email" class="form-control" placeholder="Enter E-mail ID" value="<?php echo $email?>"></div>
+                <?php
+                if($active == 1) {
+            echo "<div class='col-md-12'><label class='labels'>E-mail ID</label><input type='text' name='email' class='form-control' readonly='readonly' placeholder='Enter E-mail ID' value='$email'></div>"; 
+        } else {
+            echo "<div class='col-md-12'><label class='labels'>E-mail ID</label><input type='text' name='email' class='form-control' placeholder='Enter E-mail ID' value='$email'></div>";
+        }
+      ?>
+                    
                     <div class="col-md-12"><label class="labels">Postcode</label><input type="text" name="postalcode" class="form-control" placeholder="Postcode" value="<?php echo $postalcode?>"></div>
                     <div class="col-md-12"><label class="labels">Education</label><input type="text" name="education" class="form-control" placeholder="Education" value="<?php echo $education?>"></div>
                 </div>

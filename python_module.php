@@ -32,6 +32,7 @@
       }
     ?>
 </head>
+
 <body>
 <div id="content" class="p-4 p-md-5">
 
@@ -71,6 +72,21 @@
     </div>
   </div>
 </nav>
+<?php
+        $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
+        $result = mysqli_query($conn, $query);
+
+        while($rows = mysqli_fetch_assoc($result))
+        {
+          if($active == 1) {
+            $active = "Active";
+            $dialog = "";
+        } else {
+            $active = "Verify Your Email!";
+            echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='index.php' style='color: #eee'><u>HOME</u></a> and Verify your E-mail to access the modules!</p>";
+        }
+      }
+      ?>
 <h2 class='mb-4'>Python Modules</h2>
 <div class='row mt-3'>
 <?php
