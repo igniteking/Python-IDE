@@ -16,8 +16,17 @@ if (isset($_SESSION['email'])) {
   }
 } else {
 }
-?>
 
+$start_time = 0;
+$end_time = 0;
+$query2 = "SELECT * from calculate";
+$result2 = mysqli_query($conn, $query2);
+while ($rows = mysqli_fetch_assoc($result2)) {
+  $start_time += $rows['start_time'];
+  $end_time += $rows['end_time'];
+}
+echo $end_time - $start_time;
+?>
 
 <head>
   <meta charset="utf-8">
@@ -101,18 +110,17 @@ if (isset($_SESSION['email'])) {
                   </li>
                 </ul>
               </li>";
-              if($active == 1) {
-                $active = "Active";
-                echo "<li>
+            if ($active == 1) {
+              $active = "Active";
+              echo "<li>
                   <a href='progress.php'>Progress</a>
                 </li>";
-                $dialog = "";
+              $dialog = "";
             } else {
-               
             }
-             ?> 
-              <?php 
-               echo " <li>
+        ?>
+        <?php
+            echo " <li>
                 <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Language</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>

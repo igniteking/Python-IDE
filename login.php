@@ -23,6 +23,8 @@ echo $status;
   <link rel="stylesheet" href="./build/css/index.css">
 </head>
 <?php
+$mainDate = date("y-m-d");
+$datetime = date("h");
 if (isset($_POST['submit'])) {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $pwd = mysqli_real_escape_string($conn, $_POST['password']);
@@ -46,9 +48,14 @@ if (isset($_POST['submit'])) {
         if ($hashedPwdCheck == false) {
           echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password is Incorrect!!</p>";
         } elseif ($hashedPwdCheck == true) {
+          $session_token = md5(time() . $email_login);
           $_SESSION['id'] = $id_login;
           $_SESSION['email'] = $email_login;
           $_SESSION['password'] = $password_login;
+          $_SESSION['session_token'] = $session_token;
+          //INSERTING TIME
+          mysqli_query($conn, "INSERT INTO calculate(`id`, `date`, `start_time`, `end_time`, `user`, `rand`) VALUES (NULL, '$mainDate', '$datetime', '$datetime', '$email', '$session_token')");
+          //INSERTING TIME
           echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
           exit();
         }
