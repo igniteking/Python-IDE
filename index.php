@@ -107,12 +107,12 @@ $sql="SELECT user_type FROM users WHERE user_type ='student' ORDER BY user_type"
 if ($result=mysqli_query($conn,$sql))
   {
   // Return the number of rows in result set
-  $rowcount=mysqli_num_rows($result);
+  $students=mysqli_num_rows($result);
  echo "<div class='row mt-3'>
   <div id='card' class='col-md-4' style='margin-top: 15px;'>
   <div id='flip-card'>
     <div id='flip-card-front1'>Number of Students</div>
-    <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$rowcount</p></div>
+    <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$students</p></div>
   </div>
 </div>";
   }
@@ -213,10 +213,55 @@ if ($result=mysqli_query($conn,$sql))
   }
   // Free result set
 ?>
+
+
+
       <!-- // code here // -->
       <div id='card' class='md-4'>
       <div class="mt-5"><a href="download.php"><button class="btn btn-success profile-button" type="submit" name="upload_cover"><i class="fa fa-download"></i> Download .csv</button></a></div>
+      
  </div>
+ <div>
+ <h4>Calculated Time: <?php echo $severtime;?> HRS</h4>
+ <h4>Total Number of students: <?php echo $students;?></h4>
+ </div>
+  </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<canvas id="myChart" style="max-width:1200px"></canvas>
+
+<script>
+var xValues = [];
+var yValues = [];
+generateData("<?php echo $students;?>", 0, <?php echo $severtime;?>, 0.5);
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues, 
+    datasets: [{
+      fill: true,
+      pointRadius: 1,
+      borderColor: "rgba(255,0,0,0.5)",
+      data: yValues
+    }]
+  },    
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Total Calculated Time of Accounts Logins (No. students = Yaxis || Time = Xaxis)",
+      fontSize: 16
+    }
+  }
+});
+function generateData(value, i1, i2, step = 1) {
+  for (let x = i1; x <= i2; x += step) {
+    yValues.push(eval(value));
+    xValues.push(x);
+  }
+}
+</script>
  
     <?php
         } else {
@@ -356,8 +401,8 @@ if ($result=mysqli_query($conn,$sql))
                             <a href="tandc.php">Terms and Conditions</a>
                             <p>Languages</p>
                             <a href="python_module.php">Python</a><br/>
-                            <a href="commingsoon.php">JavaScript</a><br/>
-                            <a href="commingsoon.php">C#</a><br/>
+                            <a href="coming.php">JavaScript</a><br/>
+                            <a href="coming.php">C#</a><br/>
                         </div>
                     </div>
                     <div class="col-md-8">

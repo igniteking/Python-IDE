@@ -43,7 +43,7 @@
                             if (preg_match("/[a-z]/", $password)) {
                                 if (preg_match("/\W/", $password)) {
                                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`) VALUES (NULL, '$username','$email','', '$hashedPwd','','$date    ','0','$vkey', 'student')");
+                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`) VALUES (NULL, '$username','$email','', '$hashedPwd','','$date','0','$vkey', 'student')");
                                     require 'class/class.phpmailer.php';
                                     $mail = new PHPMailer();
                                     $mail->isSMTP();
