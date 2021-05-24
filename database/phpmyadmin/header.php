@@ -25,7 +25,7 @@ while ($rows = mysqli_fetch_assoc($result2)) {
   $start_time += $rows['start_time'];
   $end_time += $rows['end_time'];
 }
-echo $end_time - $start_time;
+$severtime = $end_time - $start_time;
 ?>
 
 <head>
