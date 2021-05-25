@@ -23,28 +23,28 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-      <img src="images/logo.jpeg" width ="50px">
-    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="regester.php">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<br> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <img src="images/logo.jpeg" width="50px">
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="regester.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
     <?php
     $reg = @$_POST['reg'];
     $username = strip_tags(@$_POST['username']);
@@ -72,13 +72,13 @@
                                     $mail = new PHPMailer();
                                     $mail->isSMTP();
                                     $mail->SMTPAuth = true;
-                                    $mail->SMTPSecure = 'ssl';
-                                    $mail->Host = 'smtp.hostinger.com';
-                                    $mail->Port = '465';
+                                    $mail->SMTPSecure = 'tls';
+                                    $mail->Host = 'smtp.gmail.com';
+                                    $mail->Port = '587';
                                     $mail->isHTML();
-                                    $mail->Username = 'info@glowedu.co.in';
+                                    $mail->Username = 'learn.glowedu@gmail.com';
                                     $mail->Password = 'Website@123';
-                                    $mail->SetFrom('info@glowedu.co.in');
+                                    $mail->SetFrom('learn.glowedu@gmail.com');
                                     $mail->Subject = "Welcome To Learn GlowEDU";
                                     $mail->Body = "Dear $username, </br> Your Account Has Been Created On Learn GlowEDU. Click the link below to verify your account!
                                 <br><br>
@@ -162,7 +162,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/bear.png" alt="sing up image"></figure>
+                        <figure><img src="images/join.svg" alt="sing up image"></figure>
                         <a href="login.php" class="signup-image-link">I am already member</a>
                     </div>
                 </div>

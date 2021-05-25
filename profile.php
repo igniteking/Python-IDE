@@ -26,8 +26,18 @@
         $country = $rows['country'];
         $additional = $rows['additional'];
         $active = $rows['active'];
-        $mobile_otp = $rows['mobile_otp'];
+        $email_active = $rows['active'];
+        if ($email_active == "0") {
+            $email_active = "<f style='color: #f04040; font-weight: bold;'>Not Verified</f>";
+        } else {
+            $email_active = "<f style='color: #6cb038; font-weight: bold;'><i class='fa fa-check' aria-hidden='true'></i> Verified</f>";
+        }
+        $email_mobile_otp = $rows['mobile_otp'];
+        $mobile_count_active = $rows['mobile_active'];
         $mobile_active = $rows['mobile_active'];
+        if ($mobile_active == "") {
+            $mobile_active = "0";
+        }
         if ($mobile_active == "0") {
             $mobile_active = "<f style='color: #f04040; font-weight: bold;'>Not Verified</f>";
         } else {
@@ -61,18 +71,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item active">
-      <img src="images/logo.jpeg" width ="50px">
-      </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-        </li>
+                        <li class="nav-item active">
+                            <img src="images/logo.jpeg" width="50px">
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.php">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contact</a>
+                        </li>
                         <li class="nav-item">
                             <div class="input-group">
                                 <div class="form-outline">
@@ -169,15 +179,15 @@
                     <form action="profile.php" method="POST">
                         <?php
                         if ($active == 1) {
-                            echo "<div class='col-md-12'><label class='labels'>E-mail ID</label><input type='text' name='email' class='form-control' readonly='readonly' placeholder='Enter E-mail ID' value='$email'></div>";
+                            echo "<div class='col-md-12'><label class='labels'>E-mail ID - $email_active</label><input type='text' name='email' class='form-control' readonly='readonly' placeholder='Enter E-mail ID' value='$email'></div>";
                         } else {
-                            echo "<div class='col-md-12'><label class='labels'>E-mail ID</label><input type='text' name='email' class='form-control' placeholder='Enter E-mail ID' value='$email'></div>";
+                            echo "<div class='col-md-12'><label class='labels'>E-mail ID - $email_active</label><input type='text' name='email' class='form-control' placeholder='Enter E-mail ID' value='$email'></div>";
                         }
                         ?>
                         <br>
                         <?php
-                        if ($active == 1) {
-                            echo "<div class='col-md-12'><label class='labels'>Mobile - $mobile_active</label><input type='number' name='mobile' class='form-control' readonly='readonly' placeholder='Enter Mobile' value='$mobile'></div>";
+                        if ($mobile_count_active == 1) {
+                            echo "<div class='col-md-12'><label class='labels'>Mobile - $mobile_active</label><input type='number' name='mobile' class='form-control' readonly='readonly' placeholder='Enter Mobile' value='$mobile_number'></div>";
                         } else {
                             echo "<div class='col-md-12'><label class='labels'>Mobile - $mobile_active</label><input type='number' name='mobile' class='form-control' placeholder='$mobile_number' value='$mobile'></div>";
                         }
