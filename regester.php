@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Register - GlowEdu</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -23,6 +23,28 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+      <img src="images/logo.jpeg" width ="50px">
+    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="regester.php">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br> 
     <?php
     $reg = @$_POST['reg'];
     $username = strip_tags(@$_POST['username']);
@@ -31,6 +53,8 @@
     $r_pswd = strip_tags(@$_POST['repeat-password']);
     $date = date("Y-m-d");
     $vkey = md5(time() . $username);
+    $randomNum = substr(str_shuffle("0123456789"), 0, 4);
+    $mobile_otp = $randomNum;
     if ($reg) {
         if ($username && $password && $r_pswd) {
             $user_check = "SELECT username from users WHERE username='$username'";
@@ -43,7 +67,7 @@
                             if (preg_match("/[a-z]/", $password)) {
                                 if (preg_match("/\W/", $password)) {
                                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`) VALUES (NULL, '$username','$email','', '$hashedPwd','','$date','0','$vkey', 'student')");
+                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
                                     require 'class/class.phpmailer.php';
                                     $mail = new PHPMailer();
                                     $mail->isSMTP();
@@ -138,16 +162,15 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/bear.png" alt="sing up image"></figure>
                         <a href="login.php" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <br>
     <center>
-        <p style="font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
+        <p style="margin-top:-60px; font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
     </center>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

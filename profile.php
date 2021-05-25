@@ -35,7 +35,7 @@
         }
     }
     ?>
-    <title>Profile</title>
+    <title>Profile - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -61,15 +61,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
-                        </li>
+                    <li class="nav-item active">
+      <img src="images/logo.jpeg" width ="50px">
+      </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+        </li>
                         <li class="nav-item">
                             <div class="input-group">
                                 <div class="form-outline">

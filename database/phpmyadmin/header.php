@@ -97,10 +97,10 @@ $severtime = $end_time - $start_time;
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
-                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Home</a>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
                 <li>
-                      <a href='index.php'>Home</a>
+                 <a href='index.php'>Home</a>
                   </li>
                   <li>
                       <a href='about.php'>About Us</a>
@@ -113,7 +113,7 @@ $severtime = $end_time - $start_time;
             if ($active == 1) {
               $active = "Active";
               echo "<li>
-                  <a href='progress.php'>Progress</a>
+                  <a href='progress.php'><i class='fa fa-tasks' aria-hidden='true'></i> Progress</a>
                 </li>";
               $dialog = "";
             } else {
@@ -121,7 +121,7 @@ $severtime = $end_time - $start_time;
         ?>
         <?php
             echo " <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Language</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Language</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
                       <a href='python_module.php'>Python</a>
@@ -135,14 +135,14 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='profile.php'>Profile</a>
+                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
           } else {
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
-                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Home</a>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
                 <li>
                       <a href='index.php'>Home</a>
@@ -156,7 +156,7 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>Language</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Language</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
                       <a href='python_module.php'>Python</a>
@@ -170,13 +170,13 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                  <a href='user.php'>User Data</a>
+                  <a href='user.php'><i class='fa fa-database' aria-hidden='true'></i> User Data</a>
               </li>
               <li>
-                  <a href='upload.php'>Upload Study Material</a>
+                  <a href='upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
               </li>
               <li>
-                <a href='profile.php'>Profile</a>
+                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
           }

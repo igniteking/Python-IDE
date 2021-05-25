@@ -47,7 +47,7 @@
         $user_type = $rows['user_type'];
         }
     ?>
-  	<title>Dashboard</title>
+  	<title>Dashboard - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -73,6 +73,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item">
+      <img src="images/logo.jpeg" width ="50px">
+      </li>
         <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
         </li>
@@ -155,15 +158,6 @@ if ($result=mysqli_query($conn,$sql))
 
 
 
-
-
-
-
-
-
-
-
-
 <?php
 
 $sql="SELECT user_type FROM users WHERE active ='1' AND user_type = 'student' ORDER BY user_type";
@@ -213,9 +207,6 @@ if ($result=mysqli_query($conn,$sql))
   }
   // Free result set
 ?>
-
-
-
       <!-- // code here // -->
       <div id='card' class='md-4'>
       <div class="mt-5"><a href="download.php"><button class="btn btn-success profile-button" type="submit" name="upload_cover"><i class="fa fa-download"></i> Download .csv</button></a></div>

@@ -3,7 +3,7 @@
 <?php include_once("database/phpmyadmin/header.php"); ?>
 <html lang="en">
   <head>
-  	<title>Contact Us</title>
+  	<title>Contact - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -28,13 +28,16 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
+      <li class="nav-item active">
+      <img src="images/logo.jpeg" width ="50px">
+      </li>
+        <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
