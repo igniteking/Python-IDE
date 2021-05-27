@@ -349,7 +349,7 @@ function generateData(value, i1, i2, step = 1) {
         <style type="text/css">
             #progress {
                 padding: 10px;
-                color: #fff;
+                color: #000;
                 font-size: 12px;
                 border-radius: 8px;
                 background: #80ddb8;

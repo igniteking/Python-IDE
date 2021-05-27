@@ -153,8 +153,7 @@
                                 <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="tandc.php" class="term-service">Terms of service</a></label>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>By registering you will be agreeing all statements in <a href="tandc.php" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="reg" id="signup" class="form-submit" value="Register" />

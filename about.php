@@ -44,71 +44,43 @@
     </div>
   </div>
 </nav>
-<section class="mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 bgcol p-5">
-        <div class="content text-right">
-          <h1 class="display-4 text-white">
-          50 years
-        </h1>
-        <span class="pl-5 text-white">of experience</span>
-        </div>
-      </div>
-      <div class="col-md-6 p-5">
-        <h2>Our Mission</h2>
-        <p class="main"> TO PROVIDE INDUSTRY RELEVANT TRAINING COURSES IN THE AREA OF EMERGING TECHNOLOGIES TO THE LEARNER JOINING OUR PLATFORM WHICH WILL LEAD TO EMPLOYABILITY ENHANCEMENT AND FACILITATE A CAREER TRANSITION OF THEIR CHOICE.
-        </p>
-        <btn class="btn btn-large btn-dark">Contact</btn>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+<img src="images/1.svg" width="500">
     </div>
-  <div/>
-</section>
-<section class="p-0 p-md-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h4>Our Vision</h4>
-        <p>TO CREATE A TALENT SUPPLY CHAIN BY UPSKILLING AND RESKILLING STUDENTS AND PROFESSIONALS.
-        <img class="img-fluid d-none d-md-block"src="https://source.unsplash.com/1200x400/?team,people">
-      </div>
+    <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+<h4 style="text-align: center; padding: 20px;">Our Mission</h4>
+<p style="padding: 40px; font-size: large;">
+TO PROVIDE INDUSTRY RELEVANT TRAINING COURSES IN THE AREA OF EMERGING TECHNOLOGIES TO THE LEARNER JOINING OUR PLATFORM WHICH WILL LEAD TO EMPLOYABILITY ENHANCEMENT AND FACILITATE A CAREER TRANSITION OF THEIR CHOICE.</p>
     </div>
-    
   </div>
-</section>
-</section>
-<section class="p-0 p-md-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h4>Our Team</h4>
-        <p>WE ARE A BUNCH OF PROFESSIONALS WHO HAVE A KNACK FOR TEACHING AND WORKING RELENTLESSLY TOWARDS ACHIEVING OUR MISSION AND VISION.
-        <img class="img-fluid d-none d-md-block"src="https://source.unsplash.com/1200x400/?happy">
-      </div>
-    </div>
-    
-  </div>
-</section>
- <style>
- 
- .bgcol{
-  background: grey;
-  height: 300px;
-}
-.testimg{
-  width:15%;
-  height:20%;
-  border-radius: 50%;
-}
-.card{
-  box-shadow:10px 10px 26px -15px rgba(0, 0, 0, 0.75)
-}
-.card-body{
-  height:350px;
-}
-
- </style>
 </div>
+  <br><br>
+  <div class="container">
+  <div class="row">
+    <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+<h4 style="text-align: center; padding: 20px;">Our Vision</h4>
+<p style="padding: 40px; font-size: large;">
+TO CREATE A TALENT SUPPLY CHAIN BY UPSKILLING AND RESKILLING STUDENTS AND PROFESSIONALS.    </div>
+    <div class="col">
+<img src="images/2.svg" width="500">
+    </div>
+  </div>
+  </div>
+  <br><br>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+<img src="images/3.svg" width="500">
+    </div>
+    <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+<h4 style="text-align: center; padding: 20px;">Our Team</h4>
+<p style="padding: 40px; font-size: large;">
+WE ARE A BUNCH OF PROFESSIONALS WHO HAVE A KNACK FOR TEACHING AND WORKING RELENTLESSLY TOWARDS ACHIEVING OUR MISSION AND VISION.    </div>
+  </div>
+</div>
+
 </div>
 
 <script src="js/jquery.min.js"></script>

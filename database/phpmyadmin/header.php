@@ -70,26 +70,15 @@ $severtime = $end_time - $start_time;
           echo '
               <ul class="list-unstyled components mb-5">
               <li class="active">
-                <a href="Login.php" aria-expanded="false">Login</a></li>
-              <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Language</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                      <a href="python_module.php">Python</a>
-                  </li>
-                  <li>
-                      <a href="#">Courses 2</a>
-                  </li>
-                  <li>
-                      <a href="#">Courses 3</a>
-                  </li>
-                </ul>
-              </li>
+                <a href="login.php" aria-expanded="false">Login</a></li>
               <li>
                 <a href="about.php">About</a>
               </li>
               <li>
                 <a href="contact.php">Contact</a>
+              </li>
+              <li>
+                <a href="tandc.php">Term and Condition</a>
               </li>
             </ul>';
         } else {

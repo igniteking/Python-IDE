@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once("database/phpmyadmin/connection.php"); ?>
-<?php
-$status = @$_GET['status'];
-if ($status == "1") {
-  $status = "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #009fdc;'>Your Account Has Been Created!</p>";
-} else {
-  $status = "";
-}
-if (isset($_SESSION['email'])) {
-  echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
-  exit();
-} else {
-}
-echo $status;
-?>
+
 
 <head>
   <meta charset="UTF-8">
@@ -89,8 +75,33 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 </nav>
-<br>  
-  <div class="login-container" style="margin-top: -150px;">
+<?php include_once("database/phpmyadmin/connection.php"); ?>
+<?php
+$status = @$_GET['status'];
+if ($status == "1") {
+  $status = "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #009fdc;'>Your Account Has Been Created!</p>";
+} else {
+  $status = "";
+}
+if (isset($_SESSION['email'])) {
+  echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
+  exit();
+} else {
+}
+echo $status;
+?>
+<br>
+  <div class="login-container" id="abc">
+  <style> 
+#abc {
+  margin-top: -150px;
+}
+@media only screen and (max-width: 600px) {
+  #abc {
+    margin-top: -100px;
+  }
+}
+  </style>
     <div class="cartoon-container">
       <svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
         <defs>
