@@ -47,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="images/logo.jpeg" width ="40px">
+      <img src="images/main.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
@@ -64,9 +64,12 @@
 </nav>
 <div class="row mt-12">
       <h2 class="col-md-4" id="subhead">User Data!</h2>
-      <div class="col-md-8"><a href="admin-create.php"><button type="button" onclick="showAlert()" class="btn btn-outline-primary float-right"><i class="fa fa-plus" aria-hidden="true"></i> Create Admin</button></a></div>
-
-    </div><?php
+      <?php
+        if ($ut == 'superadmin') {
+      echo '<div class="col-md-8"><a href="admin-create.php"><button type="button" onclick="showAlert()" class="btn btn-outline-primary float-right"><i class="fa fa-plus" aria-hidden="true"></i> Create Admin</button></a></div>';
+        }else {}
+      ?>
+      <?php
         $query = "SELECT * from users";
         $result = mysqli_query($conn, $query);
         while($rows = mysqli_fetch_assoc($result))

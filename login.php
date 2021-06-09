@@ -8,7 +8,7 @@
   <title>Login - GlowEdu</title>
   <link rel="stylesheet" href="./build/css/index.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/css/style.css">
+  <link rel="stylesheet" href="css/css/style.css">
 </head>
 <?php
 $mainDate = date("y-m-d");
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
   if (empty($email) || empty($pwd)) {
     echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username and Password are Empty!</p>";
   } else {
-    $sql = "SELECT * FROM users WHERE email='$email'";
+    $sql = "SELECT * FROM users WHERE email='$email' OR mobile='$email'";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck < 1) {
@@ -54,24 +54,25 @@ if (isset($_POST['submit'])) {
 ?>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-      <img src="images/logo.jpeg" width ="50px">
-    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <img src="images/main.png" width="50px">
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item active">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
             <a class="nav-link" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
-        </li>
-        <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
@@ -102,6 +103,9 @@ echo $status;
   }
 }
   </style>
+  </nav>
+  <br>
+  <div class="login-container" style="margin-top: -50px;">
     <div class="cartoon-container">
       <svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
         <defs>
@@ -201,7 +205,7 @@ echo $status;
           <span class="hidden">Email</span>
         </label>
         <div class="form__input-wrapper">
-          <input id="login__email" type="text" name="email" class="form__input" placeholder="Email" required>
+          <input id="login__email" type="text" name="email" class="form__input" placeholder="Email or Mobile" required>
           <!--
               FF is ignoring position relative of form__input-wrapper so added a wrapper for .underline.
               NOTE: just the precense of this comment fixes this FF issue (making the underline-wrapper unncessary).
@@ -250,7 +254,7 @@ echo $status;
         </div>
       </div>
     </form>
-    
+
     <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" class="icons">
       <symbol id="lock" viewBox="0 0 1792 1792">
         <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
@@ -260,7 +264,7 @@ echo $status;
       </symbol>
     </svg>
   </div>
-  
+
   <script>
     function myFunction() {
       var x = document.getElementById("login__password");
@@ -272,14 +276,14 @@ echo $status;
     }
   </script>
   <script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js" integrity="sha256-S6G5lg9rzC1JCAkx3dQFqP2lefkFxwlNVn0rWCOueXA=" crossorigin="anonymous"></script>
   <script src="./js/cartoon.js"></script>
   <center>
-        <p style="margin-top:-35px; font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
-    </center>
+    <p style="margin-top:-35px; font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
+  </center>
 </body>
 
 </html>

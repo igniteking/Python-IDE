@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <img src="images/logo.jpeg" width="50px">
+            <img src="images/main.png" width="50px">
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
@@ -50,6 +50,7 @@
     $username = strip_tags(@$_POST['username']);
     $email = strip_tags(@$_POST['email']);
     $password = strip_tags(@$_POST['password']);
+    $mobile = strip_tags(@$_POST['mobile']);
     $r_pswd = strip_tags(@$_POST['repeat-password']);
     $date = date("Y-m-d");
     $vkey = md5(time() . $username);
@@ -67,7 +68,7 @@
                             if (preg_match("/[a-z]/", $password)) {
                                 if (preg_match("/\W/", $password)) {
                                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
+                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
                                     require 'class/class.phpmailer.php';
                                     $mail = new PHPMailer();
                                     $mail->isSMTP();
@@ -142,6 +143,10 @@
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel" name="mobile" id="mobile" placeholder="Mobile" />
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
