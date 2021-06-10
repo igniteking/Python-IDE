@@ -66,17 +66,13 @@ Glowworm Renewable Energy Private Limited, having its registered office at Ishav
     <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
 <h4 style="text-align: center; padding: 20px;">Updating of terms and conditions</h4>
 <p style="padding: 40px; font-size: large;">Your use of the Platform is subject to the Terms and Conditions, which may be updated, amended, modified or revised by us from time to time with/without notice to you. To ensure that you are aware of any additions, revisions, amendments or modifications that we may have made to these Terms and Conditions, it is important for you to refer to the Terms and Conditions from time to time.  </div>
-    <div class="col">
-<img src="images/2.svg" width="500">
-    </div>
+
   </div>
   </div>
   <br><br>
   <div class="container">
   <div class="row">
-    <div class="col">
-<img src="images/3.svg" style="margin-top: 100px;" width="500">
-    </div>
+
     <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
 <h4 style="text-align: center; padding: 20px;">Service(s) provided to users</h4>
 <p style="padding: 40px; font-size: large;">

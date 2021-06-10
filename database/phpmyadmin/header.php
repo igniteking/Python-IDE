@@ -72,13 +72,13 @@ $severtime = $end_time - $start_time;
               <li class="active">
                 <a href="login.php" aria-expanded="false">Login</a></li>
               <li>
-                <a href="about.php">About</a>
+                <a href="about.php">About Us</a>
               </li>
               <li>
                 <a href="contact.php">Contact</a>
               </li>
               <li>
-                <a href="tandc.php">Term and Condition</a>
+                <a href="tandc.php">Terms and Conditions</a>
               </li>
             </ul>';
         } else {
@@ -110,17 +110,12 @@ $severtime = $end_time - $start_time;
         ?>
         <?php
             echo " <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Language</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
                       <a href='python_module.php'>Python</a>
                   </li>
-                  <li>
-                      <a href='#'>Courses 2</a>
-                  </li>
-                  <li>
-                      <a href='#'>Courses 3</a>
-                  </li>
+                  
                 </ul>
               </li>
               <li>
@@ -145,16 +140,10 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Language</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
                       <a href='python_module.php'>Python</a>
-                  </li>
-                  <li>
-                      <a href='#'>Courses 2</a>
-                  </li>
-                  <li>
-                      <a href='#'>Courses 3</a>
                   </li>
                 </ul>
               </li>

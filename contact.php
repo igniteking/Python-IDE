@@ -59,19 +59,19 @@
       <div id='responsive_div'>
         <div style='padding: 0px 40px;'>
           <br><br>
+          <center>
           <h3>Our Address</h3>
           <div class="redline-address"></div>
-          <Navrangpura,>Shree complex Hostel Road opposite AES sports complex University boys, Navrangpura, Ahmedabad, Gujarat 380009</p>
+          <Navrangpura,> <b>Address : </b>Shree complex Hostel Road opposite AES sports complex University boys, Navrangpura, Ahmedabad, Gujarat 380009</p>
             <div class="phone-e">
-              <p><span class="glyphicon glyphicon-envelope"> </span> info@glowedu.co.in</p>
-              <p><span class="glyphicon glyphicon-phone"></span> +91 98250 85454</p>
+              <p><span class="glyphicon glyphicon-envelope"> </span> <b>E-mail :</b> info@glowedu.co.in</p>
+              <p><span class="glyphicon glyphicon-phone"></span><b>Contact Number :</b> +91 98250 85454</p>
             </div>
             <div class="d-flex flex-row justify-content p-1">
               <!--map-->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.019213593812!2d77.62060731482127!3d12.906485990898592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14eed2a26dbb%3A0x98f64960052a26b0!2sTrainingMug!5e0!3m2!1sen!2sin!4v1504259922701" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
+              <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Shree%20complex%20Hostel%20Road%20opposite%20AES%20sports%20complex%20University%20boys,%20Navrangpura,%20Ahmedabad,%20Gujarat%20380009+(My%20Business%20Name)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>            </div>
         </div>
-      </div>
+      </div></center>
       <div id='responsive_div'>
         <div style='padding: 0px 40px;'>
           <br><br>

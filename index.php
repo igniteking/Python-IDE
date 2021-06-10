@@ -412,34 +412,34 @@ function generateData(value, i1, i2, step = 1) {
 <?php  } else { ?>
 <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
 <div class="carousel-cell">
-  <div style="padding: 20px;">
+  <a href="python_module.php" style="text-decoration: none;"> <div style="padding: 20px;">
   <img src="images/python.jpg" height="100px">
   <h5>Python</h5><br>
   <h6>High-level programming language</h6>
   Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.
-</div>
+</div></a>
 </div>
 <div class="carousel-cell">
-  <div style="padding: 20px;">
+<a href="coming.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/js.png" height="100px">
   <h5>Javascript</h5><br>
   <h6>Programming language</h6>
   JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.</div>
-</div>
+</div></a>
 <div class="carousel-cell">
-  <div style="padding: 20px;">
+<a href="coming.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/c.png" height="100px">
   <h5>C#</h5><br>
   <h6>Programming language</h6>
   C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</div>
-</div>
+</div></a>
 <div class="carousel-cell">
-  <div style="padding: 20px;">
+<a href="coming.php" style="text-decoration: none;">  <div style="padding: 20px;">
   <img src="images/c++.svg" height="100px">
   <h5>C++</h5>
   <h6>Programming language</h6>
   C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".</div>
-</div>
+</div></a>
 </div>
 <br><br>
 <h2 class='mb-4'>Hi! <?php echo $user; ?></h2> 

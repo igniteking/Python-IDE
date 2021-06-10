@@ -99,6 +99,11 @@ echo $status;
 }
 @media only screen and (max-width: 600px) {
   #abc {
+    margin-top: -50px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  #abc {
     margin-top: -100px;
   }
 }
@@ -236,7 +241,8 @@ echo $status;
           </div>
         </div>
       </div>
-
+      <br>
+      <a class="forgot-password" href="forgot-password.php">Forget Password?</a>
       <div class="login-actions-container">
         <div class="form__field form__field--remember-me">
           <label class="label label--remember-me" for="login__remember-me">
@@ -247,12 +253,14 @@ echo $status;
           </label>
         </div>
 
-        <a class="forgot-password" href="regester.php">Create an account</a>
+
 
         <div class="form__field form__field--submit">
           <input type="submit" name="submit" id="signin" class="form-submit" value="Log in" />
         </div>
       </div>
+<a class="forgot-password" style="float: right;" href="regester.php">Create an account</a>
+
     </form>
 
     <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" class="icons">

@@ -62,7 +62,7 @@
 }
 
 body {
-	background-color: #f8f9fa;
+	background-color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.875rem;
 	font-weight: 400;
@@ -103,7 +103,7 @@ input {
 }
 
 .login .label.label--icon {
-	background-color: #eee;
+	background-color: rgb(255, 255, 255);
 }
 
 .login .label.label--icon,
@@ -234,7 +234,7 @@ input {
 
 		        clip-path: polygon(10% 0%, 70% 0%, 90% 100%, 30% 100%);
 		z-index: -100;
-		background-color: #f8f9fa;
+		background-color: #ffffff;
 		top: 0;
 		position: absolute;
 		display: inline-block;
