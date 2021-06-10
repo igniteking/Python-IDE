@@ -94,22 +94,22 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item active">
-      <img src="images/main.png" width ="40px">
-      </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-        </li>
+            <li class="nav-item active">
+              <img src="images/main.png" width="40px">
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
             <li class="nav-item">
-        <div class="input-group">
-        </li>
-      </ul>
+              <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <div class="input-group">
+            </li>
+          </ul>
           </ul>
         </div>
       </div>
@@ -131,6 +131,19 @@
     }
     ?>
     <?php
+    $next_id = "";
+    $next_sql = "SELECT * FROM courses WHERE id > $Course_id ORDER BY id DESC";
+    $next_query = mysqli_query($conn, $next_sql);
+    while ($row = mysqli_fetch_assoc($next_query)) {
+      $next_id = $row['id'];
+    }
+    if ($next_id == "") {
+      $final_next_id = "python_module.php";
+    } else {
+      $final_next_id = "python.php?id=" . $next_id;
+    }
+    ?>
+    <?php
     $check = @$_POST['substance'];
     $code = strip_tags(@$_POST['codearea']);
     if ($check) {
@@ -142,7 +155,7 @@
       if ($code == $course_answer) {
         mysqli_query($conn, "INSERT INTO match_id (`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '')");
         $id++;
-        echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>Correct Answer <a href='python.php?id=$id' style='text-decoration: underline;'>Next >></a></p>";
+        echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>Correct Answer <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
       } else {
         echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #ff6767; border: 1px solid #ff6767; border-radius: 4px;">The Checked Answer Is Wrong Please Check The Input / Output and Answer First...</p>';
       }
@@ -154,7 +167,7 @@
     $result_check = mysqli_num_rows($result);
     if (!$result_check == 0) {
       $id++;
-      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>You have already completed the module...  <a href='python.php?id=$id' style='text-decoration: underline;'>Next >></a></p>";
+      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>You have already completed the module...  <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
       $sql2 = "SELECT * FROM courses WHERE id='$id'";
       $query2 = mysqli_query($conn, $sql2);
       while ($row = mysqli_fetch_assoc($query2)) {
