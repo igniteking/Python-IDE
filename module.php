@@ -10,6 +10,9 @@
     exit();
 }
 ?>
+<?php
+        $moduleid = $_GET['id'];
+        ?>
   	<title>Update - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -131,7 +134,7 @@
   <!-- Text input -->
   <div class="form-outline mb-4">
     <input type="text" id="form6Example3" class="form-control" name="youtube_link" value="<?php echo $youtube_link ?>"/>
-    <label class="form-label" for="form6Example3">Youtube Link</label>
+    <label class="form-label" for="form6Example3">Resource Link</label>
   </div>
 
   <!-- Text input -->
@@ -147,8 +150,11 @@
   </div>
 
   <!-- Submit button -->
-  <input type="submit" name="update" id="signup" class="form-update" value="Update" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
-</form>
+  <div style="padding: 15px;">
+  <input type="submit" name="update" id="signup" class="form-update" value="Update" style="float: left; width: 40%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+  <br><a href="delmod.php?id=<?php echo $moduleid;?>"><button style='width:40%; float: right; padding: 10px; font-weight: 600; color: #fff;' type='button' class='btn btn-danger'>Delete</button></a>
+  </div>
+  </form>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>

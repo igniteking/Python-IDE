@@ -122,7 +122,8 @@ $severtime = $end_time - $start_time;
                 <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
-          } else {
+          } else {}
+          if ($ut == 'superadmin') {
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
@@ -157,7 +158,41 @@ $severtime = $end_time - $start_time;
                 <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
+          } else {}
+          if ($ut == 'admin') {
+            echo "
+              <ul class='list-unstyled components mb-5'>
+              <li class='active'>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
+                <ul class='collapse list-unstyled' id='homeSubmenu'>
+                <li>
+                      <a href='index.php'>Home</a>
+                  </li>
+                  <li>
+                      <a href='about.php'>About Us</a>
+                  </li>
+                  <li>
+                      <a href='contact.php'>Contact Us</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
+                <ul class='collapse list-unstyled' id='pageSubmenu'>
+                  <li>
+                      <a href='python_module.php'>Python</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                  <a href='upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
+              </li>
+              <li>
+                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
+              </li>
+            </ul>";
           }
+
         }
         ?>
         <div class="footer">

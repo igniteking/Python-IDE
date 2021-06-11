@@ -32,7 +32,7 @@
         $mobile = $rows['mobile'];
         $active = $rows['active'];
         if($active == 1) {
-            $active = "Active";
+            $active = "active";
             $dialog = "";
         } else {
             $active = "Verify Your Email!";
@@ -409,7 +409,8 @@ function generateData(value, i1, i2, step = 1) {
   }
 }
 </script>
-<?php  } else { ?>
+<?php  } else {} ?>
+<?php if ($ut == "student") { ?>
 <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
 <div class="carousel-cell">
   <a href="python_module.php" style="text-decoration: none;"> <div style="padding: 20px;">

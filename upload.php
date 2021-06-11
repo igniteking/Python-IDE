@@ -104,7 +104,7 @@ if($reg) {
   <!-- Text input -->
   <div class="form-outline mb-4">
     <input type="text" id="form6Example3" class="form-control" name="youtube_link"/>
-    <label class="form-label" for="form6Example3">Youtube Link</label>
+    <label class="form-label" for="form6Example3">Resource Link</label>
   </div>
 
   <!-- Text input -->
