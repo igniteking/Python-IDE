@@ -114,7 +114,7 @@ if ($result=mysqli_query($conn,$sql))
  echo "<div class='row mt-3'>
   <div id='card' class='col-md-4' style='margin-top: 15px;'>
   <div id='flip-card'>
-    <div id='flip-card-front1'>Number of Students</div>
+    <div id='flip-card-front1'>Students</div>
     <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$students</p></div>
   </div>
 </div>";
@@ -131,7 +131,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front2'>Number of Admins</div>
+   <div id='flip-card-front2'>Admins</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
  </div>
 </div>";
@@ -148,7 +148,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front3'>Number of Courses</div>
+   <div id='flip-card-front3'>Courses</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
  </div>
 </div>
@@ -169,7 +169,7 @@ if ($result=mysqli_query($conn,$sql))
  echo "<div class='row mt-3'>
  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front1'>Number Verified Students</div>
+   <div id='flip-card-front1'>Verified Students</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$rowcount</p></div>
  </div>
 </div>";
@@ -185,7 +185,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front2'>Number Unverified Students</div>
+   <div id='flip-card-front2'>Unverified Students</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
  </div>
 </div>";
@@ -201,7 +201,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front3'>Number of Languages</div>
+   <div id='flip-card-front3'>Languages</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
  </div>
 </div>";
@@ -269,7 +269,7 @@ if ($result=mysqli_query($conn,$sql))
  echo "<div class='row mt-3'>
   <div id='card' class='col-md-4' style='margin-top: 15px;'>
   <div id='flip-card'>
-    <div id='flip-card-front1'>Number of Students</div>
+    <div id='flip-card-front1'>Students</div>
     <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$students</p></div>
   </div>
 </div>";
@@ -286,7 +286,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front2'>Number of Admins</div>
+   <div id='flip-card-front2'>Admins</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
  </div>
 </div>";
@@ -303,7 +303,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front3'>Number of Courses</div>
+   <div id='flip-card-front3'>Courses</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
  </div>
 </div>
@@ -324,7 +324,7 @@ if ($result=mysqli_query($conn,$sql))
  echo "<div class='row mt-3'>
  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front1'>Number Verified Students</div>
+   <div id='flip-card-front1'>Verified Students</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #4285F4;'>$rowcount</p></div>
  </div>
 </div>";
@@ -340,7 +340,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front2'>Number Unverified Students</div>
+   <div id='flip-card-front2'>Unverified Students</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #DB4437;'>$rowcount</p></div>
  </div>
 </div>";
@@ -356,7 +356,7 @@ if ($result=mysqli_query($conn,$sql))
   $rowcount=mysqli_num_rows($result);
  echo "  <div id='card' class='col-md-4' style='margin-top: 15px;'>
  <div id='flip-card'>
-   <div id='flip-card-front3'>Number of Languages</div>
+   <div id='flip-card-front3'>Languages</div>
    <div id='flip-card-back'><p style='font-size: 40px; color: #F4B400;'>$rowcount</p></div>
  </div>
 </div>";

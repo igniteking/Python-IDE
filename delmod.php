@@ -5,6 +5,8 @@
 $module_id = $_GET['id']; // get id through query string
 $query = "DELETE FROM `courses` WHERE `id` = '$module_id'";
 $del = mysqli_query($conn, $query); // delete query
+$delete_query = "DELETE FROM `match_id` WHERE `course_id` = '$module_id'";
+$delete_final = mysqli_query($conn, $delete_query); // delete query
 if($del)
 {
     mysqli_close($conn); // Close connection

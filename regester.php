@@ -81,10 +81,13 @@
                                     $mail->Password = 'Website@123';
                                     $mail->SetFrom('learn.glowedu@gmail.com');
                                     $mail->Subject = "Welcome To Learn GlowEDU";
-                                    $mail->Body = "Dear $username, </br> Your Account Has Been Created On Learn GlowEDU. Click the link below to verify your account!
-                                <br><br>
-                                <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a>
-                                <br><br>
+                                    $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
+                                    Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
+                                    Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
+                                    Once done with the registration you will be able to access the course <br>
+                                    Regards,                                    <br>
+                                    Team Glowworm
+
                                 </br></br> https://learn.glowedu.co.in";
                                     $mail->AddAddress($email);
                                     $mail->Send();

@@ -156,6 +156,21 @@
       $final_pre_id = "python.php?id=" . $pre_id;
     }
     ?>
+     <?php
+    $id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
+    $result = mysqli_query($conn, $id_check);
+    $result_check = mysqli_num_rows($result);
+    if (!$result_check == 0) {
+      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'><a href='$final_pre_id' style='text-decoration: underline;'> << Go Back </a>  You have already completed the module...  <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
+      $sql2 = "SELECT * FROM courses WHERE id='$id'";
+      $query2 = mysqli_query($conn, $sql2);
+      while ($row = mysqli_fetch_assoc($query2)) {
+        $code = $row['answer'];
+      }
+    } else {
+      $code = "print('Hello, $user')";
+    }
+    ?>
     <?php
     $check = @$_POST['substance'];
     $code = strip_tags(@$_POST['codearea']);
@@ -173,21 +188,7 @@
       }
     }
     ?>
-    <?php
-    $id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
-    $result = mysqli_query($conn, $id_check);
-    $result_check = mysqli_num_rows($result);
-    if (!$result_check == 0) {
-      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'><a href='$final_pre_id' style='text-decoration: underline;'> << Go Back </a>  You have already completed the module...  <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
-      $sql2 = "SELECT * FROM courses WHERE id='$id'";
-      $query2 = mysqli_query($conn, $sql2);
-      while ($row = mysqli_fetch_assoc($query2)) {
-        $code = $row['answer'];
-      }
-    } else {
-      $code = "print('Hello, $user')";
-    }
-    ?>
+   
     <div class="row mt-12">
       <h2 class="col-md-4" id="head"><?php echo $course_category; ?></h2>
       <h2 class="col-md-4" id="subhead">Code Here!</h2>
@@ -200,9 +201,21 @@
     </div>
     <div class="row mt-3">
       <div class="col-md-4" id="collums" style="margin-top :60px;">
-        <h5 id="course_topic"><?php echo $course_topic; ?></h5><br>
-        <div id="course_data"><?php echo $course_data; ?></div><br>
-        <div id="hint"><?php echo $hints; ?></div><br>
+        <h5 id="course_topic" style="white-space: -moz-pre-wrap; /* Firefox */
+white-space: -pre-wrap; /* ancient Opera */
+white-space: -o-pre-wrap; /* newer Opera */
+white-space: pre-wrap; /* Chrome; W3C standard */
+word-wrap: break-word; /* IE */"><?php echo $course_topic; ?></h5><br>
+        <div id="course_data"  style="white-space: -moz-pre-wrap; /* Firefox */
+white-space: -pre-wrap; /* ancient Opera */
+white-space: -o-pre-wrap; /* newer Opera */
+white-space: pre-wrap; /* Chrome; W3C standard */
+word-wrap: break-word; /* IE */"><?php echo $course_data; ?></div><br>
+        <div id="hint"  style="white-space: -moz-pre-wrap; /* Firefox */
+white-space: -pre-wrap; /* ancient Opera */
+white-space: -o-pre-wrap; /* newer Opera */
+white-space: pre-wrap; /* Chrome; W3C standard */
+word-wrap: break-word; /* IE */"><?php echo $hints; ?></div><br>
         <iframe style="border-radius: 5px;" class="mb-4" width="100%" height="70%" src="<?php echo $youtube_link; ?>"></iframe><br>
       </div>
       <!-- IDE div START HERE -->
