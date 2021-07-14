@@ -55,7 +55,7 @@
             <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -108,37 +108,29 @@
         <?php  if ($ut == 'student') {
           if($active == 1) {
             echo "<a href='python.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-            <div id='flip-card'>
-              <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-              <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
+              <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
             </div></a>
           </div>";
           } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
-          <div id='flip-card'>
-            <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-            <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-          </div>
-        </div>";}}
+          <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
+        </div>
+      </div>";;}}
         ?>
         <?php
         if ($ut == 'superadmin') {
         echo "
-        <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div id='flip-card'>
-          <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-          <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-        </div></a>
+        <a href='module.php?id=$id'<div id='card' class='col-md-4' style='margin-top: 15px;'>
+        <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
+      </div></a>
       </div>"; 
       } else {}
      
         if ($ut == 'admin') {
         echo "
         <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div id='flip-card'>
-          <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
-          <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
-        </div></a>
+        <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
+      </div></a>
       </div>"; 
       } else {}?>
 
@@ -150,71 +142,31 @@
   body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  background-color: #e2e1e0;
+  
 }
-#flip-card-back::-webkit-scrollbar {
-  display: none;
-  }
-  #flip-card-back {
+  .card-1 {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-#card {
-  width: 100%;;
-}
-
-#card , #flip-card {
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: white;
   width: 100%;
   height: 200px;
+  border-radius: 4px;
+  color: black;
 }
 
-#flip-card {
-  transition: transform .5s ease-in-out;
-  transform-origin: 50% 50%;
-  transform-style: preserve-3d;
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background-color: white;
 }
-
-#flip-card:Hover {
-  transform: rotateY(180deg);
-}
-
-#flip-card-front {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#card {
   width: 100%;
-  height: 100%;
-}
-#flip-card-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-#flip-card-front, #flip-card-back {
-  border-radius: 10px;
-  backface-visibility: hidden;
-  font-family: Verdana;
-  font-size: 1em;
 }
 
-#flip-card-back {
-  box-shadow: 0 0 5px rgb(230,230,230);
-  background-color: rgb(230,230,230);
-  transform: rotateY(180deg);
-  color: #222;
-}
-
-#flip-card-front {
-  box-shadow: 0 0 5px rgb(22,22,22);
-  background-color: #e6e6ea;
-  color: #111;
-}
 
 
     </style>

@@ -12,3 +12,4 @@ if (isset($_SESSION['email'])) {
 } else {
     $email = "No User";
 }
+?>

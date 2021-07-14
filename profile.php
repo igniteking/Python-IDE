@@ -21,6 +21,7 @@
         $mobile_number = $rows['mobile'];
         $bio = $rows['bio'];
         $state = $rows['state'];
+        $city = $rows['city'];
         $postalcode = $rows['postalcode'];
         $education = $rows['education'];
         $country = $rows['country'];
@@ -78,7 +79,7 @@
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
+                            <a class="nav-link" href="about.php">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
@@ -107,10 +108,11 @@
             $postalcode = $_POST['postalcode'];
             $education = $_POST['education'];
             $country = $_POST['country'];
+            $city = $_POST['city'];
             $additional = $_POST['additional'];
 
             $sql = "UPDATE `users` SET `username`='$user', `bio`='$bio',
-         `state`='$state', `postalcode`='$postalcode', `education`='$education', `country`='$country', `additional`='$additional' WHERE email='$email'";
+         `state`='$state',`city`='$city', `postalcode`='$postalcode', `education`='$education', `country`='$country', `additional`='$additional' WHERE email='$email'";
             $rt = mysqli_query($conn, $sql);
             if ($rt) {
                 echo "Done!";
@@ -213,8 +215,9 @@
                                 <div class="col-md-12"><label class="labels">Education</label><input type="text" name="education" class="form-control" placeholder="Education" value="<?php echo $education ?>"></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"><label class="labels">Country</label><input type="text" name="country" class="form-control" placeholder="Country" value="<?php echo $country ?>"></div>
-                                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" name="state" class="form-control" value="<?php echo $state ?>" placeholder="State"></div>
+                                <div class="col-md-4"><label class="labels">Country</label><input type="text" name="country" class="form-control" placeholder="Country" value="<?php echo $country ?>"></div>
+                                <div class="col-md-4"><label class="labels">State/Region</label><input type="text" name="state" class="form-control" value="<?php echo $state; ?>" placeholder="State"></div>
+                                <div class="col-md-4"><label class="labels">City</label><input type="text" name="city" class="form-control" value="<?php echo $city; ?>" placeholder="City"></div>
                             </div>
                             <div class="mt-5 text-center"><button class="btn btn-primary profile-button" name="save_profile" value="Update">Save Profile</button></div>
                     </div>

@@ -32,10 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="regester.php">Register</a>
+                        <a class="nav-link" href="registeration.php">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
@@ -155,13 +155,13 @@
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="pass" placeholder="Password" />
                             </div>
-                            <span>Password should contain atleast one Upper case letter </span><br>
+                            <span><b>Password should contain atleast one Upper case letter </b></span><br>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>By registering you will be agreeing all statements in <a href="tandc.php" class="term-service">Terms of service</a></label>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="reg" id="signup" class="form-submit" value="Register" />
@@ -170,7 +170,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/join.svg" alt="sing up image"></figure>
-                        <a href="login.php" class="signup-image-link">I am already member</a>
+                        <b><a href="login.php" style="color: blue;" class="signup-image-link">I am already member</a></b>
                     </div>
                 </div>
             </div>

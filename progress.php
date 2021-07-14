@@ -12,6 +12,17 @@
         exit();
     }
     ?>
+    <?php
+        $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
+        $result = mysqli_query($conn, $query);
+
+        while($rows = mysqli_fetch_assoc($result))
+        {
+        $id = $rows['id'];
+        $ut = $rows['user_type'];
+        $user = $rows['username'];
+        }
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +54,7 @@
             <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -77,7 +88,13 @@
         $count = $count_total_course_done / $count_total_course * 100;
         $count_final = bcdiv($count, 1, 0);
         ?>
-        <h1>Completed Modules <i class="fa fa-check" aria-hidden="true" style="color: #67ce8b;"></i></h1>
+        <h2 style="float: left;">Completed Modules <i class="fa fa-check" style=" color:#67ce8b;" aria-hidden="true"></i></h2><a href="delete_progress.php?id=<?php echo $id;?>"><button type="button" onclick="showAlert()" style="float: right;" class="btn btn-outline-danger float-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Reset Progress</button></a>
+        <br><br>
+        <script>
+            function showAlert() {
+                alert("Are you sure you want to co,pletely delete your Progress?");
+            }
+        </script>
         <div style='margin-top: 20px; margin-bottom: 20px; width: 100%; border-radius: 8px; box-shadow: 1px 10px 10px #ccc;'>
             <div id="progress">
                 COMPLETED <?php echo $count_final ?>%

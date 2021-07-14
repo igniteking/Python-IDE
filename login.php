@@ -3,6 +3,7 @@
 
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login - GlowEdu</title>
@@ -66,7 +67,7 @@ if (isset($_POST['submit'])) {
             <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -242,7 +243,7 @@ echo $status;
         </div>
       </div>
       <br>
-      <a class="forgot-password" href="forgot-password.php">Forget Password?</a>
+      <a class="forgot-password" href="forgot-password.php">Forgot Password?</a>
       <div class="login-actions-container">
         <div class="form__field form__field--remember-me">
           <label class="label label--remember-me" for="login__remember-me">
@@ -259,7 +260,7 @@ echo $status;
           <input type="submit" name="submit" id="signin" class="form-submit" value="Log in" />
         </div>
       </div>
-<a class="forgot-password" style="float: right;" href="regester.php">Create an account</a>
+<a class="forgot-password" style="float: right;" href="registeration.php">Create an account</a>
 
     </form>
 
@@ -290,7 +291,7 @@ echo $status;
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js" integrity="sha256-S6G5lg9rzC1JCAkx3dQFqP2lefkFxwlNVn0rWCOueXA=" crossorigin="anonymous"></script>
   <script src="./js/cartoon.js"></script>
   <center>
-    <p style="margin-top:-35px; font-size: 13.5px; color: #555;">&copy; 2021 Learn GlowEDU</p>
+    <p style="margin-top:-35px; font-size: 13.5px; color: #555;">&copy; Glowworm Academy All rights reserved 2021</p>
   </center>
 </body>
 

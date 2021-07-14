@@ -40,6 +40,7 @@
         }
         $bio = $rows['bio'];
         $state = $rows['state'];
+        $city = $rows['city'];
         $postalcode = $rows['postalcode'];
         $education = $rows['education'];
         $country = $rows['country'];
@@ -80,7 +81,7 @@
             <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -525,7 +526,7 @@ function generateData(value, i1, i2, step = 1) {
         </style>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About Us</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Extras</a>
@@ -544,23 +545,11 @@ function generateData(value, i1, i2, step = 1) {
                             <a href="about.php">About Us</a><br/>
                             <a href="contact.php">Contact Us</a><br/>
                             <a href="tandc.php">Terms and Conditions</a>
-                            <p>Languages</p>
-                            <a href="python_module.php">Python</a><br/>
-                            <a href="coming.php">JavaScript</a><br/>
-                            <a href="coming.php">C#</a><br/>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><?php echo $user; ?></p>
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
@@ -613,10 +602,10 @@ function generateData(value, i1, i2, step = 1) {
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Additional Info</label>
+                                                <label>City</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo $additional; ?></p>
+                                                <p><?php echo $city; ?></p>
                                             </div>
                                         </div>
                             </div>

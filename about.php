@@ -35,7 +35,7 @@
             <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -51,7 +51,7 @@
     </div>
     <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
 <h4 style="text-align: center; padding: 20px;">Our Mission</h4>
-<p style="padding: 40px; font-size: large;">
+<p style="padding: 40px; font-size: large; text-align: center;">
 TO PROVIDE INDUSTRY RELEVANT TRAINING COURSES IN THE AREA OF EMERGING TECHNOLOGIES TO THE LEARNER JOINING OUR PLATFORM WHICH WILL LEAD TO EMPLOYABILITY ENHANCEMENT AND FACILITATE A CAREER TRANSITION OF THEIR CHOICE.</p>
     </div>
   </div>
@@ -61,7 +61,7 @@ TO PROVIDE INDUSTRY RELEVANT TRAINING COURSES IN THE AREA OF EMERGING TECHNOLOGI
   <div class="row">
     <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
 <h4 style="text-align: center; padding: 20px;">Our Vision</h4>
-<p style="padding: 40px; font-size: large;">
+<p style="padding: 40px; font-size: large; text-align: center;">
 TO CREATE A TALENT SUPPLY CHAIN BY UPSKILLING AND RESKILLING STUDENTS AND PROFESSIONALS.    </div>
     <div class="col">
 <img src="images/2.svg" width="500">
@@ -76,7 +76,7 @@ TO CREATE A TALENT SUPPLY CHAIN BY UPSKILLING AND RESKILLING STUDENTS AND PROFES
     </div>
     <div class="col" style="  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
 <h4 style="text-align: center; padding: 20px;">Our Team</h4>
-<p style="padding: 40px; font-size: large;">
+<p style="padding: 40px; font-size: large; text-align: center;">
 WE ARE A BUNCH OF PROFESSIONALS WHO HAVE A KNACK FOR TEACHING AND WORKING RELENTLESSLY TOWARDS ACHIEVING OUR MISSION AND VISION.    </div>
   </div>
 </div>
