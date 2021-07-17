@@ -80,6 +80,9 @@ $severtime = $end_time - $start_time;
               <li>
                 <a href="tandc.php">Terms and Conditions</a>
               </li>
+              <li>
+                <a href="faq.php">FAQ</a>
+              </li>
             </ul>';
         } else {
           if ($ut == 'student') {
@@ -97,6 +100,9 @@ $severtime = $end_time - $start_time;
                   <li>
                       <a href='contact.php'>Contact Us</a>
                   </li>
+                  <li>
+                <a href='faq.php'>FAQ</a>
+              </li>
                 </ul>
               </li>";
             if ($active == 1) {
@@ -138,6 +144,9 @@ $severtime = $end_time - $start_time;
                   <li>
                       <a href='contact.php'>Contact Us</a>
                   </li>
+                  <li>
+                <a href='faq.php'>FAQ</a>
+              </li>
                 </ul>
               </li>
               <li>
@@ -174,6 +183,9 @@ $severtime = $end_time - $start_time;
                   <li>
                       <a href='contact.php'>Contact Us</a>
                   </li>
+                  <li>
+                <a href='faq.php'>FAQ</a>
+              </li>
                 </ul>
               </li>
               <li>

@@ -65,7 +65,7 @@
   <div class="form-outline">
     <form action="search.php" method="GET">
     <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
-  <button type="submit" class="btn btn-primary">Search
+  <button type="submit" style="height: 40px;" class="btn btn-primary">Search
     <i class="fa fa-search"></i>
   </button></form>
 </div>
@@ -90,7 +90,7 @@
       }
       ?>
 <h2 class='mb-4'>Python Modules</h2>
-<div class='row mt-3'>
+<div class='row mt-12'>
 <?php
         $query = "SELECT * from courses";
         $result = mysqli_query($conn, $query);
@@ -107,38 +107,32 @@
         ?>
         <?php  if ($ut == 'student') {
           if($active == 1) {
-            echo "<a href='python.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-              <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
-            </div></a>
-          </div>";
+            echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
+            <a href='python_ide.php?id=$id'><div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
+            </div></a>";
           } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
           <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
-        </div>
-      </div>";;}}
+        </div>";;}}
         ?>
         <?php
         if ($ut == 'superadmin') {
         echo "
         <a href='module.php?id=$id'<div id='card' class='col-md-4' style='margin-top: 15px;'>
         <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
-      </div></a>
-      </div>"; 
+      </div></a>>"; 
       } else {}
      
         if ($ut == 'admin') {
         echo "
         <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
         <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
-      </div></a>
-      </div>"; 
+      </div></a>"; 
       } else {}?>
 
     <?php } ?>
 <style>
-      body::-webkit-scrollbar {
-  display: none;
-  }
+
   body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -163,12 +157,6 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background-color: white;
 }
-#card {
-  width: 100%;
-}
-
-
-
     </style>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>

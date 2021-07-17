@@ -216,8 +216,14 @@ white-space: -pre-wrap; /* ancient Opera */
 white-space: -o-pre-wrap; /* newer Opera */
 white-space: pre-wrap; /* Chrome; W3C standard */
 word-wrap: break-word; /* IE */"><?php echo $hints; ?></div><br>
-        <iframe style="border-radius: 5px;" class="mb-4" width="100%" height="70%" src="<?php echo $youtube_link; ?>"></iframe><br>
+<button class="w3-button w3-bar-item ws-green w3-hover-white">Reveal Answer</button><br><br>
+<div id="hint"  style="white-space: -moz-pre-wrap; /* Firefox */
+white-space: -pre-wrap; /* ancient Opera */
+white-space: -o-pre-wrap; /* newer Opera */
+white-space: pre-wrap; /* Chrome; W3C standard */
+word-wrap: break-word; /* IE */"><?php echo $hints; ?></div><br>
       </div>
+      
       <!-- IDE div START HERE -->
       <div class="col-md-4" id="trytopnavbar">
         <!-- IDE CODE START HERE -->

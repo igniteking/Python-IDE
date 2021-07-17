@@ -91,8 +91,7 @@
   <div class="form-outline">
     <form action="search.php" method="GET">
     <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
-  <button type="submit" class="btn btn-primary">Search
-    <i class="fa fa-search"></i>
+  <button type="submit" class="btn btn-primary">Search <i class="fa fa-search"></i>
   </button></form>
 </div>
         </li>
@@ -571,7 +570,12 @@ function generateData(value, i1, i2, step = 1) {
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo $mobile; ?></p>
+                                                <p><?php 
+                                                if($mobile == ""){
+                                                  echo "<spam style='color: red;'>Mobile Number not Verified</spam>";
+                                                } else {
+                                                echo $mobile; 
+                                                }?></p>
                                             </div>
                                         </div>
                                         <div class="row">
