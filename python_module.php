@@ -90,10 +90,29 @@
         }
       }
       ?>
-<h2 class='mb-4'>Python Modules</h2>
+      <?php
+        $query = "SELECT * from category WHERE id = $category_id";
+        $result = mysqli_query($conn, $query);
+
+        while($rows = mysqli_fetch_assoc($result))
+        {
+        $id = $rows['id'];
+        $cat_name = $rows['cat_name'];
+        $cat_type = $rows['cat_type'];
+        ?>
+<h2 class='mb-4'><?php echo $cat_name;?></h2><?php }?>
 <div class='row mt-12'>
+  <?php 
+    $query = "SELECT * from sub_cat_match WHERE cat_id = $category_id";
+    $result = mysqli_query($conn, $query);
+    while($rows = mysqli_fetch_assoc($result))
+        {
+        $id = $rows['id'];
+        $cat_id = $rows['cat_id'];
+        $course_id = $rows['course_id'];
+        ?>
 <?php
-        $query = "SELECT * from courses";
+        $query = "SELECT * from courses WHERE id = $course_id";
         $result = mysqli_query($conn, $query);
 
         while($rows = mysqli_fetch_assoc($result))
@@ -143,7 +162,7 @@
       </div>"; 
       } else {}?>
 
-    <?php } ?>
+    <?php } ?><?php }?>
 <style>
   body {
   -ms-overflow-style: none;  /* IE and Edge */

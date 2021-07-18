@@ -62,23 +62,18 @@
   $couse_data_final = str_replace("'","&#x27;",$course_data);
   $final_answer = str_replace("'","&#x27;",$answer);
   $cat_id = @$_POST['cat_id'];
-if($reg) {
-  $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`) VALUES (NULL, '$course_topic','$course_category','$couse_data_final', '$course_color','$hints','$final_answer')";
-    $rt = mysqli_query($conn, $sql);
-    if($rt) {
-        echo "Done!";
-        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
-    } else{
-        echo "<h1> ERROR!</h1> ". $sql;
-    }
-    $sql2 = "INSERT INTO `sub_cat_match`(`id`, `cat_id`, `course_id`) VALUES (NULL, '$cat_id','$course_category')";
-    $rt = mysqli_query($conn, $sql2);
-    if($rt) {
-        echo "Done!";
-        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
-    } else{
-        echo "<h1> ERROR!</h1> ". $sql2;
-    }
+  if($reg) {
+   //Creating a connection
+   //Inserting a record into the employee table
+   $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`) VALUES (NULL, '$course_topic','$course_category','$couse_data_final', '$course_color','$hints','$final_answer')";
+   mysqli_query($conn, $sql);
+   //Insert ID
+   $id = mysqli_insert_id($conn);
+   print("Insert ID: ".$id ."\n");
+
+   $sql2 = "INSERT INTO `sub_cat_match`(`id`, `cat_id`, `course_id`) VALUES (NULL, '$cat_id','$id')";
+   mysqli_query($conn, $sql2);
+   echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
   }
 ?>
 <h2 class="mb-4">Insert Courses Form</h2>

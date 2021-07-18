@@ -104,7 +104,16 @@
   } else{
    echo "<h1> ERROR!</h1> ". $sql;
   }
-  }
+  $cat_id = @$_POST['cat_id'];
+  $sql2 = "UPDATE `sub_cat_match` SET `cat_id`= '$cat_id' WHERE course_id = '$moduleid'";
+  $rt2 = mysqli_query($conn, $sql2);
+  if($rt2) {
+    echo "Done!";
+    echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
+   } else{
+    echo "<h1> ERROR!</h1> ". $sql2;
+   }
+}
 ?>
 <h2 class="mb-4">Update Courses Form</h2>
 <form method="POST" action='module.php?id=<?php echo $id;?>' class="register-form" id="register-form">
@@ -136,7 +145,7 @@
   <div class="form-outline mb-4">
   <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="course_color">
-      <option value="<?php echo $course_color; ?>"><?php echo $course_color; ?></option>
+      <option value="<?php echo $course_color ?>"><?php echo $course_color ?></option>
       <option value="">White (normal card)</option>
       <option value="blue">Blue (Blue card)</option>
       <option value="green">Green (Green card)</option>
@@ -148,18 +157,18 @@
   <!-- Text input -->
   <div class="form-outline mb-4">
   <div class="form-outline">
-      <select class="form-control" id="exampleFormControlSelect1" name="course_color">
+      <select class="form-control" id="exampleFormControlSelect1" name="cat_id">
       <?php
         $query = "SELECT * from category";
         $result = mysqli_query($conn, $query);
 
         while($rows = mysqli_fetch_assoc($result))
         {
-        $id = $rows['id'];
+        $categoryid = $rows['id'];
         $cat_name = $rows['cat_name'];
         $cat_type = $rows['cat_type'];
     ?>
-      <option value=""><?php echo $cat_name; }?></option>
+      <option value="<?php echo $categoryid;?>"><?php echo '0' .$categoryid, ' ' .$cat_name; }?></option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>

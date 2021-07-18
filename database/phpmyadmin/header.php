@@ -119,7 +119,7 @@ $severtime = $end_time - $start_time;
                 <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='python_module.php'>Python</a>
+                      <a href='category.php'>Python</a>
                   </li>
                   
                 </ul>
@@ -153,7 +153,7 @@ $severtime = $end_time - $start_time;
                 <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='python_module.php'>Python</a>
+                      <a href='category.php'>Python</a>
                   </li>
                 </ul>
               </li>
