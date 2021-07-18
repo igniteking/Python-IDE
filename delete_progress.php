@@ -3,7 +3,7 @@
 <?php
 
 $user_id = $_GET['id']; // get id through query string
-$query = "DELETE * FROM `match_id` WHERE student_id= '$user_id'";
+$query = "DELETE FROM `match_id` WHERE student_id= '$user_id'";
 $del = mysqli_query($conn, $query); // delete query
 if($del)
 {

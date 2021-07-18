@@ -108,7 +108,7 @@
     $result = mysqli_query($conn, $id_check);
     $result_check = mysqli_num_rows($result);
     if (!$result_check == 0) {
-      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'><a href='$final_pre_id' style='text-decoration: underline;'> << Go Back </a>  You have already completed the module...  <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
+      echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>  You have already completed the module... </p>";
       $sql2 = "SELECT * FROM courses WHERE id='$id'";
       $query2 = mysqli_query($conn, $sql2);
       while ($row = mysqli_fetch_assoc($query2)) {
@@ -119,27 +119,27 @@
     }
     ?>
     <?php
-    $check = @$_POST['substance'];
-    $code = strip_tags(@$_POST['codearea']);
-    if ($check) {
-      $answer_check = "SELECT answer from courses WHERE id='$id'";
-      $result = mysqli_query($conn, $answer_check);
-      while ($rows = mysqli_fetch_assoc($result)) {
-        $course_answer = $rows['answer'];
-      }
-      if ($code == $course_answer) {
-        mysqli_query($conn, "INSERT INTO match_id (`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '')");
-        echo "<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #67ce8b; border: 1px solid #67ce8b; border-radius: 4px;'>Correct Answer <a href='$final_next_id' style='text-decoration: underline;'>Next >></a></p>";
-      } else {
-        echo '<p style="font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #ff6767; border: 1px solid #ff6767; border-radius: 4px;">The Checked Answer Is Wrong Please Check The Input / Output and Answer First...</p>';
-      }
-    }
-?>
+    $reg = @$_POST['reg'];
+    $date = date("Y-m-d");
+    if ($reg) {
+        mysqli_query($conn, "INSERT INTO `match_id`(`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '$date')");
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=#\">";
+    }?>
 <div class="row mt-12">
     <div class="col-md-4"><a href='<?php echo $final_pre_id?>' style='text-decoration: underline; font-size:large;'> << Back </a></div>
-  <h2 class="col-md-4" id="subhead"></h2>
-      <div class="col-md-4"><a href='<?php echo $final_next_id?>' style='text-decoration: underline; float: right;  font-size:large;'>Next >></a>
-</div><br><br>
+    
+      <?php 
+      if($result_check == 0) {
+        echo "<div class='col-md-4'>
+        <form action='python_ide.php?id=$id' method='POST'>
+        <center><Input type='submit' name='reg' style='background: none; border: none; text-decoration: underline; color:#67ce8b; font-size:large;'>Click here to finish the module! <i class='fa fa-check' aria-hidden='true'></i></center>
+        </form></div>";
+      } else {
+        echo "<h2 class='col-md-4'></h2>";
+      }
+      ?>
+    
+  <div class="col-md-4"><a style="text-decoration: underline; float: right; color:#F8B739; font-size:large;" href='<?php echo $final_next_id?>'>Next >></a></div><br><br>
 <div class="row mt-12">
   <h2 class="col-md-4" id="head"><?php echo $course_topic; ?></h2>
   <h2 class="col-md-4" id="subhead">Code Here!</h2>
