@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="registeration.php">Register</a>
+                        <a class="nav-link" href="registration.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.php">About Us</a>
@@ -138,7 +138,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Register</h2>
-                        <form method="POST" action='regester.php' class="register-form" id="register-form">
+                        <form method="POST" action='registration.php' class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="name" placeholder="Your Name" />

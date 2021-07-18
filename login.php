@@ -260,7 +260,7 @@ echo $status;
           <input type="submit" name="submit" id="signin" class="form-submit" value="Log in" />
         </div>
       </div>
-<a class="forgot-password" style="float: right;" href="registeration.php">Create an account</a>
+<a class="forgot-password" style="float: right;" href="registration.php">Create an account</a>
 
     </form>
 
