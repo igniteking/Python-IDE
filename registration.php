@@ -60,75 +60,84 @@
         if ($username && $password && $r_pswd) {
             $user_check = "SELECT username from users WHERE username='$username'";
             $result = mysqli_query($conn, $user_check);
+            $user_check2 = "SELECT email from users WHERE email='$email'";
+            $result2 = mysqli_query($conn, $user_check2);
             $result_check = mysqli_num_rows($result);
+            $result_check2 = mysqli_num_rows($result2);
             if (!$result_check > 0) {
-                if ($password == $r_pswd) {
-                    if (preg_match("/\d/", $password)) {
-                        if (preg_match("/[A-Z]/", $password)) {
-                            if (preg_match("/[a-z]/", $password)) {
-                                if (preg_match("/\W/", $password)) {
-                                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                    mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
-                                    require 'class/class.phpmailer.php';
-                                    $mail = new PHPMailer();
-                                    $mail->isSMTP();
-                                    $mail->SMTPAuth = true;
-                                    $mail->SMTPSecure = 'tls';
-                                    $mail->Host = 'smtp.gmail.com';
-                                    $mail->Port = '587';
-                                    $mail->isHTML();
-                                    $mail->Username = 'learn.glowedu@gmail.com';
-                                    $mail->Password = 'Website@123';
-                                    $mail->SetFrom('learn.glowedu@gmail.com');
-                                    $mail->Subject = "Welcome To Learn GlowEDU";
-                                    $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
-                                    Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
-                                    Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
-                                    Once done with the registration you will be able to access the course <br>
-                                    Regards,                                    <br>
-                                    Team Glowworm
+                if (!$result_check2 > 0) {
+                    if ($password == $r_pswd) {
+                        if (preg_match("/\d/", $password)) {
+                            if (preg_match("/[A-Z]/", $password)) {
+                                if (preg_match("/[a-z]/", $password)) {
+                                    if (preg_match("/\W/", $password)) {
+                                        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
+                                        require 'class/class.phpmailer.php';
+                                        $mail = new PHPMailer();
+                                        $mail->isSMTP();
+                                        $mail->SMTPAuth = true;
+                                        $mail->SMTPSecure = 'tls';
+                                        $mail->Host = 'smtp.gmail.com';
+                                        $mail->Port = '587';
+                                        $mail->isHTML();
+                                        $mail->Username = 'learn.glowedu@gmail.com';
+                                        $mail->Password = 'Website@123';
+                                        $mail->SetFrom('learn.glowedu@gmail.com');
+                                        $mail->Subject = "Welcome To Learn GlowEDU";
+                                        $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
+                                        Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
+                                        Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
+                                        Once done with the registration you will be able to access the course <br>
+                                        Regards,                                    <br>
+                                        Team Glowworm
 
-                                </br></br> https://learn.glowedu.co.in";
-                                    $mail->AddAddress($email);
-                                    $mail->Send();
-                                    echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
+                                    </br></br> https://learn.glowedu.co.in";
+                                        $mail->AddAddress($email);
+                                        $mail->Send();
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
+                                    } else {
+                                        echo "<div class='error-styler'><center>
+                                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
+                                        </center></div>";
+                                    }
                                 } else {
                                     echo "<div class='error-styler'><center>
-                                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
-                                    </center></div>";
+                                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one small Letter</p>
+                </center></div>";
                                 }
                             } else {
                                 echo "<div class='error-styler'><center>
-                                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one small Letter</p>
-            </center></div>";
+                                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one Capital Letter</p>
+                </center></div>";
                             }
                         } else {
                             echo "<div class='error-styler'><center>
-                            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one Capital Letter</p>
+                            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one digit</p>
             </center></div>";
                         }
                     } else {
                         echo "<div class='error-styler'><center>
-                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one digit</p>
-        </center></div>";
+                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Both Password's Dont Match!</p>
+            </center></div>";
                     }
+                }else {
+                    echo "<div class='error-styler'><center>
+                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail already exist!</p>
+            </center></div>";
+                }
                 } else {
                     echo "<div class='error-styler'><center>
-                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Both Password's Dont Match!</p>
-        </center></div>";
+                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username already exist!</p>
+            </center></div>";
                 }
             } else {
                 echo "<div class='error-styler'><center>
-                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username already exist!</p>
-        </center></div>";
+                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
+            </center></div>";
             }
-        } else {
-            echo "<div class='error-styler'><center>
-            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
-        </center></div>";
         }
-    }
-    ?>
+        ?>
 
 
     <div class="one" style="margin-top: 3%;">

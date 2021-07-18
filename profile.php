@@ -102,7 +102,6 @@
         </nav>
         <?php
         if (isset($_POST['save_profile'])) {
-            $user = $_POST['username'];
             $bio = $_POST['bio'];
             $state = $_POST['state'];
             $postalcode = $_POST['postalcode'];
@@ -111,7 +110,7 @@
             $city = $_POST['city'];
             $additional = $_POST['additional'];
 
-            $sql = "UPDATE `users` SET `username`='$user', `bio`='$bio',
+            $sql = "UPDATE `users` SET `bio`='$bio',
          `state`='$state',`city`='$city', `postalcode`='$postalcode', `education`='$education', `country`='$country', `additional`='$additional' WHERE email='$email'";
             $rt = mysqli_query($conn, $sql);
             if ($rt) {
@@ -207,7 +206,7 @@
                         </div>
                         <form method="post" action="profile.php?email=<?php echo $email; ?>">
                             <div class="row mt-2">
-                                <div class="col-md-12"><label class="labels">Name</label><input type="text" name="username" class="form-control" placeholder="Your name" value="<?php echo $user ?>"></div>
+                                <div class="col-md-12"><label class="labels">Name</label><input type="text" name="username" class="form-control" placeholder="Your name" value="<?php echo $user ?>" disabled></div>
                             </div>
                             <div class="row mt-3">
 

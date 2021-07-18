@@ -125,7 +125,7 @@
       $course_topic = $rows['course_topic'];
       $course_category = $rows['course_category'];
       $course_data = $rows['course_data'];
-      $youtube_link = $rows['youtube_link'];
+      $course_color = $rows['course_color'];
       $hints = $rows['hints'];
       $answer = $rows['answer'];
     }

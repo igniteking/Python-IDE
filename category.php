@@ -8,18 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/css/style.css">
-    <title>Python Modules - GlowEdu</title>
+    <title>Python Modules Index - GlowEdu</title>
     <?php
     if (isset($_SESSION['email'])) {
     } else {
         echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
         exit();
     }
-        $category_id = $_GET['id'];
     ?>
     <?php
     if (isset($_SESSION['email'])) {
-        
+    
         $query = "SELECT * from users WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
 
@@ -76,71 +75,40 @@
     </div>
   </div>
 </nav>
-<?php
-        $query = "SELECT * from users WHERE email = '".$_SESSION['email'] ."'";
-        $result = mysqli_query($conn, $query);
-
-        while($rows = mysqli_fetch_assoc($result))
-        {
-          if($active == 1) {
-            $dialog = "";
-        } else {
-            $active = "Verify Your Email!";
-            echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='index.php' style='color: #eee'><u>HOME</u></a> and Verify your E-mail to access the modules!</p>";
-        }
-      }
-      ?>
-<h2 class='mb-4'>Python Modules</h2>
+<h2 class='mb-4'>Python Modules Index</h2>
 <div class='row mt-12'>
 <?php
-        $query = "SELECT * from courses";
+        $query = "SELECT * from category";
         $result = mysqli_query($conn, $query);
 
         while($rows = mysqli_fetch_assoc($result))
         {
         $id = $rows['id'];
-        $course_topic = $rows['course_topic'];
-        $course_category = $rows['course_category'];
-        $course_data = $rows['course_data'];
-        $course_color = $rows['course_color'];
-        $hints = $rows['hints'];
-        $answer = $rows['answer'];
+        $cat_name = $rows['cat_name'];
+        $cat_type = $rows['cat_type'];
         ?>
         <?php  if ($ut == 'student') {
           if($active == 1) {
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
-              <a href='python_ide.php?id=$id'><div class='card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
-              </div>
-              <style>
-              .card-1::-webkit-scrollbar {
-                width: 10px;
-            }
-            
-            .card-1::-webkit-scrollbar-track {
-                background-color: $course_color;
-            }
-            
-            .card-1::-webkit-scrollbar-thumb {
-                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            }
-              </style>";
+              <a href='python_module.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><p class='col-md-2' style='font-size: 30px;'>0$id</p><b class='col-md-8' style='font-size: 20px;'>$cat_name</b></div></a>
+              </div>";
         } else {
-          echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
-          <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
-        </div>";;}}
+          echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
+          <a href='python_ide.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><p class='col-md-2' style='font-size: 30px;'>0$id</p><b class='col-md-8' style='font-size: 20px;'>$cat_name</b></div></a>
+          </div>";;}}
         ?>
         <?php
         if ($ut == 'superadmin') {
-        echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <a href='module.php?id=$id'><div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
+        echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
+        <a href='python_ide.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><p class='col-md-2' style='font-size: 30px;'>0$id</p><b class='col-md-8' style='font-size: 20px;'>$cat_name</b></div></a>
         </div>"; 
       } else {}
      
         if ($ut == 'admin') {
         echo "
-        <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
-      </div>"; 
+        <div id='card' class='col-md-4' style='margin-top: 15px; '>
+              <a href='python_ide.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><p class='col-md-2' style='font-size: 30px;'>0$id</p><b class='col-md-8' style='font-size: 20px;'>$cat_name</b></div></a>
+              </div>"; 
       } else {}?>
 
     <?php } ?>
@@ -160,7 +128,7 @@
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: white;
   width: 100%;
-  height: 200px;
+  height: 150px;
   border-radius: 4px;
   color: black;
 }

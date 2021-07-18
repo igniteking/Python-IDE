@@ -56,18 +56,28 @@
   $course_topic = @$_POST['course_topic'];
   $course_category = @$_POST['course_category'];
   $course_data = @$_POST['course_data'];
-  $youtube_link = @$_POST['youtube_link'];
+  $course_color = @$_POST['course_color'];
   $hints = @$_POST['hints'];
   $answer = @$_POST['answer'];
   $couse_data_final = str_replace("'","&#x27;",$course_data);
   $final_answer = str_replace("'","&#x27;",$answer);
+  $cat_id = @$_POST['cat_id'];
 if($reg) {
-  $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `youtube_link`, `hints`, `answer`) VALUES (NULL, '$course_topic','$course_category','$couse_data_final', '$youtube_link','$hints','$final_answer')";
+  $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`) VALUES (NULL, '$course_topic','$course_category','$couse_data_final', '$course_color','$hints','$final_answer')";
     $rt = mysqli_query($conn, $sql);
     if($rt) {
         echo "Done!";
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
     } else{
         echo "<h1> ERROR!</h1> ". $sql;
+    }
+    $sql2 = "INSERT INTO `sub_cat_match`(`id`, `cat_id`, `course_id`) VALUES (NULL, '$cat_id','$course_category')";
+    $rt = mysqli_query($conn, $sql2);
+    if($rt) {
+        echo "Done!";
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
+    } else{
+        echo "<h1> ERROR!</h1> ". $sql2;
     }
   }
 ?>
@@ -85,31 +95,51 @@ if($reg) {
       <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="course_category">
       <option>Python</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>
     </div>
   </div>
 
-  <!-- Message input -->
   <div class="form-outline mb-4">
-    <textarea class="form-control" id="form6Example7" rows="4" name="course_data"></textarea>
+    <textarea class="form-control" id="form6Example7" rows="4" name="course_data" ><?php echo $course_data ?></textarea>
     <label class="form-label" for="form6Example7">Course Data</label>
   </div>
   
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example3" class="form-control" name="youtube_link"/>
-    <label class="form-label" for="form6Example3">Resource Link</label>
+  <div class="form-outline">
+      <select class="form-control" id="exampleFormControlSelect1" name="course_color">
+      <option value="">White (normal card)</option>
+      <option value="blue">Blue (Blue card)</option>
+      <option value="green">Green (Green card)</option>
+      <option value="yellow">Yellow (Yellow card)</option>
+    </select>
+        <label class="form-label" for="form6Example2">Course Color</label>
+      </div>
   </div>
-
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" name="hints"/>
+  <div class="form-outline">
+      <select class="form-control" id="exampleFormControlSelect1" name="cat_id">
+      <?php
+        $query = "SELECT * from category";
+        $result = mysqli_query($conn, $query);
+
+        while($rows = mysqli_fetch_assoc($result))
+        {
+        $id = $rows['id'];
+        $cat_name = $rows['cat_name'];
+        $cat_type = $rows['cat_type'];
+    ?>
+      <option value="<?php echo $id;?>"><?php echo '0' .$id, ' ' .$cat_name; }?></option>
+    </select>
+        <label class="form-label" for="form6Example2">Course Category</label>
+      </div>
+  </div>
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="form6Example4" class="form-control" name="hints" />
     <label class="form-label" for="form6Example4">hints</label>
   </div>
 
@@ -119,10 +149,50 @@ if($reg) {
     <label class="form-label" for="form6Example7">Answer</label>
   </div>
 
+
   <!-- Submit button -->
   <input type="submit" name="reg" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
 </form>
 
+
+
+<br><br>
+<?php
+  $suvb = @$_POST['suvb'];
+  $cat_name = @$_POST['cat_name'];
+  $cat_type = @$_POST['cat_type'];
+if($suvb) {
+  $sql2 = "INSERT INTO `category`(`id`, `cat_name`, `cat_type`) VALUES (NULL, '$cat_name','$cat_type')";
+    $rt2 = mysqli_query($conn, $sql2);
+    if($rt2) {
+        echo "Done!";
+    } else{
+        echo "<h1> ERROR!</h1> ". $sql2;
+    }
+  }
+?>
+<h2 class="mb-4">Create Sub-Category</h2>
+<form method="POST" action='upload.php' class="register-form" id="register-form">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" id="form6Example1" class="form-control" name="cat_name"/>
+        <label class="form-label" for="form6Example1">Sub-Category Name</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+      <select class="form-control" id="exampleFormControlSelect1" name="cat_type">
+      <option value="python">Python</option>
+    </select>
+        <label class="form-label" for="form6Example2">Sub-Category Language</label>
+      </div>
+    </div>
+  </div>
+    <!-- Submit button -->
+    <input type="submit" name="suvb" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+</form>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
