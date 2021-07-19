@@ -85,7 +85,7 @@
       $next_id = $row['id'];
     }
     if ($next_id == "") {
-      $final_next_id = "python_module.php";
+      $final_next_id = "category.php";
     } else {
       $final_next_id = "python_ide.php?id=" . $next_id;
     }
@@ -98,7 +98,7 @@
       $pre_id = $row['id'];
     }
     if ($pre_id == "") {
-      $final_pre_id = "python_module.php";
+      $final_pre_id = "category.php";
     } else {
       $final_pre_id = "python_ide.php?id=" . $pre_id;
     }
@@ -162,7 +162,7 @@
       <div class="col-md-4" id="collums" style="border-radius: 10px; color: #000; background: #EDF0F6"><br>
         <div id="course_data"><?php echo $course_data; ?></div><br>
         <center><h5 id="course_topic" style="background: #fff; width: 80%; color: black; border-radius: 4px;">Hint</h5></center>
-        <center><div id="hint" style="background: #fff; color: black; width: 80%; border-radius: 4px; height: 70px;"><b><?php echo $hints; ?></b></div></center><br>
+        <center><div id="hint" style="background: #fff; color: black; width: 80%; border-radius: 4px; height: auto; padding: 5px;"><b><?php echo $hints; ?></b></div></center><br>
         <center><span><z onclick="myFunction()"></span></center><br><br>
 
 <script>

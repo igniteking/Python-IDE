@@ -161,6 +161,7 @@ if($suvb) {
     $rt2 = mysqli_query($conn, $sql2);
     if($rt2) {
         echo "Done!";
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
     } else{
         echo "<h1> ERROR!</h1> ". $sql2;
     }
