@@ -11,9 +11,9 @@
 }
 ?>
 <?php
-        $moduleid = $_GET['id'];
+        $category_id = $_GET['id'];
         ?>
-  	<title>Update - GlowEdu</title>
+  	<title>Edit Category - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,18 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/css/style.css">
-        <?php
-        $id = $_GET['id'];
-        $query = "SELECT * from category WHERE id=$id";
-        $result = mysqli_query($conn, $query);
-
-        while($rows = mysqli_fetch_assoc($result))
-        {
-        $id = $rows['id'];
-        $cat_name = $rows['cat_name'];
-        $cat_type = $rows['cat_type'];
-        }
-    ?>
+        
   </head>
   <body>
   <div id="content" class="p-4 p-md-5">
@@ -78,22 +67,32 @@
   </div>
 </nav>
 <?php
-  $update = @$_POST['update'];
+  $suvb = @$_POST['suvb'];
   $cat_name = @$_POST['cat_name'];
   $cat_type = @$_POST['cat_type'];
-if($update) {
-  $sql2 = "INSERT INTO `category`(`id`, `cat_name`, `cat_type`) VALUES (NULL, '$cat_name','$cat_type')";
+if($suvb) {
+  $sql2 = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
     $rt2 = mysqli_query($conn, $sql2);
     if($rt2) {
         echo "Done!";
-        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
+        //echo "<meta http-equiv=\"refresh\" content=\"0; url=category.php \">";
     } else{
         echo "<h1> ERROR!</h1> ". $sql2;
     }
   }
+?><?php
+$id = $_GET['id'];
+$query = "SELECT * from category WHERE id=$id";
+$result = mysqli_query($conn, $query);
+
+while($rows = mysqli_fetch_assoc($result))
+{
+$id = $rows['id'];
+$cat_name = $rows['cat_name'];
+$cat_type = $rows['cat_type'];
 ?>
-<h2 class="mb-4">Create Sub-Category</h2>
-<form method="POST" action='upload.php' class="register-form" id="register-form">
+<h2 class="mb-4">Edit Category</h2>
+<form method="POST" action='category_edit.php' class="register-form" id="register-form">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4">
     <div class="col">
@@ -113,10 +112,10 @@ if($update) {
   </div>
     <!-- Submit button -->
     <div style="padding: 15px;">
-  <input type="submit" name="update" id="signup" class="form-update" value="Update" style="float: left; width: 40%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
-  <br><a href="delmod.php?id=<?php echo $moduleid;?>"><button style='width:40%; float: right; padding: 10px; font-weight: 600; color: #fff;' type='button' class='btn btn-danger'>Delete</button></a>
+    <input type="submit" name="suvb" id="signup" class="form-submit" value="Submit" style="float: left; width: 40%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+  <br><a href="delcat.php?id=<?php echo $category_id;?>"><button style='width:40%; float: right; padding: 10px; font-weight: 600; color: #fff;' type='button' class='btn btn-danger'>Delete</button></a>
   </div></form>
-
+<?php } ?>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

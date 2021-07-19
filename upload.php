@@ -167,7 +167,7 @@ if($suvb) {
     }
   }
 ?>
-<h2 class="mb-4">Create Sub-Category</h2>
+<h2 class="mb-4">Create Category</h2>
 <form method="POST" action='upload.php' class="register-form" id="register-form">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4">
