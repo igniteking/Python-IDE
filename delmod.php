@@ -11,7 +11,7 @@ if($del)
 {
     mysqli_close($conn); // Close connection
     echo "deleted record"; // display error message if not delete
-    header("location:python_module.php"); // redirects to all records page
+    header("location:category.php"); // redirects to all records page
     exit;	
 }
 else

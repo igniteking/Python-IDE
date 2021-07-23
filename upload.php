@@ -108,9 +108,9 @@
         <div class="form-outline">
           <select class="form-control" id="exampleFormControlSelect1" name="course_color">
             <option value="">White (normal card)</option>
-            <option value="blue">Blue (Blue card)</option>
+            <option value="#3f37c9">Blue (Blue card)</option>
             <option value="green">Green (Green card)</option>
-            <option value="yellow">Yellow (Yellow card)</option>
+            <option value="#f48c06">Yellow (Yellow card)</option>
           </select>
           <label class="form-label" for="form6Example2">Course Color</label>
         </div>

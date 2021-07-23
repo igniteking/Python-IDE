@@ -110,12 +110,11 @@
         $id = $rows['id'];
         $cat_id = $rows['cat_id'];
         $course_id = $rows['course_id'];
-        echo $course_id;
         ?>
 <?php
-        $query = "SELECT * from courses WHERE id = $course_id";
-        $result = mysqli_query($conn, $query);
-        while($rows = mysqli_fetch_assoc($result))
+        $query2 = "SELECT * from courses WHERE id = $course_id";
+        $result2 = mysqli_query($conn, $query2);
+        while($rows = mysqli_fetch_assoc($result2))
         {
         $id = $rows['id'];
         $course_topic = $rows['course_topic'];
@@ -128,18 +127,18 @@
         <?php  if ($ut == 'student') {
           if($active == 1) {
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
-              <a href='python_ide.php?id=$id'><div class='card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
+              <a href='python_ide.php?id=$id'><div class='card-$id card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
               </div>
               <style>
-              .card-1::-webkit-scrollbar {
+              .card-$id::-webkit-scrollbar {
                 width: 10px;
             }
             
-            .card-1::-webkit-scrollbar-track {
+            .card-$id::-webkit-scrollbar-track {
                 background-color: $course_color;
             }
             
-            .card-1::-webkit-scrollbar-thumb {
+            .card-$id::-webkit-scrollbar-thumb {
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             }
               </style>";

@@ -120,7 +120,7 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <input type="text" id="form6Example1" class="form-control" name="course_topic" value="<?php echo $course_topic ;?>"/>
+        <input type="text" id="form6Example1" name="course_topic" class="form-control" value="<?php echo $course_topic ;?>"/>
         <label class="form-label" for="form6Example1">Course Topic</label>
       </div>
     </div>
@@ -136,7 +136,7 @@
 
   <!-- Message input -->
   <div class="form-outline mb-4">
-    <textarea class="form-control" id="form6Example7" rows="4" name="course_data" ><?php echo $course_data ?></textarea>
+    <textarea id="form6Example7" rows="4" class="editor form-control" name="course_data" ><?php echo $course_data ?></textarea>
     <label class="form-label" for="form6Example7">Course Data</label>
   </div>
   
@@ -158,10 +158,10 @@
   <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="cat_id">
       <?php
-        $query = "SELECT * from category";
-        $result = mysqli_query($conn, $query);
+        $query3 = "SELECT * from category";
+        $result3 = mysqli_query($conn, $query3);
 
-        while($rows = mysqli_fetch_assoc($result))
+        while($rows = mysqli_fetch_assoc($result3))
         {
         $categoryid = $rows['id'];
         $cat_name = $rows['cat_name'];
@@ -174,13 +174,13 @@
   </div>
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" name="hints" value="<?php echo $hints ?>"/>
+    <input type="text" id="form6Example4" class="form-control" name="hints" 
     <label class="form-label" for="form6Example4">hints</label>
   </div>
 
   <!-- Message input -->
   <div class="form-outline mb-4">
-    <textarea class="form-control" id="form6Example7" rows="4" name="answer"><?php echo $answer ?></textarea>
+    <textarea id="form6Example7" rows="4" class="editor2 form-control" name="answer"><?php echo $answer ?></textarea>
     <label class="form-label" for="form6Example7">Answer</label>
   </div>
 
@@ -195,5 +195,124 @@
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+    <script src="js/build/ckeditor.js"></script>
+    <script>
+      ClassicEditor
+        .create(document.querySelector('.editor'), {
+
+          toolbar: {
+            items: [
+              'heading',
+              '|',
+              'bold',
+              'italic',
+              'link',
+              'bulletedList',
+              'numberedList',
+              '|',
+              'outdent',
+              'indent',
+              '|',
+              'imageUpload',
+              'blockQuote',
+              'insertTable',
+              'mediaEmbed',
+              'undo',
+              'redo'
+            ]
+          },
+          language: 'en',
+          image: {
+            toolbar: [
+              'imageTextAlternative',
+              'imageStyle:inline',
+              'imageStyle:block',
+              'imageStyle:side'
+            ]
+          },
+          table: {
+            contentToolbar: [
+              'tableColumn',
+              'tableRow',
+              'mergeTableCells'
+            ]
+          },
+          licenseKey: '',
+
+
+
+        })
+        .then(editor => {
+          window.editor = editor;
+
+
+
+
+        })
+        .catch(error => {
+          console.error('Oops, something went wrong!');
+          console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+          console.warn('Build id: fgydboej4r6a-nohdljl880ze');
+          console.error(error);
+        });
+      ClassicEditor
+        .create(document.querySelector('.editor2'), {
+
+          toolbar: {
+            items: [
+              'heading',
+              '|',
+              'bold',
+              'italic',
+              'link',
+              'bulletedList',
+              'numberedList',
+              '|',
+              'outdent',
+              'indent',
+              '|',
+              'imageUpload',
+              'blockQuote',
+              'insertTable',
+              'mediaEmbed',
+              'undo',
+              'redo'
+            ]
+          },
+          language: 'en',
+          image: {
+            toolbar: [
+              'imageTextAlternative',
+              'imageStyle:inline',
+              'imageStyle:block',
+              'imageStyle:side'
+            ]
+          },
+          table: {
+            contentToolbar: [
+              'tableColumn',
+              'tableRow',
+              'mergeTableCells'
+            ]
+          },
+          licenseKey: '',
+
+
+
+        })
+        .then(editor => {
+          window.editor = editor;
+
+
+
+
+        })
+        .catch(error => {
+          console.error('Oops, something went wrong!');
+          console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+          console.warn('Build id: fgydboej4r6a-nohdljl880ze');
+          console.error(error);
+        });
+    </script>
   </body>
 </html>
