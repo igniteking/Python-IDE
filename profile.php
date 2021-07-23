@@ -257,6 +257,7 @@
                         <div class="col-md-12">
                             <div class="d-flex justify-content-between align-items-center experience">
                                 <form action='#' method='POST' enctype='multipart/form-data' style="display: inline;">
+                                    <b>Upload with 2:2 Ratio Image</b>
                                     <input type="file" name="img" id="upload" hidden /><label for="upload" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Profile Picture</label>
                             </div><br>
                             <input class="btn btn-primary profile-button" type="submit" name="upload_cover" value="Upload" />
