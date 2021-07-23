@@ -249,7 +249,7 @@
           </div>
         </div>
         <br>
-        <a class="forgot-password" href="forgot-password.php">Forgot Password?</a>
+        <a class="forgot-password" style="color: blue;" href="forgot-password.php">Forgot Password?</a><a class="forgot" style="float: right; color: blue;" href="registration.php">Create an account</a>
         <div class="login-actions-container">
           <div class="form__field form__field--remember-me">
             <label class="label label--remember-me" for="login__remember-me">
@@ -263,10 +263,10 @@
 
 
           <div class="form__field form__field--submit">
-            <input type="submit" name="submit" id="signin" class="form-submit" value="Log in" />
+            <input type="submit" name="submit" id="signin" class="form-submit" value="Log in" style="background-color: #06d6a0; color: white; border-radius: 4px;" />
           </div>
         </div>
-        <a class="forgot-password" style="float: right;" href="registration.php">Create an account</a>
+        
         <br><br>
         <center>
           <p style="font-size: 13.5px; color: #555; margin-top: 10%;">&copy; Glowworm Academy All rights reserved 2021</p>
