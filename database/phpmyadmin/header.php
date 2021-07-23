@@ -44,9 +44,18 @@ $severtime = $end_time - $start_time;
     <nav id="sidebar">
       <div class="p-4 pt-5">
         <?php
-
+        $query = "SELECT * FROM session WHERE `token`='$token' AND `user_id`='$id_login'";
+        $get = mysqli_query($conn, $query);
+        while ($rows = mysqli_fetch_assoc($get)) {
+          $status = $rows['status'];
+          if (!$status == "1") {
+            echo "<meta http-equiv=\"refresh\" content=\"0; url=logout.php\">";
+            exit();
+          } else {
+            //Do Nothing!!!
+          }
+        }
         ?>
-
         <?php
         if (!isset($_SESSION['email'])) {
         } else {
@@ -128,7 +137,8 @@ $severtime = $end_time - $start_time;
                 <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
-          } else {}
+          } else {
+          }
           if ($ut == 'superadmin') {
             echo "
               <ul class='list-unstyled components mb-5'>
@@ -167,7 +177,8 @@ $severtime = $end_time - $start_time;
                 <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
               </li>
             </ul>";
-          } else {}
+          } else {
+          }
           if ($ut == 'admin') {
             echo "
               <ul class='list-unstyled components mb-5'>
@@ -204,7 +215,6 @@ $severtime = $end_time - $start_time;
               </li>
             </ul>";
           }
-
         }
         ?>
         <div class="footer">
@@ -219,15 +229,20 @@ $severtime = $end_time - $start_time;
     </nav>
 
     <!-- Page Content  -->
-    <style> 
-    html {
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
-}
-</style>
+    <style>
+      html {
+        user-select: none;
+        /* supported by Chrome and Opera */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+      }
+    </style>
 
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/popper.js"></script>
@@ -235,19 +250,19 @@ $severtime = $end_time - $start_time;
     <script src="../../js/main.js"></script>
 
 
-<style> 
-*::-webkit-scrollbar {
-    width: 10px;
-}
+    <style>
+      *::-webkit-scrollbar {
+        width: 10px;
+      }
 
-*::-webkit-scrollbar-track {
-    background-color: darkgrey;
-}
+      *::-webkit-scrollbar-track {
+        background-color: darkgrey;
+      }
 
-*::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-</style>
+      *::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
 </body>
 
 </html>

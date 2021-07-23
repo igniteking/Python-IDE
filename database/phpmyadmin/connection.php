@@ -9,6 +9,7 @@ date_default_timezone_set('Asia/Kolkata');
 if (isset($_SESSION['email'])) {
     $email = $_SESSION["email"];
     $token = $_SESSION['session_token'];
+    $id_login = $_SESSION['id'];
 } else {
     $email = "No User";
 }
@@ -22,7 +23,7 @@ if (isset($_SESSION['email'])) {
 <link rel="apple-touch-icon" sizes="144x144" href="images/main.png">
 <link rel="apple-touch-icon" sizes="152x152" href="images/main.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/main.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="images/main.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/main.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/main.png">
 <link rel="icon" type="image/png" sizes="96x96" href="images/main.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/main.png">

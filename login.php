@@ -71,6 +71,10 @@
             //INSERTING TIME
             mysqli_query($conn, "INSERT INTO calculate(`id`, `date`, `start_time`, `end_time`, `user`, `rand`) VALUES (NULL, '$mainDate', '$datetime', '$datetime', '$email', '$session_token')");
             //INSERTING TIME
+            //INSERTING & CLOSING SESSION
+            mysqli_query($conn, "UPDATE `session` SET `status`='0' WHERE user_id='$id_login'");
+            mysqli_query($conn, "INSERT INTO session(`id`, `user_id`, `status`, `token`) VALUES (NULL, '$id_login', '1', '$session_token')");
+            //INSERTING SESSION
             echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
             exit();
           }
