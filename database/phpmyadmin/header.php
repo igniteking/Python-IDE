@@ -171,6 +171,9 @@ $severtime = $end_time - $start_time;
                   <a href='user.php'><i class='fa fa-database' aria-hidden='true'></i> User Data</a>
               </li>
               <li>
+                  <a href='inventory.php'><i class='fa fa-briefcase' aria-hidden='true'></i> Inventory</a>
+              </li>
+              <li>
                   <a href='upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
               </li>
               <li>

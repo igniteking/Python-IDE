@@ -92,11 +92,12 @@
     $course_color = @$_POST['course_color'];
     $hints = @$_POST['hints'];
     $answer = @$_POST['answer'];
+    $cat_id = @$_POST['cat_id'];
     $couse_data_final = str_replace("'","&#x27;",$course_data);
     $final_answer = str_replace("'","&#x27;",$answer);
   
     $sql = "UPDATE `courses` SET `course_topic`='$course_topic', `course_category`='$course_category', `course_data`='$couse_data_final',
-    `course_color`='$course_color', `hints`='$hints', `answer`='$final_answer' Where id=$id";
+    `course_color`='$course_color', `hints`='$hints', `answer`='$final_answer' , `cat_id`='$cat_id' Where id=$id";
   $rt = mysqli_query($conn, $sql);
   if($rt) {
    echo "Done!";
@@ -104,14 +105,6 @@
   } else{
    echo "<h1> ERROR!</h1> ". $sql;
   }
-  $cat_id = @$_POST['cat_id'];
-  $sql2 = "UPDATE `sub_cat_match` SET `cat_id`= '$cat_id' WHERE course_id = '$moduleid'";
-  $rt2 = mysqli_query($conn, $sql2);
-  if($rt2) {
-    echo "Done!";
-   } else{
-    echo "<h1> ERROR!</h1> ". $sql2;
-   }
 }
 ?>
 <h2 class="mb-4">Update Courses Form</h2>
@@ -167,7 +160,7 @@
         $cat_name = $rows['cat_name'];
         $cat_type = $rows['cat_type'];
     ?>
-      <option value="<?php echo $categoryid;?>"><?php echo '0' .$categoryid, ' ' .$cat_name; }?></option>
+      <option value="<?php echo $categoryid;?>"><?php echo $cat_name; }?></option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>

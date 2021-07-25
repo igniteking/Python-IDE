@@ -102,17 +102,8 @@
         ?>
 <h2 class='mb-4'><?php echo $cat_name;}?></h2>
 <div class='row mt-12'>
-  <?php 
-    $query = "SELECT * from sub_cat_match WHERE cat_id = $finalid";
-    $result = mysqli_query($conn, $query);
-    while($rows = mysqli_fetch_assoc($result))
-        {
-        $id = $rows['id'];
-        $cat_id = $rows['cat_id'];
-        $course_id = $rows['course_id'];
-        ?>
 <?php
-        $query2 = "SELECT * from courses WHERE id = $course_id";
+        $query2 = "SELECT * from courses WHERE cat_id = $category_id";
         $result2 = mysqli_query($conn, $query2);
         while($rows = mysqli_fetch_assoc($result2))
         {
@@ -123,7 +114,9 @@
         $course_color = $rows['course_color'];
         $hints = $rows['hints'];
         $answer = $rows['answer'];
+        $cat_id = $rows['cat_id'];
         ?>
+
         <?php  if ($ut == 'student') {
           if($active == 1) {
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
@@ -160,8 +153,6 @@
         <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
       </div>"; 
       } else {}?>
-
-    <?php } ?>
 <style>
   body {
   -ms-overflow-style: none;  /* IE and Edge */
