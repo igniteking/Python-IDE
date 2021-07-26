@@ -151,16 +151,22 @@
   <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="cat_id">
       <?php
-        $query3 = "SELECT * from category";
+        $query3 = "SELECT cat_id from courses WHERE id=$id";
         $result3 = mysqli_query($conn, $query3);
 
+        while($rows = mysqli_fetch_assoc($result3))
+        {
+        $cat_id = $rows['cat_id'];
+
+        $query3 = "SELECT * from category";
+        $result3 = mysqli_query($conn, $query3);
         while($rows = mysqli_fetch_assoc($result3))
         {
         $categoryid = $rows['id'];
         $cat_name = $rows['cat_name'];
         $cat_type = $rows['cat_type'];
     ?>
-      <option value="<?php echo $categoryid;?>"><?php echo $cat_name; }?></option>
+      <option value="<?php echo $categoryid;?>"><?php echo $cat_name; }}?></option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>

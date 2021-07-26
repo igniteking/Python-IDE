@@ -1,6 +1,7 @@
 <!doctype html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <html lang="en">
+<link rel="icon" type="image/png" sizes="192x192" href="images/main.png">
 <?php
 if (isset($_SESSION['email'])) {
 

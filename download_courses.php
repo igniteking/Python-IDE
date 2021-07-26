@@ -7,7 +7,7 @@
 */
 // Database Connection
 // get Users
-$query = "SELECT * FROM users";
+$query = "SELECT * FROM courses";
 if (!$result = mysqli_query($conn, $query)) {
     exit(mysqli_error($conn));
 }
@@ -20,9 +20,9 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=Users.csv');
+header('Content-Disposition: attachment; filename=Sims.csv');
 $output = fopen('php://output', 'w');
-fputcsv($output, array('No', 'Username', 'Email', 'Mobile', 'Active', 'State', 'Postalcode', 'Education', 'Country', 'User-Type'));
+fputcsv($output, array('Id', 'Course Topic', 'Course Language', 'Course Data', 'Course Card Color', 'Hint', 'Answer', 'Category Id'));
 
 if (count($users) > 0) {
     foreach ($users as $row) {

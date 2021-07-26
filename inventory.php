@@ -100,10 +100,123 @@
                 </div>
             </div>
         </nav>
-        <?php
+            <?php
+            //SQL and API To Import Sims
+            use Phppot\DataSource;
+
+            require_once 'DataSource.php';
+            $db = new DataSource();
+            $conn = $db->getConnection();
+
+            if (isset($_POST["import"])) {
+
+                $fileName = $_FILES["file"]["tmp_name"];
+
+                if ($_FILES["file"]["size"] > 0) {
+
+                    $file = fopen($fileName, "r");
+
+                    while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+
+                        $id = "";
+                        if (isset($column[0])) {
+                            $id = null;
+                        }
+                        $course_topic = "";
+                        if (isset($column[1])) {
+                            $course_topic = mysqli_real_escape_string($conn, $column[1]);
+                        }
+                        $course_category = "";
+                        if (isset($column[2])) {
+                            $course_category = mysqli_real_escape_string($conn, $column[2]);
+                        }
+                        $course_color = "";
+                        if (isset($column[3])) {
+                            $course_color = mysqli_real_escape_string($conn, $column[3]);
+                        }
+                        $hints = "";
+                        if (isset($column[4])) {
+                            $hints = mysqli_real_escape_string($conn, $column[4]);
+                        }
+                        $answer = "";
+                        if (isset($column[5])) {
+                            $answer = mysqli_real_escape_string($conn, $column[5]);
+                        }
+                        $cat_id = "";
+                        if (isset($column[6])) {
+                            $cat_id = "0";
+                        }
+
+                        $sqlInsert = "INSERT INTO `courses`(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`, `cat_id`)
+                   values (?,?,?,?,?,?,?,?)";
+                        $paramType = "isssssss";
+                        $paramArray = array(
+                            $id,
+                            $course_topic,
+                            $course_category,
+                            $course_data,
+                            $course_color,
+                            $hints,
+                            $answer,
+                            $cat_id
+                        );
+                        $insertId = $db->insert($sqlInsert, $paramType, $paramArray);
+
+                        if (!empty($insertId)) {
+                            $type = "success";
+                            $message = "CSV Data Imported into the Database";
+                            echo "<meta http-equiv=\"refresh\" content=\"0; url=#.php\">";
+                        } else {
+                            $type = "error";
+                            $message = "Problem in Importing CSV Data";
+                        }
+                    }
+                }
+            }
+            //End Of Code
+            ?>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#frmCSVImport").on("submit", function() {
+
+                        $("#response").attr("class", "");
+                        $("#response").html("");
+                        var fileType = ".csv";
+                        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + fileType + ")$");
+                        if (!regex.test($("#file").val().toLowerCase())) {
+                            $("#response").addClass("error");
+                            $("#response").addClass("display-block");
+                            $("#response").html("Invalid File. Upload : <b>" + fileType + "</b> Files.");
+                            return false;
+                        }
+                        return true;
+                    });
+                });
+            </script>
+            <div style="width: 48%; height: 220px; border: 2px solid #2a9d8f; border-radius: 8px; float: left; ">
+                <div style="padding: 40px;">
+                    <img src="images/excel.svg" width="80px" style="float: left; margin-right: 20px;">
+                    <h1 style="font-size: 16px; font-weight: 600; color: #444;">Import .csv</h1>
+                    <form class="form-horizontal" action="" method="post" name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
+                        <br><input type="file" name="file" id="file" accept=".csv" style="padding: 10px; border: 2px dashed #eee;"><br>
+                        <button type="submit" id="submit" name="import" class="btn-submit" style="background: #0ead69; color: #fff; font-weight: 600; font-size: 14px; border-radius: 4px; border: 1px solid #2a9d8f; padding: 10px 30px; float: right;"><i class="fa fa-upload" aria-hidden="true"></i> Import</button>
+                    </form>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            <div style="width: 48%; height: 220px; border: 2px solid #fcbf49; border-radius: 8px; float: left; margin-left: 20px;">
+                <div style="padding: 40px;">
+                    <img src="images/excel_export.svg" width="80px" style="float: left; margin-right: 20px;">
+                    <h1 style="font-size: 16px; font-weight: 600; color: #444;">Export .csv</h1><br>
+                    <f style='font-size: 13px; padding: 10px; border: 2px dashed #eee; '>Click The Button Below To Download</f><br><br>
+                    <a href="download_courses.php"><button id="download" name="download" style="background: #fcbf49; color: #fff; font-weight: 600; font-size: 14px; border-radius: 4px; border: 1px solid #fcbf49; padding: 10px 30px; float: right; text-decoration: none;" class="btn-submit"><i class="fa fa-download" aria-hidden="true"></i> Export</button></a>
+                </div>
+            </div>
+            <div style="clear: both;"></div><br><br>
+    <?php
         $sql = "SELECT * FROM category"
-        ?>
-        <?php
+    ?>
+    <?php
         $reg = @$_POST['register'];
         if ($reg) {
             $check = @$_POST['check'];
@@ -119,7 +232,7 @@
                 }
             }
         }
-        ?>
+    ?>
             <form class="form-inline" method="post" action="inventory.php" style="display: inline;">
                         <input type="submit" name="register" id="submit" value="Send" style="padding: 9px; font-weight: 700; border-top-right-radius: 8px; border-bottom-right-radius: 8px; color: #fff; background: #3f37c9; border: 2px solid #3f37c9; float: right;">
                         <select id="handlers" name="cat_id" style="width: auto; padding: 10px; border: 2px solid #eee; border-top-left-radius: 8px; border-bottom-left-radius: 8px; float: right;">
@@ -132,11 +245,9 @@
                                 $cat_name = $rows['cat_name'];
                                 $cat_type = $rows['cat_type'];
                             ?>
-                                <option value="<?php echo $id; ?>"><?php echo $cat_name;
-                                                                } ?></option>
+                                <option value="<?php echo $id; ?>"><?php echo $cat_name;} ?></option>
                         </select>
-                        <br><br><br><br>
-        <div class='tabs'> 
+                        <br><br><br><br><div class='tabs'><br><br>
                 <!-- Tab 1 & Content -->
                 <input type="radio" name="tab" id="tab1" role="tab" checked>
                 <label for="tab1" id="tab1-label">Inventory</label>
@@ -159,7 +270,6 @@
 
                             foreach ($result2 as $row) {
                             ?>
-
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" id="vehicle1" name="check[]" value="<?php echo $row['id']; ?>"></td>
