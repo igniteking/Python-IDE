@@ -61,21 +61,12 @@
     $course_color = @$_POST['course_color'];
     $hints = @$_POST['hints'];
     $answer = @$_POST['answer'];
-    $couse_data_final = str_replace("'", "&#x27;", $course_data);
-    $final_answer = str_replace("'", "&#x27;", $answer);
     $cat_id = @$_POST['cat_id'];
     if ($reg) {
       //Creating a connection
       //Inserting a record into the employee table
-      $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`) VALUES (NULL, '$course_topic','$course_category','$couse_data_final', '$course_color','$hints','$final_answer')";
+      $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`, `cat_id`) VALUES (NULL, '$course_topic','$course_category','$course_data', '$course_color','$hints','$answer','$cat_id')";
       mysqli_query($conn, $sql);
-      //Insert ID
-      $id = mysqli_insert_id($conn);
-      print("Insert ID: " . $id . "\n");
-
-      $sql2 = "INSERT INTO `sub_cat_match`(`id`, `cat_id`, `course_id`) VALUES (NULL, '$cat_id','$id')";
-      mysqli_query($conn, $sql2);
-      echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
     }
     ?>
     <h2 class="mb-4">Insert Courses Form</h2>
@@ -124,12 +115,11 @@
             $result = mysqli_query($conn, $query);
 
             while ($rows = mysqli_fetch_assoc($result)) {
-              $id = $rows['id'];
+              $categoryid = $rows['id'];
               $cat_name = $rows['cat_name'];
               $cat_type = $rows['cat_type'];
             ?>
-              <option value="<?php echo $id; ?>"><?php echo '0' . $id, ' ' . $cat_name;
-                                                } ?></option>
+              <option value="<?php echo $categoryid; ?>"><?php echo '0' . $categoryid, ' ' . $cat_name;} ?></option>
           </select>
           <label class="form-label" for="form6Example2">Course Category</label>
         </div>
@@ -150,7 +140,36 @@
       <!-- Submit button -->
       <input type="submit" name="reg" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
     </form>
-
+    <br><br>
+    <?php
+    $qwerty = @$_POST['qwerty'];
+    $numberedList = @$_POST['numberList'];
+    if ($qwerty) {
+      $ALTER = "ALTER TABLE courses DROP PRIMARY KEY;";
+      $ALTERdone = mysqli_query($conn, $ALTER);
+      $sql7 = "UPDATE courses SET id = id + 1 where id > $numberedList ORDER BY id ASC";
+      $rt7 = mysqli_query($conn, $sql7);
+      if ($rt7) {
+        echo "Done!";
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
+      } else {
+        echo "<h1> ERROR!</h1> " . $sql7;
+      }
+    }
+    ?>
+    <h2 class="mb-4">Insert Between</h2>
+    <form method="POST" action='upload.php' class="register-form" id="register-form">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <input type="number" id="form6Example1" class="form-control" name="numberList" />
+            <label class="form-label" for="form6Example1">Number after which this will be inserted</label>
+          </div>
+        </div>
+      <!-- Submit button -->
+      <input type="submit" name="qwerty" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+    </form>
 
 
     <br><br>
@@ -191,6 +210,7 @@
       <!-- Submit button -->
       <input type="submit" name="suvb" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
     </form>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

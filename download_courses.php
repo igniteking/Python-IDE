@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=Sims.csv');
+header('Content-Disposition: attachment; filename=Course Structure.csv');
 $output = fopen('php://output', 'w');
 fputcsv($output, array('Id', 'Course Topic', 'Course Language', 'Course Data', 'Course Card Color', 'Hint', 'Answer', 'Category Id'));
 

@@ -130,23 +130,26 @@
                         if (isset($column[2])) {
                             $course_category = mysqli_real_escape_string($conn, $column[2]);
                         }
-                        $course_color = "";
+                        $course_data = "";
                         if (isset($column[3])) {
-                            $course_color = mysqli_real_escape_string($conn, $column[3]);
+                            $course_data = mysqli_real_escape_string($conn, $column[3]);
+                        }
+                        $course_color = "";
+                        if (isset($column[4])) {
+                            $course_color = mysqli_real_escape_string($conn, $column[4]);
                         }
                         $hints = "";
-                        if (isset($column[4])) {
-                            $hints = mysqli_real_escape_string($conn, $column[4]);
+                        if (isset($column[5])) {
+                            $hints = mysqli_real_escape_string($conn, $column[5]);
                         }
                         $answer = "";
-                        if (isset($column[5])) {
-                            $answer = mysqli_real_escape_string($conn, $column[5]);
+                        if (isset($column[6])) {
+                            $answer = mysqli_real_escape_string($conn, $column[6]);
                         }
                         $cat_id = "";
-                        if (isset($column[6])) {
-                            $cat_id = "0";
+                        if (isset($column[7])) {
+                            $cat_id = mysqli_real_escape_string($conn, $column[7]);;
                         }
-
                         $sqlInsert = "INSERT INTO `courses`(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`, `cat_id`)
                    values (?,?,?,?,?,?,?,?)";
                         $paramType = "isssssss";
@@ -213,6 +216,18 @@
                 </div>
             </div>
             <div style="clear: both;"></div><br><br>
+            <a href="del_course.php" target=""><button type="button" onclick="showAlert()" style="float: left;" class="btn btn-outline-danger float-left"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Delete Course</button></a>
+        <br><br>
+        <div style="border: 1px solid; padding: 10px; width: 540px;">
+        <h6>1. Delete courses before importing bulk data</h6>
+        <h6>2. Chose the template file to bulk upload the data</h6>
+        <h6>3. Click on Import button to import data!</h6>
+    </div>
+        <script>
+            function showAlert() {
+                alert("Hello! Are you sure you want to delete this course!..");
+            }
+        </script>
     <?php
         $sql = "SELECT * FROM category"
     ?>
