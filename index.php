@@ -54,7 +54,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/css/style.css">
+		<link rel="stylesheet" href="style/css/css/style.css">
+    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   </head>
@@ -210,7 +211,13 @@ if ($result=mysqli_query($conn,$sql))
 ?>
       <!-- // code here // -->
       <div id='card' class='md-4'>
-      <div class="mt-5"><a href="download.php"><button class="btn btn-success profile-button" type="submit" name="upload_cover"><i class="fa fa-download"></i> Download .csv</button></a></div>
+      <div class="mt-5"><a href="download.php"><button class="btn btn-success profile-button" type="submit" name="upload_cover">
+      <lord-icon
+    src="https://cdn.lordicon.com/wxnxiano.json"
+    trigger="morph-two-way"
+    colors="primary:#ffffff,secondary:#ffffff"
+    style="width:50px;height: 50px">
+</lord-icon> Download .csv</button></a></div>
       
  </div>
  <div>
@@ -413,7 +420,7 @@ function generateData(value, i1, i2, step = 1) {
 <?php if ($ut == "student") { ?>
 <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
 <div class="carousel-cell">
-  <a href="category.php" style="text-decoration: none;"> <div style="padding: 20px;">
+  <a href="python_category.php" style="text-decoration: none;"> <div style="padding: 20px;">
   <img src="images/python.jpg" height="100px">
   <h5>Python</h5><br>
   <h6>High-level programming language</h6>
@@ -421,7 +428,7 @@ function generateData(value, i1, i2, step = 1) {
 </div></a>
 </div>
 <div class="carousel-cell">
-<a href="coming.php" style="text-decoration: none;"><div style="padding: 20px;">
+<a href="javascript_category.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/js.png" height="100px">
   <h5>Javascript</h5><br>
   <h6>Programming language</h6>

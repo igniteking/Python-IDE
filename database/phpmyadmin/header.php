@@ -32,7 +32,7 @@ $severtime = $end_time - $start_time;
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -99,7 +99,14 @@ $severtime = $end_time - $start_time;
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
-                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
+                    src='https://cdn.lordicon.com/gmzxduhd.json'
+                    trigger='loop'
+                    delay= '1000'
+                    colors='primary:#ffffff,secondary:#ffffff'
+                    style='width:50px;height:50px'>
+                </lord-icon> Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
                 <li>
                  <a href='index.php'>Home</a>
@@ -118,7 +125,13 @@ $severtime = $end_time - $start_time;
             if ($active == 1) {
               $active = "Active";
               echo "<li>
-                  <a href='progress.php'><i class='fa fa-tasks' aria-hidden='true'></i> Progress</a>
+                  <a href='progress.php'><lord-icon
+                  src='https://cdn.lordicon.com/gqdnbnwt.json'
+                  trigger='loop'
+                  delay='1000'
+                  colors='primary:#ffffff,secondary:#ffffff'
+                  style='width:50px;height:50px'>
+              </lord-icon> Progress</a>
                 </li>";
               $dialog = "";
             } else {
@@ -126,16 +139,42 @@ $severtime = $end_time - $start_time;
         ?>
         <?php
             echo " <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
+                src='https://cdn.lordicon.com/wxnxiano.json'
+                trigger='loop'
+                delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'></lord-icon> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='category.php'>Python</a>
+                      <a href='python/python_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/bkqtuigh.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Python</a>
                   </li>
-                  
+                  <li>
+                      <a href='javascript/javascript_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/kkwzhxjj.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Javascript</a>
+                  </li>
                 </ul>
               </li>
               <li>
-                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
+                <a href='profile.php'><lord-icon
+                src='https://cdn.lordicon.com/dxjqoygy.json'
+                trigger='loop'
+                delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Profile</a>
               </li>
             </ul>";
           } else {
@@ -144,7 +183,14 @@ $severtime = $end_time - $start_time;
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
-                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
+                    src='https://cdn.lordicon.com/gmzxduhd.json'
+                    trigger='loop'
+                    delay= '1000'
+                    colors='primary:#ffffff,secondary:#ffffff'
+                    style='width: 50px;height: 50px'>
+                </lord-icon> Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
                 <li>
                       <a href='index.php'>Home</a>
@@ -161,24 +207,70 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
+                src='https://cdn.lordicon.com/wxnxiano.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='category.php'>Python</a>
+                      <a href='python/python_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/bkqtuigh.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Python</a>
+                  </li>
+                  <li>
+                      <a href='javascript/javascript_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/kkwzhxjj.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Javascript</a>
                   </li>
                 </ul>
               </li>
               <li>
-                  <a href='user.php'><i class='fa fa-database' aria-hidden='true'></i> User Data</a>
+                  <a href='user.php'><lord-icon
+                  src='https://cdn.lordicon.com/jvucoldz.json'
+                    trigger='loop'
+                    delay='1000'
+                  colors='primary:#ffffff,secondary:#ffffff'
+                  style='width:50px;height:50px'>
+              </lord-icon> User Data</a>
               </li>
               <li>
-                  <a href='inventory.php'><i class='fa fa-briefcase' aria-hidden='true'></i> Inventory</a>
+                  <a href='inventory.php'><lord-icon
+                  src='https://cdn.lordicon.com/slkvcfos.json'
+                    trigger='loop'
+                    delay='1000'
+                  colors='primary:#ffffff,secondary:#ffffff'
+                  style='width:50px;height:50px'>
+              </lord-icon> Inventory</a>
               </li>
               <li>
-                  <a href='upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
+                  <a href='upload.php'><lord-icon
+                  src='https://cdn.lordicon.com/nocovwne.json'
+                    trigger='loop'
+                    delay='1000'
+                  colors='primary:#ffffff,secondary:#ffffff'
+                  style='width:50px;height:50px'>
+              </lord-icon> Upload Study Material</a>
               </li>
               <li>
-                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
+                <a href='profile.php'><lord-icon
+                src='https://cdn.lordicon.com/dxjqoygy.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Profile</a>
               </li>
             </ul>";
           } else {
@@ -187,7 +279,14 @@ $severtime = $end_time - $start_time;
             echo "
               <ul class='list-unstyled components mb-5'>
               <li class='active'>
-                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-home' aria-hidden='true'></i> Home</a>
+                <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
+                    src='https://cdn.lordicon.com/gmzxduhd.json'
+                    trigger='loop'
+                    delay= '1000'
+                    colors='primary:#ffffff,secondary:#ffffff'
+                    style='width: 50px;height: 50px'>
+                </lord-icon> Home</a>
                 <ul class='collapse list-unstyled' id='homeSubmenu'>
                 <li>
                       <a href='index.php'>Home</a>
@@ -204,10 +303,22 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><i class='fa fa-language' aria-hidden='true'></i> Courses</a>
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><lord-icon
+                src='https://cdn.lordicon.com/wxnxiano.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='python_module.php'>Python</a>
+                      <a href='python_module.php'> <lord-icon
+                      src='https://cdn.lordicon.com/bkqtuigh.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Python</a>
                   </li>
                 </ul>
               </li>
@@ -215,7 +326,13 @@ $severtime = $end_time - $start_time;
                   <a href='upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
               </li>
               <li>
-                <a href='profile.php'><i class='fa fa-user' aria-hidden='true'></i> Profile</a>
+                <a href='profile.php'><lord-icon
+                src='https://cdn.lordicon.com/dxjqoygy.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Profile</a>
               </li>
             </ul>";
           }

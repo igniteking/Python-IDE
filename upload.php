@@ -62,6 +62,12 @@
     $hints = @$_POST['hints'];
     $answer = @$_POST['answer'];
     $cat_id = @$_POST['cat_id'];
+    $course_topic = str_replace("'", "&#39;", $course_topic);
+    $course_category = str_replace("'", "&#39;", $course_category);
+    $course_data = str_replace("'", "&#39;", $course_data);
+    $course_color = str_replace("'", "&#39;", $course_color);
+    $hints = str_replace("'", "&#39;", $hints);
+    $answer = str_replace("'", "&#39;", $answer);
     if ($reg) {
       //Creating a connection
       //Inserting a record into the employee table
@@ -169,7 +175,7 @@
 
         <!-- Submit button -->
         <input type="submit" name="reg" id="signup" class="form-submit" value="Submit" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
-        <input type="submit" name="qwerty" id="signup" class="form-submit" value="Insert With ID" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; margin-top: 10px; margin-bottom: 20px; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
+        <input type="submit" name="qwerty" id="signup" class="form-submit" value="Insert After ID" style="width: 100%; padding: 10px; font-weight: 600; color: #fff; background: #3580ff; border: 1px solid #3580ff; margin-top: 10px; margin-bottom: 20px; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 20px;">
 
     </form>
     <br><br>

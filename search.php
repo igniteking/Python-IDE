@@ -72,7 +72,7 @@
                 $course_category = $row['course_category'];
         ?>
         <?php
-                echo $output = "<a href='python.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
+                echo $output = "<a href='python_ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
                         <div id='flip-card'>
                           <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
                           <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>

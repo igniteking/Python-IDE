@@ -260,7 +260,7 @@
                                     <b>Upload with 2:2 Ratio Image</b>
                                     <input type="file" name="img" id="upload" hidden /><label for="upload" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Profile Picture</label>
                             </div><br>
-                            <input class="btn btn-primary profile-button" type="submit" name="upload_cover" value="Upload" />
+                            <input class="btn btn-primary profile-button" type="submit" name="upload_cover" value="Upload Profile Picture" />
                         </div>
                         </form>
                         <?php
@@ -276,7 +276,7 @@
                         }
                         ?>
                         <form form method="POST" action="" enctype="multipart/form-data" style="display: inline;">
-                            <div class="mt-2 col-md-6"><input class="btn btn-danger delete-button" type="submit" name="delete_cover" value="Delete Profile Picture" /></div>
+                            <div class="mt-2 col-md-6"><input class="btn btn-danger delete-button" type="submit" name="delete_cover" value="Delete Profile Picture " /></div>
                         </form>
                     </div>
                 </div>
