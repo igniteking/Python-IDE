@@ -142,8 +142,7 @@
               $cat_name = $rows['cat_name'];
               $cat_type = $rows['cat_type'];
             ?>
-              <option value="<?php echo $categoryid; ?>"><?php echo '0' . $categoryid, ' ' . $cat_name;
-                                                        } ?></option>
+              <option value="<?php echo $categoryid; ?>"><?php echo '0' . $categoryid, ' ' . $cat_name;} ?></option>
           </select>
           <label class="form-label" for="form6Example2">Course Category</label>
         </div>
