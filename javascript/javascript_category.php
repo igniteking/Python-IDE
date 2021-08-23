@@ -63,7 +63,7 @@
         <li class="nav-item">
         <div class="input-group">
   <div class="form-outline">
-    <form action="search.php" method="GET">
+    <form action="../search.php" method="GET">
     <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
   <button type="submit" style="height: 40px;" class="btn btn-primary">Search
     <i class="fa fa-search"></i>
@@ -78,7 +78,7 @@
 <h2 class='mb-4'>Javascript Modules Index</h2>
 <div class='row mt-12'>
 <?php
-        $query = "SELECT * from category";
+        $query = "SELECT * from category WHERE cat_type = 'javascript'";
         $result = mysqli_query($conn, $query);
 
         while($rows = mysqli_fetch_assoc($result))
@@ -100,7 +100,7 @@
         <?php
         if ($ut == 'superadmin') {
         echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
-        <a href='javascript_module.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><b class='col-md-8' style='font-size: 20px; color: #000;'>$cat_name</b><a href='category_edit.php?id=$id'><i class='fa fa-pencil' style='float: right; color: blue; font-size: 24px; border: 2px solid blue; border-radius: 8px; padding: 10px' aria-hidden='true'></i></a></div></a>
+        <a href='javascript_module.php?id=$id'><div class='card-1' style=' overflow-y: scroll; padding: 20px;'><b class='col-md-8' style='font-size: 20px; color: #000;'>$cat_name</b><a href='../category_edit.php?id=$id'><i class='fa fa-pencil' style='float: right; color: blue; font-size: 24px; border: 2px solid blue; border-radius: 8px; padding: 10px' aria-hidden='true'></i></a></div></a>
         </div>"; 
       } else {}
      

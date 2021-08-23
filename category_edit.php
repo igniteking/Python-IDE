@@ -11,8 +11,8 @@
 }
 ?>
 <?php
-        $category_id = $_GET['id'];
-        ?>
+$category_id = $_GET['id'];
+?>
   	<title>Edit Category - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/css/style.css">
+		<link rel="stylesheet" href="style/css/css/style.css">
         
   </head>
   <body>
@@ -70,19 +70,34 @@
   $suvb = @$_POST['suvb'];
   $cat_name = @$_POST['cat_name'];
   $cat_type = @$_POST['cat_type'];
-if($suvb) {
-  $sql2 = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
-    $rt2 = mysqli_query($conn, $sql2);
-    if($rt2) {
-        echo "Done!";
-        //echo "<meta http-equiv=\"refresh\" content=\"0; url=category.php \">";
-    } else{
-        echo "<h1> ERROR!</h1> ". $sql2;
-    }
+
+if($cat_type == 'javascript'){
+  if($suvb) {
+    $sql_javascript = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
+    $rt_javascript = mysqli_query($conn, $sql_javascript);
+      if($rt_javascript) {
+          echo "Done!";
+          //echo "<meta http-equiv=\"refresh\" content=\"0; url=javascript/javascript_category.php \">";
+      } else{
+          echo "<h1> ERROR!</h1> ". $sql_javascript;
+      }
   }
-?><?php
-$id = $_GET['id'];
-$query = "SELECT * from category WHERE id=$id";
+}
+if($cat_type == 'python'){
+  if($suvb) {
+  $sql_python = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
+  $rt_python = mysqli_query($conn, $sql_python);
+  if($rt_python) {
+      echo "Done!";
+      //echo "<meta http-equiv=\"refresh\" content=\"0; url=python/python_category.php \">";
+  } else{
+      echo "<h1> ERROR!</h1> ". $sql_python;
+  }
+}
+}
+?>
+<?php
+$query = "SELECT * from category WHERE id=$category_id";
 $result = mysqli_query($conn, $query);
 
 while($rows = mysqli_fetch_assoc($result))
@@ -92,7 +107,7 @@ $cat_name = $rows['cat_name'];
 $cat_type = $rows['cat_type'];
 ?>
 <h2 class="mb-4">Edit Category</h2>
-<form method="POST" action='category_edit.php' class="register-form" id="register-form">
+<form method="POST" action='category_edit.php?id=<?php echo $category_id; ?>' class="register-form" id="register-form">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4">
     <div class="col">
@@ -104,7 +119,9 @@ $cat_type = $rows['cat_type'];
     <div class="col">
       <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="cat_type">
+      <option><?php echo $cat_type;?></option>
       <option value="python">Python</option>
+      <option value="javascript">Javascript</option>
     </select>
         <label class="form-label" for="form6Example2">Sub-Category Language</label>
       </div>

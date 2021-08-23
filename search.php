@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/css/style.css">
+    <link rel="stylesheet" href="style/css/css/style.css">
 
 <body>
     <div id="content" class="p-4 p-md-5">
@@ -62,6 +62,7 @@
         $output = "";
         $submit = @$_GET['find'];
         $query = strip_tags(@$_GET['find']);
+        
         if ($submit) {
             $search = "SELECT * FROM courses WHERE course_topic LIKE '%$q%' LIMIT 20";
             $query = mysqli_query($conn, $search);
@@ -70,9 +71,10 @@
                 $course_topic = $row['course_topic'];
                 $course_data = $row['answer'];
                 $course_category = $row['course_category'];
+                $ide = '_ide'
         ?>
         <?php
-                echo $output = "<a href='python_ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
+                echo $output = "<a href='$course_category/$course_category$ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
                         <div id='flip-card'>
                           <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
                           <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>

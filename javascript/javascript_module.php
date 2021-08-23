@@ -64,7 +64,7 @@
         <li class="nav-item">
         <div class="input-group">
   <div class="form-outline">
-    <form action="search.php" method="GET">
+    <form action="../search.php" method="GET">
     <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
   <button type="submit" style="height: 40px;" class="btn btn-primary">Search
     <i class="fa fa-search"></i>
@@ -143,7 +143,7 @@
         <?php
         if ($ut == 'superadmin') {
         echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
-        <a href='module.php?id=$id'><div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
+        <a href='../module.php?id=$id'><div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
         </div>"; 
       } else {}
      

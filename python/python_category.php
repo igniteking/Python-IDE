@@ -63,7 +63,7 @@
         <li class="nav-item">
         <div class="input-group">
   <div class="form-outline">
-    <form action="search.php" method="GET">
+    <form action="../search.php" method="GET">
     <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
   <button type="submit" style="height: 40px;" class="btn btn-primary">Search
     <i class="fa fa-search"></i>
@@ -78,7 +78,7 @@
 <h2 class='mb-4'>Python Modules Index</h2>
 <div class='row mt-12'>
 <?php
-        $query = "SELECT * from category";
+        $query = "SELECT * from category WHERE cat_type = 'python'";
         $result = mysqli_query($conn, $query);
 
         while($rows = mysqli_fetch_assoc($result))

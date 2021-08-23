@@ -420,7 +420,7 @@ function generateData(value, i1, i2, step = 1) {
 <?php if ($ut == "student") { ?>
 <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
 <div class="carousel-cell">
-  <a href="python_category.php" style="text-decoration: none;"> <div style="padding: 20px;">
+  <a href="python/python_category.php" style="text-decoration: none;"> <div style="padding: 20px;">
   <img src="images/python.jpg" height="100px">
   <h5>Python</h5><br>
   <h6>High-level programming language</h6>
@@ -428,7 +428,7 @@ function generateData(value, i1, i2, step = 1) {
 </div></a>
 </div>
 <div class="carousel-cell">
-<a href="javascript_category.php" style="text-decoration: none;"><div style="padding: 20px;">
+<a href="javascript/javascript_category.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/js.png" height="100px">
   <h5>Javascript</h5><br>
   <h6>Programming language</h6>

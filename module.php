@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/css/style.css">
+		<link rel="stylesheet" href="style/css/css/style.css">
         <?php
         $id = $_GET['id'];
         $query = "SELECT * from courses WHERE id=$id";
@@ -120,7 +120,9 @@
     <div class="col">
       <div class="form-outline">
       <select class="form-control" id="exampleFormControlSelect1" name="course_category">
-      <option>Python</option>
+      <option><?php echo $course_category; ?></option>
+      <option value="python">Python</option>
+      <option value="javascript">Javascript</option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>
@@ -158,7 +160,7 @@
         {
         $cat_id = $rows['cat_id'];
 
-        $query3 = "SELECT * from category";
+        $query3 = "SELECT * from category where id=$cat_id";
         $result3 = mysqli_query($conn, $query3);
         while($rows = mysqli_fetch_assoc($result3))
         {
@@ -167,13 +169,30 @@
         $cat_type = $rows['cat_type'];
     ?>
       <option value="<?php echo $categoryid;?>"><?php echo $cat_name; }}?></option>
+      <?php
+        $query3 = "SELECT cat_id from courses WHERE id=$id";
+        $result3 = mysqli_query($conn, $query3);
+
+        while($rows = mysqli_fetch_assoc($result3))
+        {
+        $cat_id = $rows['cat_id'];
+
+        $query3 = "SELECT * from category";
+        $result3 = mysqli_query($conn, $query3);
+        while($rows = mysqli_fetch_assoc($result3))
+        {
+        $categoryid = $rows['id'];
+        $cat_name = $rows['cat_name'];
+        $cat_type = $rows['cat_type'];
+    ?>
+    <option value="<?php echo $categoryid;?>"><?php echo $cat_name; }}?></option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>
   </div>
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" name="hints" 
+    <input type="text" id="form6Example4" class="form-control" value="<?Php echo $hints; ?>" name="hints">
     <label class="form-label" for="form6Example4">hints</label>
   </div>
 

@@ -28,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/css/style.css">
+		<link rel="stylesheet" href="style/css/css/style.css">
   </head>
   <body>
   <div id="content" class="p-4 p-md-5">
@@ -68,7 +68,7 @@ $reg = @$_POST['reg'];
 $username = strip_tags(@$_POST['username']);
 $email = strip_tags(@$_POST['email']);
 
-require 'class/class.phpmailer.php';
+require 'style/class/class.phpmailer.php';
                                     $mail = new PHPMailer();
                                     $mail->isSMTP();
                                     $mail->SMTPAuth = true;
