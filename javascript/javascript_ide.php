@@ -153,7 +153,7 @@
 <div class="row mt-12">
   <h2 class="col-md-4" id="head"><?php echo $course_topic; ?></h2>
   <h2 class="col-md-4" id="subhead">Code Here!</h2>
-      <div class="col-md-4"><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:right;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
+  <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="#"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 12px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 12px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
 </div>
       <script>
         function showAlert() {
@@ -169,7 +169,7 @@
       </script>
     </div>
     <div class="row mt-3">
-      <div class="col-md-4" id="collums" style="border-radius: 10px; color: #000; background: #EDF0F6"><br>
+    <div class="col-md-4" id="collums" style="border-radius: 10px; height: 750px; color: #000; background: #EDF0F6; overflow-y: scroll;"><br>
         <div id="course_data"><?php echo $course_data; ?></div><br>
         <center><h5 id="course_topic" style="background: #fff; width: 80%; color: black; border-radius: 4px;">Hint</h5></center>
         <center><div id="hint" style="background: #fff; color: black; width: 80%; border-radius: 4px; height: auto; padding: 5px;"><b><?php echo $hints; ?></b></div></center><br>
