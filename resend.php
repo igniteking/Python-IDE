@@ -34,7 +34,7 @@ try {
     
         //Recipients
         $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-        $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+        $mail->addAddress($email);               //Name is optional
         $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
         
         //Content

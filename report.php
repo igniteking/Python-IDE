@@ -1,10 +1,9 @@
 <!doctype html>
-<?php 
+<?php include_once("database/phpmyadmin/connection.php"); ?>
+<?php include_once("database/phpmyadmin/header.php"); 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-include_once("database/phpmyadmin/connection.php"); ?>
-<?php include_once("database/phpmyadmin/header.php"); ?>
+use PHPMailer\PHPMailer\Exception;?>
 <html lang="en">
   <head>
   <?php
@@ -72,6 +71,10 @@ $reg = @$_POST['reg'];
 $username = strip_tags(@$_POST['username']);
 $email = strip_tags(@$_POST['email']);
 
+if ($reg) {
+  # code...
+  $email = "khanzaidan786@gmail.com";
+
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 //Create an instance; passing `true` enables exceptions
@@ -88,9 +91,8 @@ $mail = new PHPMailer(true);
     
         //Recipients
         $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-        $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+        $mail->addAddress($email);               //Name is optional
         $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
-        
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Welcome To Learn GlowEDU';
@@ -105,6 +107,7 @@ $mail = new PHPMailer(true);
     </br></br> https://learn.glowedu.co.in";
         $mail->AddAddress($email);
         $mail->Send();
+}
 
 ?>
 

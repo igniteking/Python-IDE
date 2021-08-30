@@ -188,12 +188,7 @@ function myFunction() {
 <div id="answer" style="display: none;"><?php echo $answer; ?></div><br>
       </div>
       <div class="col">
-      <iframe class="iframe-prog-ide" src="https://www.programiz.com/cpp-programming/online-compiler/" style="  
-  width: 100%;
-  height: 750px;
-  transform-origin: 2px;
-  transform-origin: bottom; 
-  transform: scale(1.0);"></iframe></div>
+      <iframe style="overflow: hidden;" src="c_compiler.html" width="100%" height="100%"></iframe></div>
         <script src="../js/jquery.min.js"></script>
         <script src="../js/popper.js"></script>
         <script src="../js/bootstrap.min.js"></script>
