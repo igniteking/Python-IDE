@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <html lang="en">
-
+    <?php
+//Import PHPMailer classes into the global namespace
+                                        //These must be at the top of your script, not inside a function
+                                        use PHPMailer\PHPMailer\PHPMailer;
+                                        use PHPMailer\PHPMailer\SMTP;
+                                        use PHPMailer\PHPMailer\Exception;
+                                        ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +18,7 @@
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style/css/style.css">
     <?php
     if (isset($_SESSION['username'])) {
         echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
@@ -73,19 +79,28 @@
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                                         mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0')");
-                                        require 'class/class.phpmailer.php';
-                                        $mail = new PHPMailer();
-                                        $mail->isSMTP();
-                                        $mail->SMTPAuth = true;
-                                        $mail->SMTPSecure = 'tls';
-                                        $mail->Host = 'smtp.gmail.com';
-                                        $mail->Port = '587';
-                                        $mail->isHTML();
-                                        $mail->Username = 'learn.glowedu@gmail.com';
-                                        $mail->Password = 'Website@123';
-                                        $mail->SetFrom('learn.glowedu@gmail.com');
-                                        $mail->Subject = "Welcome To Learn GlowEDU";
-                                        $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
+                                        //Load Composer's autoloader
+                                        require 'vendor/autoload.php';
+                                        //Create an instance; passing `true` enables exceptions
+                                        $mail = new PHPMailer(true);
+                                                //Server settings
+                                                $mail->isSMTP();                                            //Send using SMTP
+                                                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                                                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                                                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+                                                $mail->Password   = 'Website@123';                               //SMTP password
+                                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                                                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                                            
+                                                //Recipients
+                                                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+                                                $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+                                                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+                                                
+                                                //Content
+                                                $mail->isHTML(true);                                  //Set email format to HTML
+                                                $mail->Subject = 'Welcome To Learn GlowEDU';
+                                                $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
                                         Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
                                         Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
                                         Once done with the registration you will be able to access the course <br>

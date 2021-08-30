@@ -77,7 +77,7 @@ if($cat_type == 'javascript'){
     $rt_javascript = mysqli_query($conn, $sql_javascript);
       if($rt_javascript) {
           echo "Done!";
-          //echo "<meta http-equiv=\"refresh\" content=\"0; url=javascript/javascript_category.php \">";
+          echo "<meta http-equiv=\"refresh\" content=\"0; url=javascript/javascript_category.php \">";
       } else{
           echo "<h1> ERROR!</h1> ". $sql_javascript;
       }
@@ -89,9 +89,33 @@ if($cat_type == 'python'){
   $rt_python = mysqli_query($conn, $sql_python);
   if($rt_python) {
       echo "Done!";
-      //echo "<meta http-equiv=\"refresh\" content=\"0; url=python/python_category.php \">";
+      echo "<meta http-equiv=\"refresh\" content=\"0; url=python/python_category.php \">";
   } else{
       echo "<h1> ERROR!</h1> ". $sql_python;
+  }
+}
+}
+if($cat_type == 'c++'){
+  if($suvb) {
+  $sql_cplus = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
+  $rt_pcplus = mysqli_query($conn, $sql_cplus);
+  if($rt_pcplus) {
+      echo "Done!";
+      echo "<meta http-equiv=\"refresh\" content=\"0; url=c++/c++_category.php \">";
+  } else{
+      echo "<h1> ERROR!</h1> ". $sql_cplus;
+  }
+}
+}
+if($cat_type == 'c'){
+  if($suvb) {
+  $sql_c = "UPDATE `category` SET `cat_name`='$cat_name',`cat_type`='$cat_type' WHERE id='$category_id'";
+  $rt_c = mysqli_query($conn, $sql_c);
+  if($rt_c) {
+      echo "Done!";
+      echo "<meta http-equiv=\"refresh\" content=\"0; url=c/c_category.php \">";
+  } else{
+      echo "<h1> ERROR!</h1> ". $sql_c;
   }
 }
 }
@@ -122,6 +146,8 @@ $cat_type = $rows['cat_type'];
       <option><?php echo $cat_type;?></option>
       <option value="python">Python</option>
       <option value="javascript">Javascript</option>
+      <option value="c++">C++</option>
+      <option value="c">C</option>
     </select>
         <label class="form-label" for="form6Example2">Sub-Category Language</label>
       </div>

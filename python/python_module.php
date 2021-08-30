@@ -53,13 +53,13 @@
       <img src="../images/main.png" width ="40px">
       </li>
         <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About Us</a>
+            <a class="nav-link" href="../about.php">About Us</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
+            <a class="nav-link" href="../contact.php">Contact</a>
         </li>
         <li class="nav-item">
         <div class="input-group">
@@ -86,7 +86,7 @@
             $dialog = "";
         } else {
             $active = "Verify Your Email!";
-            echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='index.php' style='color: #eee'><u>HOME</u></a> and Verify your E-mail to access the modules!</p>";
+            echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='../index.php' style='color: #eee'><u>HOME</u></a> and Verify your E-mail to access the modules!</p>";
         }
       }
       ?>
@@ -149,7 +149,7 @@
      
         if ($ut == 'admin') {
         echo "
-        <a href='module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
+        <a href='../module.php?id=$id'><div id='card' class='col-md-4' style='margin-top: 15px;'>
         <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
       </div>"; 
       } else {}?>

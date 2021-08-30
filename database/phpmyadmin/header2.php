@@ -56,22 +56,8 @@ $severtime = $end_time - $start_time;
           }
         }
         ?>
-        <?php
-        if (!isset($_SESSION['email'])) {
-        } else {
-          $check_pic = mysqli_query($conn, "SELECT profile_pic from users WHERE email = '$email'");
-          $get_pic_row = mysqli_fetch_assoc($check_pic);
-          $profile_pic_db = $get_pic_row['profile_pic'];
-          if ($profile_pic_db == "") {
-            $profile_pic = "<center><img class='rounded-circle mt-5' width='150px' height='150px;' src='../images/user.png'></center><br>";
-            echo $profile_pic;
-          } else {
-            $profile_pic2 = "../userdata/" . $profile_pic_db;
-            echo "<center><img class='rounded-circle mt-5' width='150px' height='150px;' src='$profile_pic2'></center><br>";
-          }
-          echo '<center><h4 style="color: white;"><a href="profile.php">' . $user . '</a></h4><br></center>';
-        }
-        ?>
+        <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='../images/logo.jpeg'></center><br>
+      <center><h4 style="color: white;"><a href="profile.php"><?php echo $user; ?></a></h4><br></center>
 
 
         <?php
@@ -164,6 +150,24 @@ $severtime = $end_time - $start_time;
                       style='width:50px;height:50px'>
                   </lord-icon> Javascript</a>
                   </li>
+                  <li>
+                      <a href='../c++/c++_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C++</a>
+                  </li>
+                  <li>
+                      <a href='../c/c_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C</a>
+                  </li>
                 </ul>
               </li>
               <li>
@@ -232,6 +236,24 @@ $severtime = $end_time - $start_time;
                       colors='primary:#ffffff,secondary:#ffffff'
                       style='width:50px;height:50px'>
                   </lord-icon> Javascript</a>
+                  </li>
+                  <li>
+                      <a href='../c++/c++_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C++</a>
+                  </li>
+                  <li>
+                      <a href='../c/c_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C</a>
                   </li>
                 </ul>
               </li>
@@ -302,7 +324,8 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><lord-icon
+                <a href='#pageSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'>
+                <lord-icon
                 src='https://cdn.lordicon.com/wxnxiano.json'
                   trigger='loop'
                   delay='1000'
@@ -311,7 +334,7 @@ $severtime = $end_time - $start_time;
             </lord-icon> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='../python_module.php'> <lord-icon
+                      <a href='../python/python_category.php'><lord-icon
                       src='https://cdn.lordicon.com/bkqtuigh.json'
                       trigger='loop'
                       delay='1000'
@@ -319,10 +342,43 @@ $severtime = $end_time - $start_time;
                       style='width:50px;height:50px'>
                   </lord-icon> Python</a>
                   </li>
+                  <li>
+                      <a href='../javascript/javascript_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/kkwzhxjj.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> Javascript</a>
+                  </li>
+                  <li>
+                      <a href='../c++/c++_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C++</a>
+                  </li>
+                  <li>
+                      <a href='../c/c_category.php'><lord-icon
+                      src='https://cdn.lordicon.com/ptbbcteb.json'
+                      trigger='loop'
+                      delay='1000'
+                      colors='primary:#ffffff,secondary:#ffffff'
+                      style='width:50px;height:50px'>
+                  </lord-icon> C</a>
+                  </li>
                 </ul>
               </li>
               <li>
-                  <a href='../upload.php'><i class='fa fa-graduation-cap' aria-hidden='true'></i> Upload Study Material</a>
+                  <a href='../upload.php'><lord-icon
+                  src='https://cdn.lordicon.com/nocovwne.json'
+                    trigger='loop'
+                    delay='1000'
+                  colors='primary:#ffffff,secondary:#ffffff'
+                  style='width:50px;height:50px'>
+              </lord-icon> Upload Study Material</a>
               </li>
               <li>
                 <a href='profile.php'><lord-icon

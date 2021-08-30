@@ -442,7 +442,7 @@ function generateData(value, i1, i2, step = 1) {
   C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</div>
 </div></a>
 <div class="carousel-cell">
-<a href="coming.php" style="text-decoration: none;">  <div style="padding: 20px;">
+<a href="c++/c++_category.php" style="text-decoration: none;">  <div style="padding: 20px;">
   <img src="images/c++.svg" height="100px">
   <h5>C++</h5>
   <h6>Programming language</h6>

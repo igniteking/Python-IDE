@@ -123,6 +123,8 @@
       <option><?php echo $course_category; ?></option>
       <option value="python">Python</option>
       <option value="javascript">Javascript</option>
+      <option value="c++">C++</option>
+      <option value="c">C</option>
     </select>
         <label class="form-label" for="form6Example2">Course Category</label>
       </div>

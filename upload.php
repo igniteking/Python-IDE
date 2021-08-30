@@ -113,6 +113,8 @@
             <select class="form-control" id="exampleFormControlSelect1" name="course_category">
               <option value="python">Python</option>
               <option value="javascript">JavaScript</option>
+              <option value="c++">C++</option>
+              <option value="c">C</option>
             </select>
             <label class="form-label" for="form6Example2">Course Category</label>
           </div>
@@ -210,6 +212,8 @@
             <select class="form-control" id="exampleFormControlSelect1" name="cat_type">
               <option value="python">Python</option>
               <option value="javascript">Javascript</option>
+              <option value="c++">C++</option>
+              <option value="c">C</option>
             </select>
             <label class="form-label" for="form6Example2">Sub-Category Language</label>
           </div>

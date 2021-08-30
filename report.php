@@ -1,5 +1,9 @@
 <!doctype html>
-<?php include_once("database/phpmyadmin/connection.php"); ?>
+<?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+include_once("database/phpmyadmin/connection.php"); ?>
 <?php include_once("database/phpmyadmin/header.php"); ?>
 <html lang="en">
   <head>
@@ -68,31 +72,41 @@ $reg = @$_POST['reg'];
 $username = strip_tags(@$_POST['username']);
 $email = strip_tags(@$_POST['email']);
 
-require 'style/class/class.phpmailer.php';
-                                    $mail = new PHPMailer();
-                                    $mail->isSMTP();
-                                    $mail->SMTPAuth = true;
-                                    $mail->SMTPSecure = 'tls';
-                                    $mail->Host = 'smtp.gmail.com';
-                                    $mail->Port = '587';
-                                    $mail->isHTML();
-                                    $mail->Username = 'learn.glowedu@gmail.com';
-                                    $mail->Password = 'Website@123';
-                                    $mail->SetFrom('learn.glowedu@gmail.com');
-                                    $mail->Subject = "Greetings from Glowworm Academy!";
-                                    $mail->Body = "Dear $username, </br> This is in reference to the error/bug reported by you on our platform.
-                                    We are grateful to vigilant users like you that help us improve our portal's learning experience.
-                                    Rest assured the bug/error reported by you will be solved within no time as we are commited to offer 
-                                    the best learning experience possible to our users and our team is working hard to achieve this.
-                                    This mail contains the details of the bug/error submitted by you along with the screenshot.
-                                    Regards,
-                                    Team Glowworm
-                                <br><br>
-                                </br></br> https://learn.glowedu.co.in";
-                                    $mail->AddAddress($email);
-                                    $mail->Send();
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
-                                    ?>
+        //Server settings
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+        $mail->Password   = 'Website@123';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    
+        //Recipients
+        $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+        $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+        $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+        
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'Welcome To Learn GlowEDU';
+        $mail->Body = "Dear $username, </br> This is in reference to the error/bug reported by you on our platform.
+        We are grateful to vigilant users like you that help us improve our portal's learning experience.
+        Rest assured the bug/error reported by you will be solved within no time as we are commited to offer 
+        the best learning experience possible to our users and our team is working hard to achieve this.
+        This mail contains the details of the bug/error submitted by you along with the screenshot.
+        Regards,
+        Team Glowworm
+    <br><br>
+    </br></br> https://learn.glowedu.co.in";
+        $mail->AddAddress($email);
+        $mail->Send();
+
+?>
 
 <h6>Report Us If somethig is wrong</h6><br>
 <form method="POST" action ="report.php">
