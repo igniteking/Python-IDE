@@ -9,6 +9,8 @@ date_default_timezone_set('Asia/Kolkata');
 if (isset($_SESSION['email'])) {
     $email = $_SESSION["email"];
     $token = $_SESSION['session_token'];
+    $id_login = $_SESSION['id'];
 } else {
     $email = "No User";
 }
+?>

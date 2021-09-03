@@ -16,7 +16,8 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <!-- Main css -->
     <link rel="stylesheet" href="style/css/style.css">
     <?php
@@ -36,17 +37,6 @@
                 <i class="fa fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="registration.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -78,7 +68,7 @@
                                 if (preg_match("/[a-z]/", $password)) {
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')");
+                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '1')");
                                         //Load Composer's autoloader
                                         require 'vendor/autoload.php';
                                         //Create an instance; passing `true` enables exceptions
@@ -162,7 +152,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Register</h2>
-                        <form method="POST" action='registration.php' class="register-form" id="register-form">
+                        <form method="POST" action='registration_refral.php' class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="name" placeholder="Your Name" />
@@ -193,7 +183,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/join.svg" alt="sing up image"></figure>
+                    <img src="images/join.svg" alt="sing up image"></figure>
                         <b><a href="login.php" style="color: blue;" class="signup-image-link">I am already member</a></b>
                     </div>
                 </div>

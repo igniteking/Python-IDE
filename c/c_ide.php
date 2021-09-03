@@ -188,7 +188,8 @@ function myFunction() {
 <div id="answer" style="display: none;"><?php echo $answer; ?></div><br>
       </div>
       <div class="col">
-      <iframe style="overflow: hidden;" src="c_compiler.html" width="100%" height="100%"></iframe></div>
+      <iframe style="overflow: hidden;" src="c_compiler.html" width="100%" height="100%"  style="overflow-y : none;"></iframe>
+        </div>
         <script src="../js/jquery.min.js"></script>
         <script src="../js/popper.js"></script>
         <script src="../js/bootstrap.min.js"></script>

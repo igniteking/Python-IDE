@@ -51,7 +51,8 @@
   	<title>Dashboard - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="style/css/css/style.css">
@@ -424,30 +425,75 @@ function generateData(value, i1, i2, step = 1) {
   <img src="images/python.jpg" height="100px">
   <h5>Python</h5><br>
   <h6>High-level programming language</h6>
-  Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.
-</div></a>
+  Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br></a>
+  <input type="button" value="Buy Course" style="text-decoration: none; margin-top: 70px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; ">
+</div>
 </div>
 <div class="carousel-cell">
 <a href="javascript/javascript_category.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/js.png" height="100px">
   <h5>Javascript</h5><br>
   <h6>Programming language</h6>
-  JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.</div>
-</div></a>
+  JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br></a>
+  <input type="button" value="Buy Course"style="text-decoration: none; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; ">
+</div>
+</div>
 <div class="carousel-cell">
-<a href="c/c_category.php"" style="text-decoration: none;"><div style="padding: 20px;">
+<a href="c/c_category.php" style="text-decoration: none;"><div style="padding: 20px;">
   <img src="images/c.png" height="100px">
   <h5>C</h5><br>
   <h6>Programming language</h6>
-  C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</div>
-</div></a>
+  C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br></a>
+  <form>
+  <input type="textbox" name="name" id="name" placeholder="Enter your name"/><br/><br/>
+  <input type="textbox" name="amt" id="amt" placeholder="Enter your amt"/>
+  <input type="button" name="btn" id="btn" onclick="pay_now()" value="Buy Course" style="text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; ">
+  </form>
+  <script>
+    function pay_now(){
+        var name=jQuery('#name').val();
+        var amt=jQuery('#amt').val();
+        
+         jQuery.ajax({
+               type:'post',
+               url:'razorpay/razorpay/payment_process.php',
+               data:"amt="+amt+"&name="+name,
+               success:function(result){
+                   var options = {
+                        "key": "rzp_test_j1EvXkK1lRyYz4", 
+                        "amount": amt*100, 
+                        "currency": "INR",
+                        "name": "GlowEDU",
+                        "description": "Python-Course",
+                        "image": "images/logo.jpeg",
+                        "handler": function (response){
+                           jQuery.ajax({
+                               type:'post',
+                               url:'razorpay/razorpay/payment_process.php',
+                               data:"payment_id="+response.razorpay_payment_id,
+                               success:function(result){
+                                   window.location.href="razorpay/razorpay/thank_you.php";
+                               }
+                           });
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+               }
+           });
+    }
+</script>
+</div>
+</div>
 <div class="carousel-cell">
 <a href="c++/c++_category.php" style="text-decoration: none;">  <div style="padding: 20px;">
   <img src="images/c++.svg" height="100px">
   <h5>C++</h5>
   <h6>Programming language</h6>
-  C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".</div>
-</div></a>
+  C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br></a>
+  <button style="text-decoration: none; margin-top: 120px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; ">Buy Course</button>
+</div>
+</div>
 </div>
 <br><br>
 <h2 class='mb-4'>Hi! <?php echo $user; ?></h2> 
@@ -733,7 +779,7 @@ function generateData(value, i1, i2, step = 1) {
     .carousel-cell {
         width: 26%;
         border: 1px solid #ccc;
-        height: 400px;
+        height: 500px;
         background: #fff;
         margin-right: 40px;
         border-radius: 5px;

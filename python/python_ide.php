@@ -153,7 +153,7 @@
 <div class="row mt-12">
   <h2 class="col-md-4" id="head"><?php echo $course_topic; ?></h2>
   <h2 class="col-md-4" id="subhead">Code Here!</h2>
-      <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="../coming.php"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 12px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 12px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
+      <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="../coming.php"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 2px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 2px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
 </div>
       <script>
         function showAlert() {
