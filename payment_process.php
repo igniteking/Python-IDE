@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../database/phpmyadmin/connection.php');
+include('database/phpmyadmin/connection.php');
 if(isset($_POST['amt']) && isset($_POST['name'])){
     $amt=$_POST['amt'];
     $name=$_POST['name'];
@@ -15,4 +15,3 @@ if(isset($_POST['payment_id']) && isset($_SESSION['OID'])){
     $payment_id=$_POST['payment_id'];
     mysqli_query($conn,"update payment set payment_status='complete',payment_id='$payment_id' where id='".$_SESSION['OID']."'");
 }
-?>
