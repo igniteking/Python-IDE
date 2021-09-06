@@ -16,8 +16,6 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <!-- Main css -->
     <link rel="stylesheet" href="style/css/style.css">
     <?php
@@ -28,7 +26,6 @@
     }
     ?>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -42,16 +39,13 @@
     </nav>
     <br>
     <?php
-    $reg = @$_POST['reg'];
+    $reg = @$_POST['btn'];
     $username = strip_tags(@$_POST['username']);
     $email = strip_tags(@$_POST['email']);
     $password = strip_tags(@$_POST['password']);
     $mobile = strip_tags(@$_POST['mobile']);
-    $r_pswd = strip_tags(@$_POST['repeat-password']);
-    $date = date("Y-m-d");
+    $r_pswd = strip_tags(@$_POST['re_pass']);
     $vkey = md5(time() . $username);
-    $randomNum = substr(str_shuffle("0123456789"), 0, 4);
-    $mobile_otp = $randomNum;
     if ($reg) {
         if ($username && $password && $r_pswd) {
             $user_check = "SELECT username from users WHERE username='$username'";
@@ -68,7 +62,6 @@
                                 if (preg_match("/[a-z]/", $password)) {
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '1')");
                                         //Load Composer's autoloader
                                         require 'vendor/autoload.php';
                                         //Create an instance; passing `true` enables exceptions
@@ -100,7 +93,6 @@
                                     </br></br> https://learn.glowedu.co.in";
                                         $mail->AddAddress($email);
                                         $mail->Send();
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
                                     } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
@@ -172,19 +164,69 @@
                             <span><b>Password should contain atleast one Upper case letter </b></span><br>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
                             </div>
+                            <p><b>Select a new password</b></p>
+                                <select name="course_category_python" style="width:100%;">
+                                    <option value="">Select Course</option>
+                                    <option value="python">Python</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="c_plus">C++</option>
+                                    <option value="c">C</option>
+                                </select>
                             <div class="form-group">
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="reg" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" name="btn" id="signup" class="form-submit" value="Register" />
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                     <img src="images/join.svg" alt="sing up image"></figure>
-                        <b><a href="login.php" style="color: blue;" class="signup-image-link">I am already member</a></b>
+        <form>
+          <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+        </form>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      function pay_now() {
+        var name = jQuery('#name').val();
+        var email = jQuery('#email').val();
+        var amt = jQuery('#amt').val();
+        var mobile = jQuery('#mobile').val();
+        var re_pass = jQuery('#re_pass').val();
+        var course_category = jQuery('#course_category_python').val();
+        
+        jQuery.ajax({
+          type: 'post',
+          url: 'payment_process.php',
+          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          success: function(result) {
+            var options = {
+              "key": "rzp_test_j1EvXkK1lRyYz4",
+              "amount": amt * 100,
+              "currency": "INR",
+              "name": "GlowEDU",
+              "description": "Python-Course",
+              "image": "images/logo.jpeg",
+              "handler": function(response) {
+                jQuery.ajax({
+                  type: 'post',
+                  url: 'payment_process_refral.php',
+                  data: "payment_id=" + response.razorpay_payment_id,
+                  success: function(result) {
+                    window.location.href = "thank_you.php";
+                  }
+                });
+              }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+          }
+        });
+      }
+    </script>    
                     </div>
                 </div>
             </div>
