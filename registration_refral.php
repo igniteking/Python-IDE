@@ -78,7 +78,8 @@
                                 if (preg_match("/[a-z]/", $password)) {
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')");
+                                        $sql_insert = "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')";
+                                        mysqli_query($conn, $sql_insert);
                                         //Load Composer's autoloader
                                         require 'vendor/autoload.php';
                                         //Create an instance; passing `true` enables exceptions
@@ -94,7 +95,7 @@
                                             
                                                 //Recipients
                                                 $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-                                                $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+                                                $mail->addAddress($email);               //Name is optional
                                                 $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
                                                 
                                                 //Content
@@ -110,7 +111,8 @@
                                     </br></br> https://learn.glowedu.co.in";
                                         $mail->AddAddress($email);
                                         $mail->Send();
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
+                                        $last_id = mysqli_insert_id($conn);
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=python\">";
                                     } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
@@ -162,7 +164,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Register</h2>
-                        <form method="POST" action='registration.php' class="register-form" id="register-form">
+                        <form method="POST" action='registration_refral.php' class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="name" placeholder="Your Name" />
