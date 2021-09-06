@@ -16,6 +16,7 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
     <!-- Main css -->
     <link rel="stylesheet" href="style/css/style.css">
     <?php
@@ -26,6 +27,7 @@
     }
     ?>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -34,18 +36,32 @@
                 <i class="fa fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="registration.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
     <br>
     <?php
-    $reg = @$_POST['btn'];
+    $reg = @$_POST['reg'];
     $username = strip_tags(@$_POST['username']);
     $email = strip_tags(@$_POST['email']);
     $password = strip_tags(@$_POST['password']);
     $mobile = strip_tags(@$_POST['mobile']);
-    $r_pswd = strip_tags(@$_POST['re_pass']);
+    $r_pswd = strip_tags(@$_POST['repeat-password']);
+    $date = date("Y-m-d");
     $vkey = md5(time() . $username);
+    $randomNum = substr(str_shuffle("0123456789"), 0, 4);
+    $mobile_otp = $randomNum;
     if ($reg) {
         if ($username && $password && $r_pswd) {
             $user_check = "SELECT username from users WHERE username='$username'";
@@ -62,44 +78,40 @@
                                 if (preg_match("/[a-z]/", $password)) {
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')");
                                         //Load Composer's autoloader
-                                        ?>
-                                        <script>
-                                        var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
-        var amt = jQuery('#amt').val();
-        var course_category = jQuery('#course_category_c').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "C-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-    </script>
-                                        <?php
-                                        } else {
+                                        require 'vendor/autoload.php';
+                                        //Create an instance; passing `true` enables exceptions
+                                        $mail = new PHPMailer(true);
+                                                //Server settings
+                                                $mail->isSMTP();                                            //Send using SMTP
+                                                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                                                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                                                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+                                                $mail->Password   = 'Website@123';                               //SMTP password
+                                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                                                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                                            
+                                                //Recipients
+                                                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+                                                $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+                                                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+                                                
+                                                //Content
+                                                $mail->isHTML(true);                                  //Set email format to HTML
+                                                $mail->Subject = 'Welcome To Learn GlowEDU';
+                                                $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
+                                        Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
+                                        Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
+                                        Once done with the registration you will be able to access the course <br>
+                                        Regards,                                    <br>
+                                        Team Glowworm
+
+                                    </br></br> https://learn.glowedu.co.in";
+                                        $mail->AddAddress($email);
+                                        $mail->Send();
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
+                                    } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
                                         </center></div>";
@@ -150,7 +162,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Register</h2>
-                        <form method="POST" action='registration_refral.php' class="register-form" id="register-form">
+                        <form method="POST" action='registration.php' class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="name" placeholder="Your Name" />
@@ -170,38 +182,19 @@
                             <span><b>Password should contain atleast one Upper case letter </b></span><br>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                                <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
                             </div>
-                            <p><b>Select a new password</b></p>
-                                <select name="course_category_python" style="width:100%;">
-                                    <option value="">Select Course</option>
-                                    <option value="python">Python</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="c_plus">C++</option>
-                                    <option value="c">C</option>
-                                </select>
                             <div class="form-group">
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" onclick='pay_now()' name='btn' id="btn" class="form-submit" value="Register" />
+                                <input type="submit" name="reg" id="signup" class="form-submit" value="Register" />
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
-                    <img src="images/join.svg" alt="sing up image"></figure>
-                    <form>
-         <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='email' value='$email' style='display: none;' id='name' placeholder='Enter your email' />
-         <input type='textbox' name='course_category_c' value='c' style='display: none;' id='course_category_c' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
-         <input type='button' name='btn' id='btn' onclick='pay_now()' value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
-       </form>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
+                        <figure><img src="images/join.svg" alt="sing up image"></figure>
+                        <b><a href="login.php" style="color: blue;" class="signup-image-link">I am already member</a></b>
                     </div>
                 </div>
             </div>
