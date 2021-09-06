@@ -63,37 +63,43 @@
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                                         //Load Composer's autoloader
-                                        require 'vendor/autoload.php';
-                                        //Create an instance; passing `true` enables exceptions
-                                        $mail = new PHPMailer(true);
-                                                //Server settings
-                                                $mail->isSMTP();                                            //Send using SMTP
-                                                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                                                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                                                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
-                                                $mail->Password   = 'Website@123';                               //SMTP password
-                                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                                                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-                                            
-                                                //Recipients
-                                                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-                                                $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
-                                                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
-                                                
-                                                //Content
-                                                $mail->isHTML(true);                                  //Set email format to HTML
-                                                $mail->Subject = 'Welcome To Learn GlowEDU';
-                                                $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
-                                        Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
-                                        Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
-                                        Once done with the registration you will be able to access the course <br>
-                                        Regards,                                    <br>
-                                        Team Glowworm
-
-                                    </br></br> https://learn.glowedu.co.in";
-                                        $mail->AddAddress($email);
-                                        $mail->Send();
-                                    } else {
+                                        ?>
+                                        <script>
+                                        var name = jQuery('#name').val();
+        var email = jQuery('#email').val();
+        var amt = jQuery('#amt').val();
+        var course_category = jQuery('#course_category_c').val();
+        
+        jQuery.ajax({
+          type: 'post',
+          url: 'payment_process.php',
+          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          success: function(result) {
+            var options = {
+              "key": "rzp_test_j1EvXkK1lRyYz4",
+              "amount": amt * 100,
+              "currency": "INR",
+              "name": "GlowEDU",
+              "description": "C-Course",
+              "image": "images/logo.jpeg",
+              "handler": function(response) {
+                jQuery.ajax({
+                  type: 'post',
+                  url: 'payment_process.php',
+                  data: "payment_id=" + response.razorpay_payment_id,
+                  success: function(result) {
+                    window.location.href = "thank_you.php";
+                  }
+                });
+              }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+          }
+        });
+    </script>
+                                        <?php
+                                        } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
                                         </center></div>";
@@ -178,55 +184,24 @@
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="btn" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" onclick='pay_now()' name='btn' id="btn" class="form-submit" value="Register" />
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                     <img src="images/join.svg" alt="sing up image"></figure>
-        <form>
-          <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
-        </form>
+                    <form>
+         <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
+         <input type='textbox' name='email' value='$email' style='display: none;' id='name' placeholder='Enter your email' />
+         <input type='textbox' name='course_category_c' value='c' style='display: none;' id='course_category_c' placeholder='Enter your course_category' />
+         <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+         <input type='button' name='btn' id='btn' onclick='pay_now()' value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
+       </form>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-      function pay_now() {
-        var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
-        var amt = jQuery('#amt').val();
-        var mobile = jQuery('#mobile').val();
-        var re_pass = jQuery('#re_pass').val();
-        var course_category = jQuery('#course_category_python').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "Python-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process_refral.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-      }
-    </script>    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
                     </div>
                 </div>
             </div>
