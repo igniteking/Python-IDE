@@ -3,11 +3,11 @@
 <html lang="en">
     <?php
 //Import PHPMailer classes into the global namespace
-                                        //These must be at the top of your script, not inside a function
-                                        use PHPMailer\PHPMailer\PHPMailer;
-                                        use PHPMailer\PHPMailer\SMTP;
-                                        use PHPMailer\PHPMailer\Exception;
-                                        ?>
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+    ?>  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,7 +78,7 @@
                                 if (preg_match("/[a-z]/", $password)) {
                                     if (preg_match("/\W/", $password)) {
                                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')");
+                                        mysqli_query($conn, "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '1')");
                                         //Load Composer's autoloader
                                         require 'vendor/autoload.php';
                                         //Create an instance; passing `true` enables exceptions
@@ -94,7 +94,7 @@
                                             
                                                 //Recipients
                                                 $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-                                                $mail->addAddress('khanzaidan786@gmail.com');               //Name is optional
+                                                $mail->addAddress($email);               //Name is optional
                                                 $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
                                                 
                                                 //Content

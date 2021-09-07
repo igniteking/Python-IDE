@@ -16,5 +16,5 @@ if(isset($_POST['payment_id']) && isset($_POST['name']) && isset($_SESSION['OID'
     $name=$_POST['name'];
     mysqli_query($conn,"update payment set payment_status='complete',payment_id='$payment_id' where id='".$_SESSION['OID']."'");
     mysqli_query($conn,"update users set refral='1' where username='$name'");
-        
+    mysqli_query($conn,"delete from `users` where refral='0'");
 }

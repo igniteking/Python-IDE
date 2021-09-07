@@ -421,17 +421,16 @@ if ($ut == 'admin') {
           Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br>
       </a>
       <?php 
-      $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'python'";
+      $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'python'";
       $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
       $row_count = mysqli_num_rows($payment_selectioni_result_python);
       if($row_count > 0) { 
         echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 75px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a";
       } else { 
         echo "<form>
-        <input type='textbox' name='name' value='$user;' style='display: none;' id='name' placeholder='Enter your name' />
-        <input type='textbox' name='email' value='$email;' style='display: none;' id='name' placeholder='Enter your email' />
+        <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
         <input type='textbox' name='course_category_python' value='python' style='display: none;' id='course_category_python' placeholder='Enter your course_category' />
-        <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+        <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
         <input type='button' name='btn' id='btn' onclick='pay_now_python()' value='Buy Course' style='text-decoration: none; margin-top: 75px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
       </form>";}
         ?>
@@ -441,14 +440,13 @@ if ($ut == 'admin') {
     <script>
       function pay_now_python() {
         var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
         var amt = jQuery('#amt').val();
         var course_category = jQuery('#course_category_python').val();
         
         jQuery.ajax({
           type: 'post',
           url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
           success: function(result) {
             var options = {
               "key": "rzp_test_j1EvXkK1lRyYz4",
@@ -484,7 +482,7 @@ if ($ut == 'admin') {
         JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br>
     </a>
     <?php
-      $payment_selectioni_query_javascript = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'javascript'";
+      $payment_selectioni_query_javascript = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'javascript'";
       $payment_selectioni_result_javascript = mysqli_query($conn, $payment_selectioni_query_javascript);
       $row_count = mysqli_num_rows($payment_selectioni_result_javascript);
       if($row_count > 0) { 
@@ -492,9 +490,8 @@ if ($ut == 'admin') {
       } else {
          echo "<form>
          <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='email' value='$email' style='display: none;' id='name' placeholder='Enter your email' />
          <input type='textbox' name='course_category_javascript' value='javascript' style='display: none;' id='course_category_javascript' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
          <input type='button' name='btn' id='btn' onclick='pay_now_javascript()' value='Buy Course' style='text-decoration: none; margin-top: 0px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
        </form>";}
         ?>
@@ -504,14 +501,13 @@ if ($ut == 'admin') {
     <script>
       function pay_now_javascript() {
         var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
         var amt = jQuery('#amt').val();
         var course_category = jQuery('#course_category_javascript').val();
         
         jQuery.ajax({
           type: 'post',
           url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
           success: function(result) {
             var options = {
               "key": "rzp_test_j1EvXkK1lRyYz4",
@@ -548,7 +544,7 @@ if ($ut == 'admin') {
         C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br>
     </a>
     <?php
-      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'c'";
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'c'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
       if($row_count > 0) { 
@@ -556,9 +552,8 @@ if ($ut == 'admin') {
       } else {
          echo "<form>
          <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='email' value='$email' style='display: none;' id='name' placeholder='Enter your email' />
          <input type='textbox' name='course_category_c' value='c' style='display: none;' id='course_category_c' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
          <input type='button' name='btn' id='btn' onclick='pay_now_c()' value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
        </form>";}
         ?>
@@ -568,14 +563,13 @@ if ($ut == 'admin') {
     <script>
       function pay_now_c() {
         var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
         var amt = jQuery('#amt').val();
         var course_category = jQuery('#course_category_c').val();
         
         jQuery.ajax({
           type: 'post',
           url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
           success: function(result) {
             var options = {
               "key": "rzp_test_j1EvXkK1lRyYz4",
@@ -612,7 +606,7 @@ if ($ut == 'admin') {
         C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>
     </a>
     <?php
-      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'c_plus'";
+      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'c_plus'";
       $payment_selectioni_result_c_plus = mysqli_query($conn, $payment_selectioni_query_c_plus);
       $row_count = mysqli_num_rows($payment_selectioni_result_c_plus);
       if($row_count > 0) { 
@@ -620,9 +614,8 @@ if ($ut == 'admin') {
       } else {
          echo "<form>
          <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='email' value='$email' style='display: none;' id='name' placeholder='Enter your email' />
          <input type='textbox' name='course_category_c_plus' value='c_plus' style='display: none;' id='course_category_c_plus' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='700' id='amt' style='display: none;' placeholder='Enter your amt' />
+         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
          <input type='button' name='btn' id='btn' onclick='pay_now_c_plus_plus()' value='Buy Course' style='text-decoration: none; margin-top: 125px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
        </form>";}
         ?>
@@ -632,14 +625,13 @@ if ($ut == 'admin') {
     <script>
       function pay_now_c_plus_plus() {
         var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
         var amt = jQuery('#amt').val();
         var course_category = jQuery('#course_category_c_plus').val();
         
         jQuery.ajax({
           type: 'post',
           url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&email=" + email + "&course_category=" + course_category,
+          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
           success: function(result) {
             var options = {
               "key": "rzp_test_j1EvXkK1lRyYz4",

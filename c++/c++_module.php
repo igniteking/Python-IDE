@@ -89,7 +89,17 @@
             echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='../index.php' style='color: #eee'><u>HOME</u></a> and Verify your E-mail to access the modules!</p>";
         }
       }
-      ?>
+      ?> <?php
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'c_plus'";
+      $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
+      $row_count = mysqli_num_rows($payment_selectioni_result_c);
+      if($row_count > 0) { 
+           $dialog = "";
+       } else {
+           $course_category = "Buy The Course!";
+           echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='../index.php' style='color: #eee'><u>HOME</u></a> and Buy The Course to access the modules!</p>";
+       }
+     ?>
       <?php
         $cat_name = "SELECT * from category WHERE id = $category_id";
         $result = mysqli_query($conn, $cat_name);
@@ -100,20 +110,13 @@
         $cat_name = $rows['cat_name'];
         $cat_type = $rows['cat_type'];
         ?>
-              <?php
-       $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'c'";
-       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
-       $row_count = mysqli_num_rows($payment_selectioni_result_c);
-       if($row_count > 0) { 
-            $dialog = "";
-        } else {
-            $course_category = "Buy The Course!";
-            echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: #ff7474;'>Go To <a href='../index.php' style='color: #eee'><u>HOME</u></a> and Buy The Course to access the modules!</p>";
-        }
-      ?>
+             
 <h2 class='mb-4'><?php echo $cat_name;}?></h2>
 <div class='row mt-12'>
 <?php
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'c_plus'";
+      $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
+      $row_count = mysqli_num_rows($payment_selectioni_result_c);
         $query2 = "SELECT * from courses WHERE cat_id = $category_id";
         $result2 = mysqli_query($conn, $query2);
         while($rows = mysqli_fetch_assoc($result2))
@@ -129,8 +132,7 @@
         ?>
 
         <?php  if ($ut == 'student') {
-          if($row_count > 0) { 
-          if($active == 1) {
+          if($active == 1 && $row_count > 0) {
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
               <a href='c++_ide.php?id=$id'><div class='card-$id card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
               </div>
@@ -147,7 +149,7 @@
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             }
               </style>";
-        }} else {
+        } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
           <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
         </div>";;}}

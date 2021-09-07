@@ -1,4 +1,5 @@
 <?php 
+
 $amount = "199";
 $name = @$_GET['username'];
 $course_category = @$_GET['course_category'];
@@ -25,7 +26,7 @@ $course_category = @$_GET['course_category'];
                   url: 'payment_process_refral.php',
                   data: "payment_id=" + response.razorpay_payment_id + "&name=" + "<?php echo $name; ?>",
                   success: function(result) {
-                    window.location.href = "thank_you.php";
+                    window.location.href = "thankyou.php";
                   }
                 });
               }

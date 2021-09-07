@@ -54,6 +54,7 @@
     <?php
     $reg = @$_POST['reg'];
     $username = strip_tags(@$_POST['username']);
+    $course_category = strip_tags(@$_POST['course_category']);
     $email = strip_tags(@$_POST['email']);
     $password = strip_tags(@$_POST['password']);
     $mobile = strip_tags(@$_POST['mobile']);
@@ -112,7 +113,7 @@
                                         $mail->AddAddress($email);
                                         $mail->Send();
                                         $last_id = mysqli_insert_id($conn);
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=python\">";
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=$course_category\">";
                                     } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
@@ -187,10 +188,19 @@
                                 <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
+                            <p>I am subscribing for :</p>
+                                <select name="course_category" class="input_styler" id="course_category" style="padding: 10px; border: 1px solid #ccc; border-radius: 1px solid dotted; width: 100%;">
+                                    <option value="python">Python Course / Rs. 199/-</option>
+                                    <option value="javascript">Javascript Course / Rs. 199/-</option>
+                                    <option value="c">C Course / Rs. 199/-</option>
+                                    <option value="c_plus">C++ Course / Rs. 199/-</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="reg" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" name="reg" id="signup" class="form-submit" value="Buy & Register" />
                             </div>
                         </form>
                     </div>

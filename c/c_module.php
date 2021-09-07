@@ -101,7 +101,7 @@
         $cat_type = $rows['cat_type'];
         ?>
         <?php
-      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'c_plus'";
+      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'c_plus'";
       $payment_selectioni_result_c_plus = mysqli_query($conn, $payment_selectioni_query_c_plus);
       $row_count = mysqli_num_rows($payment_selectioni_result_c_plus);
       if($row_count > 0) { 
@@ -129,8 +129,7 @@
         ?>
 
         <?php  if ($ut == 'student') {
-          if($row_count > 0) { 
-          if($active == 1) {
+          if($active == 1 && $row_count > 0) {
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
               <a href='c_ide.php?id=$id'><div class='card-$id card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
               </div>
@@ -147,7 +146,7 @@
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             }
               </style>";
-        }} else {
+        } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
           <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
         </div>";;}}

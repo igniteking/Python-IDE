@@ -90,11 +90,11 @@
         }
       }
       ?>
-      <?php
-      $payment_selectioni_query_javascript = "SELECT * FROM `payment` WHERE email = '$email' AND course_category = 'javascript'";
-      $payment_selectioni_result_javascript = mysqli_query($conn, $payment_selectioni_query_javascript);
-      $row_count = mysqli_num_rows($payment_selectioni_result_javascript);
-      if($row_count > 0) { 
+       <?php
+         $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'javascript'";
+         $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+         $row_count = mysqli_num_rows($payment_selectioni_result_python);
+         if($row_count > 0) { 
             $dialog = "";
         } else {
             $course_category = "Buy The Course!";
@@ -114,6 +114,9 @@
 <h2 class='mb-4'><?php echo $cat_name;}?></h2>
 <div class='row mt-12'>
 <?php
+$payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'javascript'";
+$payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+$row_count = mysqli_num_rows($payment_selectioni_result_python);
         $query2 = "SELECT * from courses WHERE cat_id = $category_id";
         $result2 = mysqli_query($conn, $query2);
         while($rows = mysqli_fetch_assoc($result2))
@@ -129,8 +132,7 @@
         ?>
 
         <?php  if ($ut == 'student') {
-          if($row_count > 0) { 
-          if($active == 1) {
+          if($active == 1 && $row_count > 0) { 
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
               <a href='javascript_ide.php?id=$id'><div class='card-$id card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
               </div>
@@ -147,7 +149,7 @@
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             }
               </style>";
-        }} else {
+        } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
           <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
         </div>";;}}

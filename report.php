@@ -1,9 +1,6 @@
 <!doctype html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
-<?php include_once("database/phpmyadmin/header.php"); 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;?>
+<?php include_once("database/phpmyadmin/header.php"); ?>
 <html lang="en">
   <head>
   <?php
@@ -22,6 +19,7 @@ use PHPMailer\PHPMailer\Exception;?>
         {
         $id = $rows['id'];;
         $user = $rows['username'];
+        $email = $rows['email'];
         }
     ?>
   	<title>Report - GlowEdu</title>
@@ -67,19 +65,17 @@ use PHPMailer\PHPMailer\Exception;?>
 </nav>
 <form>
 <?php 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 $reg = @$_POST['reg'];
-$username = strip_tags(@$_POST['username']);
-$email = strip_tags(@$_POST['email']);
 
 if ($reg) {
-  # code...
-  $email = "khanzaidan786@gmail.com";
-
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
         //Server settings
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
@@ -93,6 +89,7 @@ $mail = new PHPMailer(true);
         $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
         $mail->addAddress($email);               //Name is optional
         $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+        
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Welcome To Learn GlowEDU';
@@ -105,26 +102,14 @@ $mail = new PHPMailer(true);
         Team Glowworm
     <br><br>
     </br></br> https://learn.glowedu.co.in";
-        $mail->AddAddress($email);
-        $mail->Send();
+    $mail->AddAddress($email);
+    $mail->Send();
 }
 
 ?>
 
 <h6>Report Us If somethig is wrong</h6><br>
 <form method="POST" action ="report.php">
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
-    <div class="col-sm-10">
-      <input type="text"  name="username" class="form-control" id="inputEmail3" placeholder="Username">
-    </div>
-  </div><br>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">E-mail</label>
-    <div class="col-sm-10">
-      <input type="email" name="email" class="form-control" id="inputPassword3" placeholder="E-mail">
-    </div>
-  </div><br>
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Query</label>
     <div class="col-sm-10">
@@ -136,7 +121,7 @@ $mail = new PHPMailer(true);
     <div class="col-sm-10">
     <label class="form-label" for="customFile">Upload a Screen shot for our reference</label>
     <input class="form-control" type="file" id="formFileMultiple" multiple /> <br>
-      <input type="submit" name="reg" class="btn btn-primary" value="Register" />
+      <input type="submit" name="reg" class="btn btn-primary" value="Send Email" />
   </div>
 </form>
 

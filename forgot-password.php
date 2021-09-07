@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style/css/style.css">
     <?php
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['email'])) {
         echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
         exit();
     } else {
