@@ -14,6 +14,9 @@
     <!-- Main css -->
     <link rel="stylesheet" href="style/css/style.css">
     <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
     if (isset($_SESSION['email'])) {
         echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
         exit();
@@ -24,6 +27,37 @@
     $submit = @$_POST['check'];
     $email = strip_tags(@$_POST['email']);
     if ($submit) {
+        //Load Composer's autoloader
+        require 'vendor/autoload.php';
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+                //Server settings
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+                $mail->Password   = 'Website@123';                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            
+                //Recipients
+                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+                $mail->addAddress($email);               //Name is optional
+                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+                
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'Welcome To Learn GlowEDU';
+                $mail->Body = "Dear, $username  <br> Go to this link to reset password<br><br>
+                                        Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
+                                        Once done with the <b>resetting the password</b> you will be redirected to the course <br>
+                                        Regards,                                    <br>
+                                        Team Glowworm
+
+                                    </br></br> https://learn.glowedu.co.in";
+                                        $mail->AddAddress($email);
+                                        $mail->Send();
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
     }
     ?>
 </head>

@@ -62,17 +62,30 @@
       </ul>
     </div>
   </div>
-</nav>
-<form>
+      </nav>
 <?php 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 $reg = @$_POST['reg'];
+$reaper = @$_POST['reaper'];
 
 if ($reg) {
-//Load Composer's autoloader
+
+      if (((@$_FILES["img"]["type"] == "image/jpeg") || (@$_FILES["img"]["type"] == "image/png") || (@$_FILES["img"]["type"] == "image/gif")) && (@$_FILES["img"]["size"] < 10048576)) {
+          $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+          $rand_dir_name = substr(str_shuffle($chars), 0, 15);
+          mkdir("reports/$rand_dir_name");
+          if (file_exists("reports/$rand_dir_name/" . @$_FILES['img']['name'])) {
+              $error = "Image Already Exists!";
+          } else {
+              move_uploaded_file(@$_FILES['img']['tmp_name'], "reports/$rand_dir_name/" . $_FILES['img']['name']);
+              $cover_pic_name = "$rand_dir_name/" . @$_FILES['img']['name'];
+             echo "Uploaded!";
+              };
+          };
+  //Load Composer's autoloader
 require 'vendor/autoload.php';
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -104,12 +117,38 @@ $mail = new PHPMailer(true);
     </br></br> https://learn.glowedu.co.in";
     $mail->AddAddress($email);
     $mail->Send();
-}
+    echo "Mail has been sent!";
+    $mail = new PHPMailer(true);
+        //Server settings
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+        $mail->Password   = 'Website@123';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    
+        //Recipients
+        $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+        $mail->addAddress($email, 'learn.glowedu@gmail.com');               //Name is optional
+        $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+        
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'Error Report To Learn GlowEDU';
+        $mail->Body = "$reaper<br><br><br><img src='http://learn.glowedu.co.in/reports/$cover_pic_name'><br>
+        Regards,
+        $user
+    <br><br>
+    </br></br> https://learn.glowedu.co.in";
+    $mail->AddAddress($email);
+    $mail->Send();
+};
 
 ?>
 
 <h6>Report Us If somethig is wrong</h6><br>
-<form method="POST" action ="report.php">
+<form method="POST" action ="report.php" enctype='multipart/form-data'>
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Query</label>
     <div class="col-sm-10">
@@ -120,7 +159,7 @@ $mail = new PHPMailer(true);
   <div class="form-group row">
     <div class="col-sm-10">
     <label class="form-label" for="customFile">Upload a Screen shot for our reference</label>
-    <input class="form-control" type="file" id="formFileMultiple" multiple /> <br>
+    <input class="form-control" type="file" name="img" id="formFileMultiple"/> <br>
       <input type="submit" name="reg" class="btn btn-primary" value="Send Email" />
   </div>
 </form>

@@ -45,7 +45,8 @@ $severtime = $end_time - $start_time;
     <nav id="sidebar">
       <div class="p-4 pt-5">
         <?php
-        $query = "SELECT * FROM session WHERE `token`='$token' AND `user_id`='$id_login'";
+        if (isset($_SESSION['email'])) {
+          $query = "SELECT * FROM session WHERE `token`='$token' AND `user_id`='$id_login'";
         $get = mysqli_query($conn, $query);
         while ($rows = mysqli_fetch_assoc($get)) {
           $status = $rows['status'];
@@ -56,11 +57,12 @@ $severtime = $end_time - $start_time;
             //Do Nothing!!!
           }
         }
+        echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.jpeg'></center><br>
+              <center><h4 style='color: white;'><a href='profile.php'>$user</a></h4><br></center>";
+      } else {
+            echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.jpeg'></center><br>";
+          }
         ?>
-       <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.jpeg'></center><br>
-      <center><h4 style="color: white;"><a href="profile.php"><?php echo $user; ?></a></h4><br></center>
-
-
         <?php
         if (!isset($_SESSION['email'])) {
           echo '
@@ -373,7 +375,7 @@ $severtime = $end_time - $start_time;
                 </ul>
               </li>
               <li>
-                  <a href='../upload.php'><lord-icon
+                  <a href='upload.php'><lord-icon
                   src='https://cdn.lordicon.com/nocovwne.json'
                     trigger='loop'
                     delay='1000'

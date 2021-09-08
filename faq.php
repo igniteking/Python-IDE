@@ -4,48 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php
-    if (isset($_SESSION['email'])) {
-    } else {
-        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php\">";
-        exit();
-    }
-    ?>
-    <?php
-    $query = "SELECT * from users WHERE email = '" . $_SESSION['email'] . "'";
-    $result = mysqli_query($conn, $query);
-
-    while ($rows = mysqli_fetch_assoc($result)) {
-        $user = $rows['username'];
-        $email = $rows['email'];
-        $mobile_number = $rows['mobile'];
-        $bio = $rows['bio'];
-        $state = $rows['state'];
-        $city = $rows['city'];
-        $postalcode = $rows['postalcode'];
-        $education = $rows['education'];
-        $country = $rows['country'];
-        $additional = $rows['additional'];
-        $active = $rows['active'];
-        $email_active = $rows['active'];
-        if ($email_active == "0") {
-            $email_active = "<f style='color: #f04040; font-weight: bold;'>Not Verified</f>";
-        } else {
-            $email_active = "<f style='color: #6cb038; font-weight: bold;'><i class='fa fa-check' aria-hidden='true'></i> Verified</f>";
-        }
-        $email_mobile_otp = $rows['mobile_otp'];
-        $mobile_count_active = $rows['mobile_active'];
-        $mobile_active = $rows['mobile_active'];
-        if ($mobile_active == "") {
-            $mobile_active = "0";
-        }
-        if ($mobile_active == "0") {
-            $mobile_active = "<f style='color: #f04040; font-weight: bold;'>Not Verified</f>";
-        } else {
-            $mobile_active = "<f style='color: #6cb038; font-weight: bold;'><i class='fa fa-check' aria-hidden='true'></i> Verified</f>";
-        }
-    }
-    ?>
+    
     <title>Profile - GlowEdu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
