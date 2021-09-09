@@ -82,7 +82,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/forgot.svg" alt="sing up image"></figure>
-                        <a href="login.php" class="signup-image-link">Back To Login!</a>
+                        <a href="login.php" class="signup-image-link" style="font-size: 20px;">Back To Login!</a>
                     </div>
                 </div>
             </div>

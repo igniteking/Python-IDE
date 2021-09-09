@@ -132,7 +132,7 @@
     $reg = @$_POST['reg'];
     $date = date("Y-m-d");
     if ($reg) {
-        mysqli_query($conn, "INSERT INTO `match_id`(`id`, `student_id`, `course_id`, `date`) VALUES (NULL, '$user_id', '$id', '$date')");
+        mysqli_query($conn, "INSERT INTO `match_id`(`id`, `student_id`, `course_id`, `date`, `course_category`) VALUES (NULL, '$user_id', '$id', '$date', '$course_category')");
         echo "<meta http-equiv=\"refresh\" content=\"0; url=#\">";
     }?>
 <div class="row mt-12">

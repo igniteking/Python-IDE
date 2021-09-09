@@ -1,6 +1,6 @@
 <!doctype html>
-<?php include_once("database/phpmyadmin/connection.php"); ?>
-<?php include_once("database/phpmyadmin/header.php"); ?>
+<?php include_once("../database/phpmyadmin/connection.php"); ?>
+<?php include_once("../database/phpmyadmin/header2.php"); ?>
 <html lang="en">
 <title>My Progress - GlowEdu</title>
 
@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/css/css/style.css">
+    <link rel="stylesheet" href="../style/css/css/style.css">
 
 <body>
     <div id="content" class="p-4 p-md-5">
@@ -76,7 +76,7 @@
         </nav>
         
         <?php
-        $sql = "SELECT * FROM courses";
+        $sql = "SELECT * FROM courses WHERE course_category='python'";
         $query = mysqli_query($conn, $sql);
         $count_total_course = mysqli_num_rows($query);
 
@@ -86,9 +86,9 @@
 
         //Algorithm Part
         $count = $count_total_course_done / $count_total_course * 100;
-        $count_final = bcdiv($count, 1, 0);
+        $count_final = bcdiv($count, 1, 0); 
         ?>
-        <h2 style="float: left;">Total Completed Modules <i class="fa fa-check" style=" color:#67ce8b;" aria-hidden="true"></i></h2><a href="delete_progress.php?id=<?php echo $id;?>"><button type="button" onclick="showAlert()" style="float: right;" class="btn btn-outline-danger float-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Reset Progress</button></a>
+        <h2 style="float: left;">Completed Modules of Python<i class="fa fa-check" style=" color:#67ce8b;" aria-hidden="true"></i></h2>
         <br><br>
         <script>
             function showAlert() {
@@ -124,35 +124,27 @@
                 }
             }
         </style>
-        <a href='python/python_progress.php'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
+        <?php
+        $sql = "SELECT * FROM match_id WHERE student_id='$user_id'";
+        $query = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($query)) {
+            $course = $row['course_id'];
+            $sql2 = "SELECT * FROM courses WHERE id='$course' AND course_category='python'";
+            $query2 = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_assoc($query2)) {
+                $course_topic = $row['course_topic'];
+                $course_data = $row['answer'];
+                $course_category = $row['course_category'];
+                $course_category_ide = $course_category.'_ide';
+                echo "<a href='$course_category_ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
                 <div id='flip-card'>
-                  <div id='flip-card-front' class='cardfrount'><h4>Python</h4></div>
-                  <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'><h6>High-level programming language</h6>
-          Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.</div>
+                  <div id='flip-card-front' class='cardfrount'>$course_topic<br></div>
+                  <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
                 </div></a>
-              </div>
-              <a href='javascript/javascript_progress.php'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
-                <div id='flip-card'>
-                  <div id='flip-card-front' class='cardfrount'><h4>JavaScript</h4></div>
-                  <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'><h6>Programming language</h6>
-        JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.</div>
-                </div></a>
-              </div>
-              <a href='c/c_progress.php'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
-                <div id='flip-card'>
-                  <div id='flip-card-front' class='cardfrount'><h4>C Language</h4></div>
-                  <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'><h6>Programming language</h6>
-        C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.</div>
-                </div></a>
-              </div>
-              <a href='c++/c++_progress.php'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
-                <div id='flip-card'>
-                  <div id='flip-card-front' class='cardfrount'><h4>C++ Language</h4></div>
-                  <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'><h6>Programming language</h6>
-        C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".</div>
-                </div></a>
-              </div>
-
+              </div>";
+            }
+        }
+        ?>
 <style>
       body::-webkit-scrollbar {
   display: none;
@@ -221,14 +213,14 @@
 }
 
 #flip-card-front {
- border: 1px solid black;
+ border: 1px dashed black;
   box-shadow: 0 0 5px rgb(22,22,22);
-  background-color: #eee;
-  color: #000;
+  background-color: #67ce8b;
+  color: #fff;
 }
 </style>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
