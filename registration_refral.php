@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <img src="images/main.png" width="50px">
+            <img src="images/logo.png" width="50px">
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
@@ -113,7 +113,7 @@
                                         $mail->AddAddress($email);
                                         $mail->Send();
                                         $last_id = mysqli_insert_id($conn);
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=$course_category\">";
+                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=$course_category&&email=$email\">";
                                     } else {
                                         echo "<div class='error-styler'><center>
                                         <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
@@ -190,10 +190,15 @@
                             <div class="form-group">
                             <p>I am subscribing for :</p>
                                 <select name="course_category" class="input_styler" id="course_category" style="padding: 10px; border: 1px solid #ccc; border-radius: 1px solid dotted; width: 100%;">
-                                    <option value="python">Python Course / Rs. 199/-</option>
-                                    <option value="javascript">Javascript Course / Rs. 199/-</option>
-                                    <option value="c">C Course / Rs. 199/-</option>
-                                    <option value="c_plus">C++ Course / Rs. 199/-</option>
+                                    <option value="python30">Python Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="python180">Python Course / 6 Month / Rs. 1,074.00/-</option>
+                                    <option value="python360">Python Course / 12 Month / Rs. 1,910.00/-</option>
+                                    <option value="javascript30">Javascript Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="javascript180">Javascript Course / 6 Months / Rs. 1,074.00/-</option>
+                                    <option value="javascript360">Javascript Course / 12 Months / Rs. 1,910.00/-</option>
+                                    <option value="c&c_plus30">C & C++ Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="c&c_plus180">C & C++ Course / 6 Months / Rs. 1,074.00/-</option>
+                                    <option value="c&c_plus360">C & C++ Course / 12 Months / Rs. 1,910.00/-</option>
                                 </select>
                             </div>
                             <div class="form-group">

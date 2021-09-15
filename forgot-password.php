@@ -13,7 +13,8 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="style/css/style.css">
-    <?php
+</head>
+<?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -23,45 +24,56 @@
     } else {
     }
     ?>
-    <?php
-    $submit = @$_POST['check'];
+<?php
+$submit = @$_POST['check'];
     $email = strip_tags(@$_POST['email']);
+    $date = date("Y-m-d");
+    $rand = md5(time() . $email);
     if ($submit) {
-        //Load Composer's autoloader
-        require 'vendor/autoload.php';
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-                //Server settings
-                $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
-                $mail->Password   = 'Website@123';                               //SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-            
-                //Recipients
-                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-                $mail->addAddress($email);               //Name is optional
-                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
-                
-                //Content
-                $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Welcome To Learn GlowEDU';
-                $mail->Body = "Dear, $username  <br> Go to this link to reset password<br><br>
-                                        Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
-                                        Once done with the <b>resetting the password</b> you will be redirected to the course <br>
-                                        Regards,                                    <br>
+        $user_check2 = "SELECT email from users WHERE email='$email'";
+            $result2 = mysqli_query($conn, $user_check2);
+            $result_check2 = mysqli_num_rows($result2);
+            if ($result_check2 > 0) {
+                $sql = "INSERT INTO `password_tokens`(`id`, `email`, `token`, `date`) VALUES (null,'$email','$rand','$date')";
+                $query = mysqli_query($conn, $sql);
+                    //Load Composer's autoloader
+                    require 'vendor/autoload.php';
+                    //Create an instance; passing `true` enables exceptions
+                    $mail = new PHPMailer(true);
+                            //Server settings
+                            $mail->isSMTP();                                            //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                            $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+                            $mail->Password   = 'Website@123';                               //SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                        
+                            //Recipients
+                            $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+                            $mail->addAddress($email);               //Name is optional
+                            $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+                            
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'Forgot Password - GLOWEDU';
+                $mail->Body = "Hey There, <br> Here's your random generated key to reset your password<br><br>
+                                        Random : $rand<br>
+                                        Copy the code above and go to :- http://learn.glowedu.co.in/recover-password.php?token=$rand <br><br>
+                                        To Recover Your Password<br>
+                                        Regards,<br>
                                         Team Glowworm
-
                                     </br></br> https://learn.glowedu.co.in";
-                                        $mail->AddAddress($email);
-                                        $mail->Send();
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=login.php?status=1\">";
+                                                    $mail->AddAddress($email);
+                                                    $mail->Send();
+                                                    echo "<p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #009fdc;'>E-mail has been sent to your Inserted E-mail address!</p>";
+            } else {
+                echo "<div class='error-styler'><center>
+                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail Dosen't exist!</p>
+        </center></div>";
+            }
     }
-    ?>
-</head>
-
+        ?>
 <body>
     <div class="one" style="margin-top: 8%;">
         <!-- Sign up form -->

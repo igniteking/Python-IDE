@@ -50,7 +50,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="../images/main.png" width ="40px">
+      <img src="../images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="../index.php">Home</a>
@@ -64,11 +64,20 @@
         <li class="nav-item">
         <div class="input-group">
   <div class="form-outline">
-    <form action="../search.php" method="GET">
-    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
-  <button type="submit" style="height: 40px;" class="btn btn-primary">Search
-    <i class="fa fa-search"></i>
-  </button></form>
+  <?php
+         $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'python'";
+         $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+         $row_count = mysqli_num_rows($payment_selectioni_result_python);
+         if($row_count > 0) { 
+            echo "<form action='search_python.php' method='GET'>
+            <input type='search' id='form1' name='find' class='form-control' placeholder='Search' /></div>
+          <button type='submit' style='height: 40px;' class='btn btn-primary'>Search
+            <i class='fa fa-search'></i>
+          </button></form>";
+        } else {
+            echo "";
+        }
+      ?>
 </div>
         </li>
       </ul>
@@ -90,11 +99,11 @@
         }
       }
       ?>
-      <?php
+       <?php
          $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'python'";
          $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
          $row_count = mysqli_num_rows($payment_selectioni_result_python);
-         if($row_count >= 0) { 
+         if($row_count > 0) { 
             $dialog = "";
         } else {
             $course_category = "Buy The Course!";
@@ -132,8 +141,7 @@ $row_count = mysqli_num_rows($payment_selectioni_result_python);
         ?>
 
         <?php  if ($ut == 'student') {
-          if($active == 1) {
-            if($row_count > 0) { 
+          if($active == 1 && $row_count > 0) { 
               echo "<div id='card' class='col-md-4' style='margin-top: 15px; '>
               <a href='python_ide.php?id=$id'><div class='card-$id card-1' style='color: $course_color; overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div></a>
               </div>
@@ -150,7 +158,7 @@ $row_count = mysqli_num_rows($payment_selectioni_result_python);
                 box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             }
               </style>";
-        }} else {
+        } else {
           echo "<div id='card' class='col-md-4' style='margin-top: 15px;'>
           <div class='card-1' style='overflow-y: scroll; padding: 20px;'><b>$course_topic</b> <br>$course_data</div>
         </div>";;}}

@@ -50,7 +50,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="../images/main.png" width ="40px">
+      <img src="../images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="../index.php">Home</a>
@@ -64,11 +64,20 @@
         <li class="nav-item">
         <div class="input-group">
   <div class="form-outline">
-    <form action="../search.php" method="GET">
-    <input type="search" id="form1" name="find" class="form-control" placeholder="Search" /></div>
-  <button type="submit" style="height: 40px;" class="btn btn-primary">Search
-    <i class="fa fa-search"></i>
-  </button></form>
+  <?php
+         $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
+         $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+         $row_count = mysqli_num_rows($payment_selectioni_result_python);
+         if($row_count > 0) { 
+            echo "<form action='search_c++.php' method='GET'>
+            <input type='search' id='form1' name='find' class='form-control' placeholder='Search' /></div>
+          <button type='submit' style='height: 40px;' class='btn btn-primary'>Search
+            <i class='fa fa-search'></i>
+          </button></form>";
+        } else {
+            echo "";
+        }
+      ?>
 </div>
         </li>
       </ul>
@@ -90,7 +99,7 @@
         }
       }
       ?> <?php
-      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'c_plus'";
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
       if($row_count > 0) { 
@@ -114,7 +123,7 @@
 <h2 class='mb-4'><?php echo $cat_name;}?></h2>
 <div class='row mt-12'>
 <?php
-      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'c_plus'";
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE  name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
         $query2 = "SELECT * from courses WHERE cat_id = $category_id";

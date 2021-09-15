@@ -1,7 +1,7 @@
 <!doctype html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <html lang="en">
-<link rel="icon" type="image/png" sizes="192x192" href="images/main.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/logo.png">
 <?php
 if (isset($_SESSION['email'])) {
 
@@ -57,10 +57,10 @@ $severtime = $end_time - $start_time;
             //Do Nothing!!!
           }
         }
-        echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.jpeg'></center><br>
+        echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.png'></center><br>
               <center><h4 style='color: white;'><a href='profile.php'>$user</a></h4><br></center>";
       } else {
-            echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.jpeg'></center><br>";
+            echo " <center><img class='rounded-circle mt-5' width='150px' height='150px;' src='images/logo.png'></center><br>";
           }
         ?>
         <?php
@@ -136,40 +136,16 @@ $severtime = $end_time - $start_time;
                 style='width:50px;height:50px'></lord-icon> Courses</a>
                 <ul class='collapse list-unstyled' id='pageSubmenu'>
                   <li>
-                      <a href='python/python_category.php'><lord-icon
-                      src='https://cdn.lordicon.com/bkqtuigh.json'
-                      trigger='loop'
-                      delay='1000'
-                      colors='primary:#ffffff,secondary:#ffffff'
-                      style='width:50px;height:50px'>
-                  </lord-icon> Python</a>
+                      <a href='python/python_category.php'><img src='images/python.jpg' width='40px'> Python</a>
                   </li>
                   <li>
-                      <a href='javascript/javascript_category.php'><lord-icon
-                      src='https://cdn.lordicon.com/kkwzhxjj.json'
-                      trigger='loop'
-                      delay='1000'
-                      colors='primary:#ffffff,secondary:#ffffff'
-                      style='width:50px;height:50px'>
-                  </lord-icon> Javascript</a>
+                      <a href='javascript/javascript_category.php'><img src='images/js.png' width='40px'>  Javascript</a>
                   </li>
                   <li>
-                      <a href='c++/c++_category.php'><lord-icon
-                      src='https://cdn.lordicon.com/ptbbcteb.json'
-                      trigger='loop'
-                      delay='1000'
-                      colors='primary:#ffffff,secondary:#ffffff'
-                      style='width:50px;height:50px'>
-                  </lord-icon> C++</a>
+                      <a href='c++/c++_category.php'><img src='images/c++.svg' width='40px'>  C++</a>
                   </li>
                   <li>
-                      <a href='c/c_category.php'><lord-icon
-                      src='https://cdn.lordicon.com/ptbbcteb.json'
-                      trigger='loop'
-                      delay='1000'
-                      colors='primary:#ffffff,secondary:#ffffff'
-                      style='width:50px;height:50px'>
-                  </lord-icon> C</a>
+                      <a href='c/c_category.php'><img src='images/c.png' width='40px'>  C</a>
                   </li>
                 </ul>
               </li>
@@ -181,6 +157,15 @@ $severtime = $end_time - $start_time;
                 colors='primary:#ffffff,secondary:#ffffff'
                 style='width:50px;height:50px'>
             </lord-icon> Profile</a>
+              </li>
+              <li>
+                <a href='packages.php'><lord-icon
+                src='https://cdn.lordicon.com/nlzvfogq.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Packages</a>
               </li>
             </ul>";
           } else {
@@ -296,6 +281,15 @@ $severtime = $end_time - $start_time;
                 style='width:50px;height:50px'>
             </lord-icon> Profile</a>
               </li>
+              <li>
+                <a href='packages.php'><lord-icon
+                src='https://cdn.lordicon.com/nlzvfogq.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Packages</a>
+              </li>
             </ul>";
           } else {
           }
@@ -391,6 +385,15 @@ $severtime = $end_time - $start_time;
                 colors='primary:#ffffff,secondary:#ffffff'
                 style='width:50px;height:50px'>
             </lord-icon> Profile</a>
+              </li>
+              <li>
+                <a href='packages.php'><lord-icon
+                src='https://cdn.lordicon.com/nlzvfogq.json'
+                  trigger='loop'
+                  delay='1000'
+                colors='primary:#ffffff,secondary:#ffffff'
+                style='width:50px;height:50px'>
+            </lord-icon> Packages</a>
               </li>
             </ul>";
           }

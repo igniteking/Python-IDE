@@ -48,7 +48,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="images/main.png" width ="40px">
+      <img src="images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
@@ -99,23 +99,24 @@ $mail = new PHPMailer(true);
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-        $mail->addAddress($email);               //Name is optional
-        $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+        $mail->setFrom('info@glowedu.co.in', 'Mailer');
+        $mail->addAddress($email, 'info@glowedu.co.in');               //Name is optional
+        $mail->addReplyTo('info@glowedu.co.in', 'Information');
         
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Welcome To Learn GlowEDU';
-        $mail->Body = "Dear $username, </br> This is in reference to the error/bug reported by you on our platform.
-        We are grateful to vigilant users like you that help us improve our portal's learning experience.
+        $mail->Subject = 'Bug report on Glowworm Academy learning platform';
+        $mail->Body = "Dear $username, <br> This is in reference to the error/bug reported by you on our platform.<br>
+        We are grateful to vigilant users like you that help us improve our portal's learning experience.<br>
         Rest assured the bug/error reported by you will be solved within no time as we are commited to offer 
-        the best learning experience possible to our users and our team is working hard to achieve this.
-        This mail contains the details of the bug/error submitted by you along with the screenshot.
-        Regards,
+        the best learning experience possible to our users and our team is working hard to achieve this.<br>
+        This mail contains the details of the bug/error submitted by you along with the screenshot.<br>
+        Regards,<br>
         Team Glowworm
     <br><br>
     </br></br> https://learn.glowedu.co.in";
     $mail->AddAddress($email);
+    $mail->AddCC('info@glowedu.co.in', 'Support Team');
     $mail->Send();
     echo "Mail has been sent!";
     $mail = new PHPMailer(true);
@@ -129,20 +130,22 @@ $mail = new PHPMailer(true);
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-        $mail->addAddress($email, 'learn.glowedu@gmail.com');               //Name is optional
-        $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+        $mail->setFrom('info@glowedu.co.in', 'Mailer');
+        $mail->addAddress($email, 'info@glowedu.co.in');               //Name is optional
+        $mail->addReplyTo('info@glowedu.co.in', 'Information');
         
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Error Report To Learn GlowEDU';
+        $mail->Subject = "We're Sorry!";
         $mail->Body = "$reaper<br><br><br><img src='http://learn.glowedu.co.in/reports/$cover_pic_name'><br>
         Regards,
         $user
     <br><br>
     </br></br> https://learn.glowedu.co.in";
     $mail->AddAddress($email);
+    $mail->AddCC('info@glowedu.co.in', 'Support Team');
     $mail->Send();
+    echo "<meta http-equiv=\"refresh\" content=\"0; url=index.php\">";
 };
 
 ?>

@@ -57,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="../images/main.png" width ="40px">
+      <img src="../images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="../index.php">Home</a>
@@ -113,6 +113,7 @@
       $final_pre_id = "c_ide.php?id=" . $pre_id;
     }
 ?>
+<p style='font-family: Roboto; font-weight: 600; color: #fff; padding: 10px; text-align: center; background: #8ecae6; border: 1px solid #8ecae6; border-radius: 4px;'>  Press 'F9 Button' or 'Alt + Enter Buttons' to run your Code! ... </p>
 <?php
     $id_check = "SELECT student_id, course_id FROM match_id WHERE course_id='$id' AND student_id='$user_id'";
     $result = mysqli_query($conn, $id_check);
@@ -153,7 +154,7 @@
 <div class="row mt-12">
   <h2 class="col-md-4" id="head"><?php echo $course_topic; ?></h2>
   <h2 class="col-md-4" id="subhead">Code Here!</h2>
-  <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="#"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 0px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 0px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
+  <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="https://info4507016.wixsite.com/website-1/groups"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 0px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 0px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
 </div>
       <script>
         function showAlert() {

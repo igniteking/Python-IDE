@@ -75,7 +75,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-              <img src="images/main.png" width="40px">
+              <img src="images/logo.png" width="40px">
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="index.php">Home</a>
@@ -415,7 +415,7 @@ if ($ut == 'admin') {
     <div class="carousel-cell">
       <a href="python/python_category.php" style="text-decoration: none;">
         <div style="padding: 20px;">
-          <img src="images/python.jpg" height="100px">
+          <img src="images/python.jpg" height="100px"><br><br>
           <h5>Python</h5><br>
           <h6>High-level programming language</h6>
           Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br>
@@ -425,58 +425,14 @@ if ($ut == 'admin') {
       $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
       $row_count = mysqli_num_rows($payment_selectioni_result_python);
       if($row_count > 0) { 
-        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 75px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a";
+        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 80px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
       } else { 
-        echo "<form>
-        <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-        <input type='textbox' name='course_category_python' value='python' style='display: none;' id='course_category_python' placeholder='Enter your course_category' />
-        <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
-        <input type='button' name='btn' id='btn' onclick='pay_now_python()' value='Buy Course' style='text-decoration: none; margin-top: 75px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
-      </form>";}
-        ?>
-        
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-      function pay_now_python() {
-        var name = jQuery('#name').val();
-        var amt = jQuery('#amt').val();
-        var course_category = jQuery('#course_category_python').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "Python-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-      }
-    </script>    </div>
-  </div>
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 80px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+      </div></div> 
   <div class="carousel-cell">
     <a href="javascript/javascript_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
-        <img src="images/js.png" height="100px">
+        <img src="images/js.png" height="100px"><br><br>
         <h5>Javascript</h5><br>
         <h6>Programming language</h6>
         JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br>
@@ -486,179 +442,44 @@ if ($ut == 'admin') {
       $payment_selectioni_result_javascript = mysqli_query($conn, $payment_selectioni_query_javascript);
       $row_count = mysqli_num_rows($payment_selectioni_result_javascript);
       if($row_count > 0) { 
-        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 3px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a";
-      } else {
-         echo "<form>
-         <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='course_category_javascript' value='javascript' style='display: none;' id='course_category_javascript' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
-         <input type='button' name='btn' id='btn' onclick='pay_now_javascript()' value='Buy Course' style='text-decoration: none; margin-top: 0px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
-       </form>";}
-        ?>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-      function pay_now_javascript() {
-        var name = jQuery('#name').val();
-        var amt = jQuery('#amt').val();
-        var course_category = jQuery('#course_category_javascript').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "JavaScript-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-      }
-    </script>
-      </div>
-  </div>
+        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 5px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+      } else { 
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 5px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+      </div></div>
   <div class="carousel-cell">
     <a href="c/c_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
-        <img src="images/c.png" height="100px">
+        <img src="images/c.png" height="100px"><br><br>
         <h5>C</h5><br>
         <h6>Programming language</h6>
         C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br>
     </a>
     <?php
-      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'c'";
+      $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
       if($row_count > 0) { 
-        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 55px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a";
-      } else {
-         echo "<form>
-         <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='course_category_c' value='c' style='display: none;' id='course_category_c' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
-         <input type='button' name='btn' id='btn' onclick='pay_now_c()' value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
-       </form>";}
-        ?>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-      function pay_now_c() {
-        var name = jQuery('#name').val();
-        var amt = jQuery('#amt').val();
-        var course_category = jQuery('#course_category_c').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "C-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-      }
-    </script>
-  </div>
-  </div>
+        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 50px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+      } else { 
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+      </div></div> 
   <div class="carousel-cell">
     <a href="c++/c++_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
-        <img src="images/c++.svg" height="100px">
-        <h5>C++</h5>
+        <img src="images/c++.svg" height="100px"><br><br>
+        <h5>C++</h5><br>
         <h6>Programming language</h6>
         C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>
     </a>
     <?php
-      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'c_plus'";
+      $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c_plus = mysqli_query($conn, $payment_selectioni_query_c_plus);
       $row_count = mysqli_num_rows($payment_selectioni_result_c_plus);
       if($row_count > 0) { 
-        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 125px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a";
-      } else {
-         echo "<form>
-         <input type='textbox' name='name' value='$user' style='display: none;' id='name' placeholder='Enter your name' />
-         <input type='textbox' name='course_category_c_plus' value='c_plus' style='display: none;' id='course_category_c_plus' placeholder='Enter your course_category' />
-         <input type='textbox' name='amt' value='199' id='amt' style='display: none;' placeholder='Enter your amt' />
-         <input type='button' name='btn' id='btn' onclick='pay_now_c_plus_plus()' value='Buy Course' style='text-decoration: none; margin-top: 125px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white; '>
-       </form>";}
-        ?>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-      function pay_now_c_plus_plus() {
-        var name = jQuery('#name').val();
-        var amt = jQuery('#amt').val();
-        var course_category = jQuery('#course_category_c_plus').val();
-        
-        jQuery.ajax({
-          type: 'post',
-          url: 'payment_process.php',
-          data: "amt=" + amt + "&name=" + name + "&course_category=" + course_category,
-          success: function(result) {
-            var options = {
-              "key": "rzp_test_j1EvXkK1lRyYz4",
-              "amount": amt * 100,
-              "currency": "INR",
-              "name": "GlowEDU",
-              "description": "C++-Course",
-              "image": "images/logo.jpeg",
-              "handler": function(response) {
-                jQuery.ajax({
-                  type: 'post',
-                  url: 'payment_process.php',
-                  data: "payment_id=" + response.razorpay_payment_id,
-                  success: function(result) {
-                    window.location.href = "thank_you.php";
-                  }
-                });
-              }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-          }
-        });
-      }
-    </script>
-      </div>
-  </div>
+        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 100px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+      } else { 
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 100px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+      </div></div> 
   </div>
   <br><br>
   <h2 class='mb-4'>Hi! <?php echo $user; ?></h2>

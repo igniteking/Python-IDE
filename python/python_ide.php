@@ -57,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-      <img src="../images/main.png" width ="40px">
+      <img src="../images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="../index.php">Home</a>
@@ -100,12 +100,12 @@
       $final_next_id = "python_ide.php?id=" . $next_id;
     }
     ?>
-        <?php
+<?php
     $pre_id = "";
-    $next_sql = "SELECT id from courses where id < $Course_id ORDER BY id DESC";
-    $next_query = mysqli_query($conn, $next_sql);
-    while ($row = mysqli_fetch_assoc($next_query)) {
-      $pre_id = $row['id'];
+    $pre_sql = "SELECT * FROM courses WHERE id < $Course_id ORDER BY id DESC";
+    $pre_query = mysqli_query($conn, $pre_sql);
+    while ($rows = mysqli_fetch_assoc($pre_query)) {
+      $pre_id = $rows['id'];
     }
     if ($pre_id == "") {
       $final_pre_id = "python_category.php";
@@ -153,7 +153,7 @@
 <div class="row mt-12">
   <h2 class="col-md-4" id="head"><?php echo $course_topic; ?></h2>
   <h2 class="col-md-4" id="subhead">Code Here!</h2>
-      <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="../coming.php"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 2px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 2px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
+      <div class="col-md-4"><a href="../coming.php"><button type="button" class="btn btn-outline-primary" style="float:left;"><i class="fa fa-user" aria-hidden="true"></i> Request Mentor</button></a><a href="https://info4507016.wixsite.com/website-1/groups"><button type="button" class="btn btn-outline-success" style="float:left; margin-left: 2px;"><i class="fa fa-object-group" aria-hidden="true"></i> Ask in the group</button></a><a href="../report.php" target="_blank"><button type="button" onclick="showAlert()" class="btn btn-outline-danger" style="float:left; margin-left: 2px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report</button></a>
 </div>
       <script>
         function showAlert() {

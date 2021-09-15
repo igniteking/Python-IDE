@@ -48,7 +48,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-      <img src="images/main.png" width ="50px">
+                    <img src="../images/logo.png" width ="50px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
@@ -138,7 +138,7 @@
                 $course_category_ide = $course_category.'_ide';
                 echo "<a href='$course_category_ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
                 <div id='flip-card'>
-                  <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
+                  <div id='flip-card-front' class='cardfrount'>$course_topic<br></div>
                   <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
                 </div></a>
               </div>";

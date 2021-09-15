@@ -1,6 +1,6 @@
 <!doctype html>
-<?php include_once("database/phpmyadmin/connection.php"); ?>
-<?php include_once("database/phpmyadmin/header.php"); ?>
+<?php include_once("../database/phpmyadmin/connection.php"); ?>
+<?php include_once("../database/phpmyadmin/header2.php"); ?>
 <html lang="en">
 <title>Search - GlowEdu</title>
 
@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/css/css/style.css">
+    <link rel="stylesheet" href="../style/css/css/style.css">
 
 <body>
     <div id="content" class="p-4 p-md-5">
@@ -39,23 +39,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-      <img src="images/main.png" width ="40px">
+      <img src="../images/logo.png" width ="40px">
       </li>
         <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About Us</a>
+            <a class="nav-link" href="../about.php">About Us</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
+            <a class="nav-link" href="../contact.php">Contact</a>
         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <form action="search.php" method="GET">
-            <input type="text" name="q" placeholder="Find your questions and all the python modules..." value="<?php echo $q;?>" style="width: 90%; padding-top: 10px; padding-bottom: 10px; border: 1px solid #ccc; border: 0 none; border-bottom: 2px solid #eee; outline: none; background: #fcfcfc; padding-left: 10px;" />
+        <form action="search_javascript.php" method="GET">
+            <input type="text" name="q" placeholder="Find your questions and all the javascript modules..." value="<?php echo $q;?>" style="width: 90%; padding-top: 10px; padding-bottom: 10px; border: 1px solid #ccc; border: 0 none; border-bottom: 2px solid #eee; outline: none; background: #fcfcfc; padding-left: 10px;" />
             <input type="submit" name="find" value="Search" style="width: 9%; background: #67ce8b; color: #fff; border: 0 none; padding-top: 10px; padding-bottom: 10px;" />
         </form>
         <?php
@@ -64,7 +64,7 @@
         $query = strip_tags(@$_GET['find']);
         
         if ($submit) {
-            $search = "SELECT * FROM courses WHERE course_topic LIKE '%$q%' LIMIT 20";
+            $search = "SELECT * FROM `courses` WHERE course_category ='javascript' AND course_topic LIKE '%$q%' LIMIT 20";
             $query = mysqli_query($conn, $search);
             while ($row = mysqli_fetch_assoc($query)) {
                 $course = $row['id'];
@@ -74,7 +74,7 @@
                 $ide = '_ide'
         ?>
         <?php
-                echo $output = "<a href='$course_category/$course_category$ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
+                echo $output = "<a href='$course_category$ide.php?id=$course'><div id='card' class='col-md-4' style='float: left; margin-top: 15px;'>
                         <div id='flip-card'>
                           <div id='flip-card-front' class='cardfrount'>$course_topic<br>$course_category</div>
                           <div id='flip-card-back' style='overflow-y: scroll; padding: 20px;'>$course_data</div>
@@ -171,7 +171,7 @@
         </style>
 
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>

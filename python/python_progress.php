@@ -48,7 +48,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-      <img src="images/main.png" width ="50px">
+                    <img src="../images/logo.png" width ="50px">
       </li>
         <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a>
@@ -80,7 +80,7 @@
         $query = mysqli_query($conn, $sql);
         $count_total_course = mysqli_num_rows($query);
 
-        $sql2 = "SELECT * FROM match_id WHERE student_id='$user_id'";
+        $sql2 = "SELECT * FROM match_id WHERE student_id='$user_id' AND course_category='python'";
         $query2 = mysqli_query($conn, $sql2);
         $count_total_course_done = mysqli_num_rows($query2);
 
