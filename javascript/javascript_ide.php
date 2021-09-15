@@ -89,7 +89,7 @@
 ?>
 <?php
     $next_id = "";
-    $next_sql = "SELECT * FROM courses WHERE id > $Course_id ORDER BY id DESC";
+    $next_sql = "SELECT * FROM courses WHERE id > $Course_id AND course_category = 'javascript' ORDER BY id DESC";
     $next_query = mysqli_query($conn, $next_sql);
     while ($row = mysqli_fetch_assoc($next_query)) {
       $next_id = $row['id'];
@@ -102,7 +102,7 @@
     ?>
         <?php
     $pre_id = "";
-    $next_sql = "SELECT id from courses where id < $Course_id ORDER BY id DESC";
+    $pre_sql = "SELECT * FROM courses WHERE id < $Course_id AND course_category = 'javascript' ORDER BY id ASC";
     $next_query = mysqli_query($conn, $next_sql);
     while ($row = mysqli_fetch_assoc($next_query)) {
       $pre_id = $row['id'];
