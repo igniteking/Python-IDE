@@ -64,13 +64,9 @@ use PHPMailer\PHPMailer\Exception;
     $mobile_otp = $randomNum;
     if ($reg) {
         if ($username && $password && $r_pswd) {
-            $user_check = "SELECT username from users WHERE username='$username'";
-            $result = mysqli_query($conn, $user_check);
             $user_check2 = "SELECT email from users WHERE email='$email'";
             $result2 = mysqli_query($conn, $user_check2);
-            $result_check = mysqli_num_rows($result);
             $result_check2 = mysqli_num_rows($result2);
-            if (!$result_check > 0) {
                 if (!$result_check2 > 0) {
                     if ($password == $r_pswd) {
                         if (preg_match("/\d/", $password)) {
@@ -139,11 +135,6 @@ use PHPMailer\PHPMailer\Exception;
                 }else {
                     echo "<div class='error-styler'><center>
                     <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail already exist!</p>
-            </center></div>";
-                }
-                } else {
-                    echo "<div class='error-styler'><center>
-                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username already exist!</p>
             </center></div>";
                 }
             } else {

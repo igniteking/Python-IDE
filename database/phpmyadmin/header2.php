@@ -1,3 +1,21 @@
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '811028626177906');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
 <!doctype html>
 <?php include_once("connection.php"); ?>
 <html lang="en">
@@ -287,6 +305,15 @@ $severtime = $end_time - $start_time;
                 style='width:50px;height:50px'>
             </lord-icon> Packages</a>
               </li>
+              <li>
+              <a href='../delete_request.php'><lord-icon
+              src='https://cdn.lordicon.com/gsqxdxog.json'
+              trigger='loop'
+              delay='1000'
+              colors='primary:#ffffff,secondary:#ffffff'
+              style='width:50px;height:50px'>
+          </lord-icon> Delete Subscription</a>
+          </li>
             </ul>";
           } else {
           }
@@ -392,6 +419,15 @@ $severtime = $end_time - $start_time;
                 style='width:50px;height:50px'>
             </lord-icon> Packages</a>
               </li>
+              <li>
+              <a href='../delete_request.php'><lord-icon
+              src='https://cdn.lordicon.com/gsqxdxog.json'
+              trigger='loop'
+              delay='1000'
+              colors='primary:#ffffff,secondary:#ffffff'
+              style='width:50px;height:50px'>
+          </lord-icon> Delete Subscription</a>
+          </li>
             </ul>";
           }
         }

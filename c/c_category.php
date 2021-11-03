@@ -65,7 +65,39 @@
     </div>
   </div>
 </nav>
-<h2 class='mb-4'>C Modules Index</h2>
+<div class='row mt-12'>
+<h2 class='col-6'>C Modules Index</h2>
+<?php
+    $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'c'";
+    $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+    $row_count = mysqli_num_rows($payment_selectioni_result_python);
+    if($row_count > 0) {
+    $normal_row_count = "SELECT * FROM `request` WHERE name = '$user' AND course_name = 'c'";
+    $normal_query = mysqli_query($conn, $normal_row_count);
+    $normale_row_count = mysqli_num_rows($normal_query);
+    if ($normale_row_count == '0') {
+      echo "<form action='c_category.php' class='col-6' method='post'>
+      <input type='submit' onclick='showAlert()' name='delete_subscription_button_1' value='Delete Subscription' class='btn btn-danger' style='float: right;'>
+      </form>";
+    } else {
+      echo "<div class='col-6><input type='submit' onclick='showAlert()' name='delete_subscription_button_1' value='Delete Subscription' class='btn btn-danger' style='display: none;float: right;'></div>'";
+    }?></div>
+          <?php
+      $delete_subscription_btn = @$_POST["delete_subscription_button_1"];
+      if($delete_subscription_btn){
+      $query_delete_subscription = "INSERT INTO `request`(`id`, `name`, `email`, `course_name`) VALUES (NULL ,'$user','$email','c')";
+      $delete_query_delete_subscription = mysqli_query($conn, $query_delete_subscription);
+      if ($query_delete_subscription) {
+      echo "<p style='padding: 10px; font-size: 14px; color: #fff; border-radius: 8px; text-align: center; background: green;'>The request has been sent to the ADMIN! 'WILL REFLECT BACK SOON!'</p>";
+      echo "<meta http-equiv=\"refresh\" content=\"3; url=\">";
+      }}
+    }
+      ?>
+      <script>
+      function showAlert() {
+        alert("Hello! ARE YOU SURE YOU WANT TO GET YOUR SUBSCRIBTION DELETED!..");
+      }
+    </script>
 <div class='row mt-12'>
 <?php
         $query = "SELECT * from category WHERE cat_type = 'c'";

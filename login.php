@@ -1,7 +1,7 @@
+<?php include_once("database/phpmyadmin/connection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include_once("database/phpmyadmin/connection.php"); ?>
 
 <head>
 

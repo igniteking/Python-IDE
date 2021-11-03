@@ -16,7 +16,7 @@ if ($course_category =="python30") {
         data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
         success: function(result) {
           var options = {
-            'key': 'rzp_live_bf8Ijdlx7KFZsb',
+            'key': 'rzp_test_j1EvXkK1lRyYz4',
             'amount': '<?php echo $amount;?>' * 100,
             'currency': 'INR',
             'name': 'GlowEDU',
@@ -54,7 +54,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -91,7 +91,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -128,7 +128,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -165,7 +165,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -202,7 +202,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -239,7 +239,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -276,7 +276,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',
@@ -313,7 +313,7 @@ if ($course_category =="python30") {
           data: 'amt=' + '$amount' + '&name=' + '<?php echo $name; ?>' + '&email=' + '<?php echo $email; ?>'  + '&days=' + '<?php echo $days; ?>' + '&course_category=' + '<?php echo $course_category_less?>',
           success: function(result) {
             var options = {
-              'key': 'rzp_live_bf8Ijdlx7KFZsb',
+              'key': 'rzp_test_j1EvXkK1lRyYz4',
               'amount': '<?php echo $amount;?>' * 100,
               'currency': 'INR',
               'name': 'GlowEDU',

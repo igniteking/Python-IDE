@@ -1,9 +1,4 @@
-<!doctype html>
-<?php include_once("database/phpmyadmin/connection.php"); ?>
-<html lang="en">
-
-<head>
-  <?php
+<?php include_once("database/phpmyadmin/connection.php");
   $query = "SELECT * FROM `payment`";
   $result = mysqli_query($conn, $query);
 
@@ -15,7 +10,7 @@
   }
   $query_delete = "DELETE FROM `payment` WHERE `days` = '0'";
   $result_delete = mysqli_query($conn, $query_delete);
-  $days_less = $days - 1;
+  $days_less = $days -1;
   $quesry_less = "UPDATE `payment` SET `days`='$days_less'";
   $result_less = mysqli_query($conn, $quesry_less);
   ?>

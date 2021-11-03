@@ -1,3 +1,20 @@
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '811028626177906');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 <!DOCTYPE html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <html lang="en">
@@ -38,13 +55,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="registration.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href="registration_refral.php">Register</a>
                     </li>
                 </ul>
             </div>
@@ -65,13 +76,9 @@
     $mobile_otp = $randomNum;
     if ($reg) {
         if ($username && $password && $r_pswd) {
-            $user_check = "SELECT username from users WHERE username='$username'";
-            $result = mysqli_query($conn, $user_check);
             $user_check2 = "SELECT email from users WHERE email='$email'";
             $result2 = mysqli_query($conn, $user_check2);
-            $result_check = mysqli_num_rows($result);
             $result_check2 = mysqli_num_rows($result2);
-            if (!$result_check > 0) {
                 if (!$result_check2 > 0) {
                     if ($password == $r_pswd) {
                         if (preg_match("/\d/", $password)) {
@@ -144,11 +151,6 @@
                     <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail already exist!</p>
             </center></div>";
                 }
-                } else {
-                    echo "<div class='error-styler'><center>
-                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Username already exist!</p>
-            </center></div>";
-                }
             } else {
                 echo "<div class='error-styler'><center>
                 <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
@@ -202,7 +204,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span><b>By registering you will be agreeing all statements in <a href="tandc_refral.php" style="color: blue;" class="term-service">Terms of service</a></b></label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="reg" id="signup" class="form-submit" value="Buy & Register" />
@@ -211,7 +213,6 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/join.svg" alt="sing up image"></figure>
-                        <b><a href="login.php" style="color: blue;" class="signup-image-link">I am already member</a></b>
                     </div>
                 </div>
             </div>

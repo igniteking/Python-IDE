@@ -17,7 +17,6 @@ while($rows = mysqli_fetch_assoc($select_query_result )){
     $days = "30";
 }
 $user_id;
-mysqli_query($conn,"insert into payment(name,course_category,email,payment_id,added_on,days) values('$user','c','$email', '$payment_id','$added_on', '$days')");
-mysqli_query($conn,"insert into payment(name,course_category,email,payment_id,added_on,days) values('$user','c_plus','$email', '$payment_id','$added_on', '$days')");
+mysqli_query($conn,"insert into payment(name,course_category,email,payment_id,added_on,days) values('$user','cc_plus','$email', '$payment_id','$added_on', '$days')");
 echo "<meta http-equiv=\"refresh\" content=\"2; url=../index.php\">";
 ?>

@@ -75,13 +75,27 @@
                                 <div class="card-header" id="faqHeading-1">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
-                                            <span class="badge">1</span>What is Lorem Ipsum?
+                                            <span class="badge">1</span>How to use this platform?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                        <p>Please go through this video: </p>
+                                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-7Az0OnQx0A" frameborder="0" allowfullscreen></iframe>                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading-1">
+                                    <div class="mb-0">
+                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
+                                            <span class="badge">2</span>Why am I not been able to access the content?
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Please make sure that you have verified your E-mail ID. Without the verification of E-mail ID you will not be able to access the courses. </p>
                                     </div>
                                 </div>
                             </div>
@@ -89,13 +103,13 @@
                                 <div class="card-header" id="faqHeading-2">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
-                                            <span class="badge">2</span> Where does it come from?
+                                            <span class="badge">3</span> I have verified my E-mail ID still I am not able to access the course content. What should I do?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                                        <p>Though this is highly unlikely we apologize for the inconveinience. Please reachout to us on info@glowedu.co.in or +919825085454 so that we can resolve the issue.</p>
                                     </div>
                                 </div>
                             </div>
@@ -103,13 +117,15 @@
                                 <div class="card-header" id="faqHeading-3">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-3" data-aria-expanded="false" data-aria-controls="faqCollapse-3">
-                                            <span class="badge">3</span>Why do we use it?
+                                            <span class="badge">4</span>How to use the report button?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>
+                                        <p>Please go through this video:</p>
+                                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UsClkIzASRQ" frameborder="0" allowfullscreen></iframe>                                    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -117,13 +133,13 @@
                                 <div class="card-header" id="faqHeading-4">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-4" data-aria-expanded="false" data-aria-controls="faqCollapse-4">
-                                            <span class="badge">4</span> Where can I get some?
+                                            <span class="badge">5</span> Who created these courses?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-4" class="collapse" aria-labelledby="faqHeading-4" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                        <p>Industry experienced professionals, with over 15+ years of have created courses. These professionals have worked in companies like General Electirc, Cognizant, WIPRO and other such reputed multi-national corporations. </p>
                                     </div>
                                 </div>
                             </div>
@@ -131,13 +147,13 @@
                                 <div class="card-header" id="faqHeading-5">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-5" data-aria-expanded="false" data-aria-controls="faqCollapse-5">
-                                            <span class="badge">5</span> What is Lorem Ipsum?
+                                            <span class="badge">6</span> Why all the lessons are in text form, and not video?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-5" class="collapse" aria-labelledby="faqHeading-5" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+                                        <p> The learning content on the Glowworm Academy's portal is a rich text based content and gives the learner a unique learning experience. Further, the lessons for each module have been divided into small micro-lessons so that the learner only reads the necessary content to master the lesson. Video based contnet's effectiveness heavily depends upon the pace, accent and the tone of the speaker. This problem is resolved in the text based content.</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,13 +161,13 @@
                                 <div class="card-header" id="faqHeading-6">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-6" data-aria-expanded="false" data-aria-controls="faqCollapse-6">
-                                            <span class="badge">6</span> Where does it come from?
+                                            <span class="badge">7</span> How frequently the contents are updated?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-6" class="collapse" aria-labelledby="faqHeading-6" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                                        <p>Each module has been designed wiht a specific learning outcome in mind. Further, we are committed to offer our learners the best possible content on their upskill journey with us. Thus, every module has a different frequency in terms of content updation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -159,13 +175,57 @@
                                 <div class="card-header" id="faqHeading-7">
                                     <div class="mb-0">
                                         <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
-                                            <span class="badge">7</span> Why do we use it?
+                                            <span class="badge">8</span> Are these courses certified? If yes, how do I avail the certification?
                                         </h5>
                                     </div>
                                 </div>
                                 <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                                        <p>Yes these courses are certified. Once you complete a module, send us a screenshot of your progress from the progress bar and we will mail you your certificate on your E-mail ID.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading-7">
+                                    <div class="mb-0">
+                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
+                                            <span class="badge">9</span> How do I check my progress?
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Please go through this video:</p>
+                                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xTtiMIQFQQk" frameborder="0" allowfullscreen></iframe>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading-7">
+                                    <div class="mb-0">
+                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
+                                            <span class="badge">10</span> What are the terms of service for Glowworm Academy's learning platform?
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>You can read it here:</p>
+                                        <iframe width="100%" height="100%" src="https://learn.glowedu.co.in/tandc.php" frameborder="0" allowfullscreen></iframe>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading-7">
+                                    <div class="mb-0">
+                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
+                                            <span class="badge">11</span> Do you offer live trainings?
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Yes we do. You can reachout to us on info@glowedu.co.in or WhatsApp us to+919825085454 or visit our website glowedu.co.in and place an inquiry so that our team will get in touch with us. </p>
                                     </div>
                                 </div>
                             </div>
