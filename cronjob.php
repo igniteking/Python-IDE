@@ -6,11 +6,12 @@
     $id = $rows['id'];
     $name = $rows['name'];
     $email = $rows['email'];
-    echo $days = $rows['days'];
+    $days = $rows['days'];
+    $update_new = $days - 1;
+    $quesry_less = "UPDATE `payment` SET `days`='$update_new' WHERE id='$id'";
+    $result_less = mysqli_query($conn, $quesry_less);
+    $query_delete = "DELETE FROM `payment` WHERE `days` = '0'";
+    $result_delete = mysqli_query($conn, $query_delete);
   }
-  $query_delete = "DELETE FROM `payment` WHERE `days` = '0'";
-  $result_delete = mysqli_query($conn, $query_delete);
-  $days_less = $days -1;
-  $quesry_less = "UPDATE `payment` SET `days`='$days_less'";
-  $result_less = mysqli_query($conn, $quesry_less);
+
   ?>

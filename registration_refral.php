@@ -1,30 +1,39 @@
 <!-- Facebook Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '811028626177906');
-fbq('track', 'PageView');
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '811028626177906');
+    fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
-/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1" /></noscript>
 <!-- End Facebook Pixel Code -->
 <!DOCTYPE html>
 <?php include_once("database/phpmyadmin/connection.php"); ?>
 <html lang="en">
-    <?php
+<?php
 //Import PHPMailer classes into the global namespace
-                                        //These must be at the top of your script, not inside a function
-                                        use PHPMailer\PHPMailer\PHPMailer;
-                                        use PHPMailer\PHPMailer\SMTP;
-                                        use PHPMailer\PHPMailer\Exception;
-                                        ?>
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,37 +88,37 @@ src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
             $user_check2 = "SELECT email from users WHERE email='$email'";
             $result2 = mysqli_query($conn, $user_check2);
             $result_check2 = mysqli_num_rows($result2);
-                if (!$result_check2 > 0) {
-                    if ($password == $r_pswd) {
-                        if (preg_match("/\d/", $password)) {
-                            if (preg_match("/[A-Z]/", $password)) {
-                                if (preg_match("/[a-z]/", $password)) {
-                                    if (preg_match("/\W/", $password)) {
-                                        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                                        $sql_insert = "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')";
-                                        mysqli_query($conn, $sql_insert);
-                                        //Load Composer's autoloader
-                                        require 'vendor/autoload.php';
-                                        //Create an instance; passing `true` enables exceptions
-                                        $mail = new PHPMailer(true);
-                                                //Server settings
-                                                $mail->isSMTP();                                            //Send using SMTP
-                                                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                                                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                                                $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
-                                                $mail->Password   = 'Website@123';                               //SMTP password
-                                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                                                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-                                            
-                                                //Recipients
-                                                $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
-                                                $mail->addAddress($email);               //Name is optional
-                                                $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
-                                                
-                                                //Content
-                                                $mail->isHTML(true);                                  //Set email format to HTML
-                                                $mail->Subject = 'Welcome To Learn GlowEDU';
-                                                $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
+            if (!$result_check2 > 0) {
+                if ($password == $r_pswd) {
+                    if (preg_match("/\d/", $password)) {
+                        if (preg_match("/[A-Z]/", $password)) {
+                            if (preg_match("/[a-z]/", $password)) {
+                                if (preg_match("/\W/", $password)) {
+                                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+                                    $sql_insert = "INSERT INTO users(`id`, `username`, `email`, `mobile`, `password`, `bio`, `date`, `active`, `token_key`, `user_type`, `mobile_otp`, `mobile_active`, `refral`) VALUES (NULL, '$username','$email','$mobile', '$hashedPwd','','$date','0','$vkey', 'student', '$mobile_otp', '0', '0')";
+                                    mysqli_query($conn, $sql_insert);
+                                    //Load Composer's autoloader
+                                    require 'vendor/autoload.php';
+                                    //Create an instance; passing `true` enables exceptions
+                                    $mail = new PHPMailer(true);
+                                    //Server settings
+                                    $mail->isSMTP();                                            //Send using SMTP
+                                    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                                    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                                    $mail->Username   = 'learn.glowedu@gmail.com';                     //SMTP username
+                                    $mail->Password   = 'Website@123';                               //SMTP password
+                                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                                    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                                    //Recipients
+                                    $mail->setFrom('learn.glowedu@gmail.com', 'Mailer');
+                                    $mail->addAddress($email);               //Name is optional
+                                    $mail->addReplyTo('learn.glowedu@gmail.com', 'Information');
+
+                                    //Content
+                                    $mail->isHTML(true);                                  //Set email format to HTML
+                                    $mail->Subject = 'Welcome To Learn GlowEDU';
+                                    $mail->Body = "Dear, $username  <br> This is to inform you that you are just one step away from a great learning experience.<br>
                                         Click on the link below and verify your E-mail ID to complete your registration process with us. <br>
                                         Link : <a href='http://learn.glowedu.co.in/verify.php?vkey=$vkey'>http://learn.glowedu.co.in/verify.php?vkey=$vkey</a><br>
                                         Once done with the registration you will be able to access the course <br>
@@ -117,47 +126,47 @@ src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
                                         Team Glowworm
 
                                     </br></br> https://learn.glowedu.co.in";
-                                        $mail->AddAddress($email);
-                                        $mail->Send();
-                                        $last_id = mysqli_insert_id($conn);
-                                        echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=$course_category&&email=$email\">";
-                                    } else {
-                                        echo "<div class='error-styler'><center>
-                                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
-                                        </center></div>";
-                                    }
+                                    $mail->AddAddress($email);
+                                    $mail->Send();
+                                    $last_id = mysqli_insert_id($conn);
+                                    echo "<meta http-equiv=\"refresh\" content=\"0; url=validate.php?id=$last_id&&username=$username&&course_category=$course_category&&email=$email\">";
                                 } else {
                                     echo "<div class='error-styler'><center>
-                                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one small Letter</p>
-                </center></div>";
+                                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one special character!</p>;
+                                        </center></div>";
                                 }
                             } else {
                                 echo "<div class='error-styler'><center>
-                                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one Capital Letter</p>
+                                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one small Letter</p>
                 </center></div>";
                             }
                         } else {
                             echo "<div class='error-styler'><center>
-                            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one digit</p>
-            </center></div>";
+                                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one Capital Letter</p>
+                </center></div>";
                         }
                     } else {
                         echo "<div class='error-styler'><center>
-                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Both Password's Dont Match!</p>
+                            <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Password should contain at least one digit</p>
             </center></div>";
                     }
-                }else {
+                } else {
                     echo "<div class='error-styler'><center>
-                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail already exist!</p>
+                        <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Both Password's Dont Match!</p>
             </center></div>";
                 }
             } else {
                 echo "<div class='error-styler'><center>
-                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
+                    <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>E-mail already exist!</p>
             </center></div>";
             }
+        } else {
+            echo "<div class='error-styler'><center>
+                <p style='padding: 10px; margin: 10px; font-size: 14px; color: #fff; font-weight: 600; border-radius: 8px; text-align: center; background: #ff7474;'>Please Fill In All Fields!</p>
+            </center></div>";
         }
-        ?>
+    }
+    ?>
 
 
     <div class="one" style="margin-top: 3%;">
@@ -190,15 +199,19 @@ src="https://www.facebook.com/tr?id=811028626177906&ev=PageView&noscript=1"
                                 <input type="password" name="repeat-password" id="re_pass" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
-                            <p>I am subscribing for :</p>
+                                <p>I am subscribing for :</p>
                                 <select name="course_category" class="input_styler" id="course_category" style="padding: 10px; border: 1px solid #ccc; border-radius: 1px solid dotted; width: 100%;">
+                                    <option>Select your desired package from here!</option>
                                     <option value="python30">Python Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="python30">Python Course / 3 Month / Rs. 597.00/-</option>
                                     <option value="python180">Python Course / 6 Month / Rs. 1,074.00/-</option>
                                     <option value="python360">Python Course / 12 Month / Rs. 1,910.00/-</option>
                                     <option value="javascript30">Javascript Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="javascript30">Javascript Course / 3 Month / Rs. 597.00/-</option>
                                     <option value="javascript180">Javascript Course / 6 Months / Rs. 1,074.00/-</option>
                                     <option value="javascript360">Javascript Course / 12 Months / Rs. 1,910.00/-</option>
                                     <option value="c&c_plus30">C & C++ Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="c&c_plus30">C & C++ Course / 3 Month / Rs. 597.00/-</option>
                                     <option value="c&c_plus180">C & C++ Course / 6 Months / Rs. 1,074.00/-</option>
                                     <option value="c&c_plus360">C & C++ Course / 12 Months / Rs. 1,910.00/-</option>
                                 </select>

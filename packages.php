@@ -146,17 +146,22 @@
           <h5>Python</h5><br></center>
           <h6>High-level programming language</h6>
           Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br>
-<br><button type="button" style="margin-top: 20px" class="collapsible_python">Package For 1 Month!</button>
+<br><button type="button" style="margin-top: 20px" class="collapsible_python">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
   <p>Python Fundamentals, Python Advanced, Data Analytics with Python, Data Visualzation with Python, Applied Statistics with Python, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwTXA4Q0pQleAd" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_python">Package For 6 Month!</button>
+<button type="button" class="collapsible_python">Package For 3 Month! (Click here to select)</button>
+<div class="content5">
+  <p>Python Fundamentals, Python Advanced, Data Analytics with Python, Data Visualzation with Python, Applied Statistics with Python, Weekly Challenges, Practice Projects, Interview Questions.</p>
+  <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IODq7uGCNiWuMz" async> </script> </form></center>
+</div>
+<button type="button" class="collapsible_python">Package For 6 Month! (Click here to select)</button>
 <div class="content5">
   <p>Python Fundamentals, Python Advanced, Data Analytics with Python, Data Visualzation with Python, Applied Statistics with Python, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXjTHF7x0KsvX" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_python">Package For 12 Month!</button>
+<button type="button" class="collapsible_python">Package For 12 Month! (Click here to select)</button>
 <div class="content5">
   <p>Python Fundamentals, Python Advanced, Data Analytics with Python, Data Visualzation with Python, Applied Statistics with Python, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXlZhc5Jkj2K4" async> </script> </form></center>
@@ -187,17 +192,22 @@ for (i = 0; i < coll.length; i++) {
           <h5>Javascript</h5><br></center>
           <h6>Programming language</h6>
           JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br>
-          <button type="button" class="collapsible_javascript">Package For 1 Month!</button>
+          <button type="button" class="collapsible_javascript">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
   <p>JavaScript Fundamentals, JavaScript Advanced, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXS1UOrF6JDaF" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_javascript">Package For 6 Month!</button>
+<button type="button" class="collapsible_javascript">Package For 3 Month! (Click here to select)</button>
+<div class="content5">
+  <p>JavaScript Fundamentals, JavaScript Advanced, Weekly Challenges, Practice Projects, Interview Questions.</p>
+  <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IODmtElmHs5fUL" async> </script> </form></center>
+</div>
+<button type="button" class="collapsible_javascript">Package For 6 Month! (Click here to select)</button>
 <div class="content5">
   <p>JavaScript Fundamentals, JavaScript Advanced, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXnZGtNFlwPyE" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_javascript">Package For 12 Month!</button>
+<button type="button" class="collapsible_javascript">Package For 12 Month! (Click here to select)</button>
 <div class="content5">
   <p>JavaScript Fundamentals, JavaScript Advanced, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXoS8Fl7uvP9Q" async> </script> </form></center>
@@ -229,22 +239,26 @@ for (i = 0; i < coll.length; i++) {
         <h6>Programming language C</h6>
         C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br>
         <h6>Programming language C</h6>
-        C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>        <button type="button" style="margin-top: 20px" class="collapsible_c">Package For 1 Month!</button>
+        C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>        <button type="button" style="margin-top: 20px" class="collapsible_c">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
   <p>C and C++ Ultimate Course, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXMOGKQZtmOUV" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_c">Package For 6 Month!</button>
+<button type="button" class="collapsible_c">Package For 3 Month! (Click here to select)</button>
 <div class="content5">
   <p>C and C++ Ultimate Course, Weekly Challenges, Practice Projects, Interview Questions.</p>
-  <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXq2VXnfigTfm" async> </script> </form></center>
+  <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IODkdaksVhCxUT" async> </script> </form></center>
 </div>
-<button type="button" class="collapsible_c">Package For 12 Month!</button>
+<button type="button" class="collapsible_c">Package For 6 Month! (Click here to select)</button>
+<div class="content5">
+  <p>C and C++ Ultimate Course, Weekly Challenges, Practice Projects, Interview Questions.</p>
+  <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IODkdaksVhCxUT" async> </script> </form></center>
+</div>
+<button type="button" class="collapsible_c">Package For 12 Month! (Click here to select)</button>
 <div class="content5">
   <p>C and C++ Ultimate Course, Weekly Challenges, Practice Projects, Interview Questions.</p>
   <center><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HwXrN57miU7CEW" async> </script> </form></center>
 </div>
-
 <script>
 var coll = document.getElementsByClassName("collapsible_c");
 var i;

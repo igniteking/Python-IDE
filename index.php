@@ -423,9 +423,11 @@ if ($ut == 'admin') {
       <?php 
       $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'python'";
       $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
+      while ($rows = mysqli_fetch_assoc($payment_selectioni_result_python)) {
+        $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_python);
       if($row_count > 0) { 
-        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 80px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 80px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
         echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 80px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
@@ -440,9 +442,11 @@ if ($ut == 'admin') {
     <?php
       $payment_selectioni_query_javascript = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'javascript'";
       $payment_selectioni_result_javascript = mysqli_query($conn, $payment_selectioni_query_javascript);
+      while ($rows = mysqli_fetch_assoc($payment_selectioni_result_javascript)) {
+        $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_javascript);
       if($row_count > 0) { 
-        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 5px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 5px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
         echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 5px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div>
@@ -457,9 +461,11 @@ if ($ut == 'admin') {
     <?php
       $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
+      while ($rows = mysqli_fetch_assoc($payment_selectioni_result_c)) {
+        $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
       if($row_count > 0) { 
-        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 50px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 50px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
         echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
@@ -474,9 +480,11 @@ if ($ut == 'admin') {
     <?php
       $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c_plus = mysqli_query($conn, $payment_selectioni_query_c_plus);
+      while ($rows = mysqli_fetch_assoc($payment_selectioni_result_c_plus)) {
+        $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_c_plus);
       if($row_count > 0) { 
-        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 100px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Subscribed</button></a>";
+        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 100px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
         echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 100px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
