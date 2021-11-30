@@ -144,7 +144,7 @@
         <div style="padding: 20px;">
           <center><img src="images/python.jpg" style="padding: 5px;" height="110px"><br><br>
           <h5>Python</h5><br></center>
-          <h6>High-level programming language</h6>
+          <h6>Data Science Career Track</h6>
           Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br>
 <br><button type="button" style="margin-top: 20px" class="collapsible_python">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
@@ -190,7 +190,7 @@ for (i = 0; i < coll.length; i++) {
         <div style="padding: 20px;">
           <center><img src="images/js.png" style="padding: 5px;" height="100px"><br><br>
           <h5>Javascript</h5><br></center>
-          <h6>Programming language</h6>
+          <h6>Web Development Career Track</h6>
           JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br>
           <button type="button" class="collapsible_javascript">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
@@ -235,10 +235,8 @@ for (i = 0; i < coll.length; i++) {
         <div id="beauty-boxes2">
         <div style="padding: 20px;">
           <center><img src="images/c.png" style="padding: 5px;" height="100px"><img src="images/c++.svg" style="padding: 5px;" height="100px"><br><br>
-          <h5>C & C++</h5><br></center>
-        <h6>Programming language C</h6>
-        C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br>
-        <h6>Programming language C</h6>
+          <h5>C || C++ || Javascript || Python</h5><br></center>
+        <h6>Software Development Career Track</h6>
         C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>        <button type="button" style="margin-top: 20px" class="collapsible_c">Package For 1 Month! (Click here to select)</button>
 <div class="content5">
   <p>C and C++ Ultimate Course, Weekly Challenges, Practice Projects, Interview Questions.</p>
@@ -276,6 +274,11 @@ for (i = 0; i < coll.length; i++) {
 }
 </script>    
     </div>
+        </div>
+    
+  
+    </div>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
