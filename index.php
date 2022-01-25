@@ -417,9 +417,8 @@ if ($ut == 'admin') {
         <div style="padding: 20px;">
           <img src="images/python.jpg" height="100px"><br><br>
           <h5>Python</h5><br>
-          <h6>High-level programming language</h6>
-          Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.<br><br>
-      </a>
+          <h6>High-level programming language</h6><br>
+        </a>
       <?php 
       $payment_selectioni_query_python = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'python'";
       $payment_selectioni_result_python = mysqli_query($conn, $payment_selectioni_query_python);
@@ -427,17 +426,16 @@ if ($ut == 'admin') {
         $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_python);
       if($row_count > 0) { 
-        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 80px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
+        echo "<a href='python/python_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
-        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 80px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
   <div class="carousel-cell">
     <a href="javascript/javascript_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
         <img src="images/js.png" height="100px"><br><br>
         <h5>Javascript</h5><br>
-        <h6>Programming language</h6>
-        JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.<br><br>
+        <h6>Programming language</h6><br>
     </a>
     <?php
       $payment_selectioni_query_javascript = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'javascript'";
@@ -446,18 +444,17 @@ if ($ut == 'admin') {
         $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_javascript);
       if($row_count > 0) { 
-        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 5px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
+        echo "<a href='javascript/javascript_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
-        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 5px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div>
   <div class="carousel-cell">
     <a href="c/c_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
         <img src="images/c.png" height="100px"><br><br>
         <h5>C</h5><br>
-        <h6>Programming language</h6>
-        C is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.<br><br>
-    </a>
+        <h6>Programming language</h6><br>
+       </a>
     <?php
       $payment_selectioni_query_c = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c = mysqli_query($conn, $payment_selectioni_query_c);
@@ -465,18 +462,17 @@ if ($ut == 'admin') {
         $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_c);
       if($row_count > 0) { 
-        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 50px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
+        echo "<a href='c/c_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
-        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 50px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
   <div class="carousel-cell">
     <a href="c++/c++_category.php" style="text-decoration: none;">
       <div style="padding: 20px;">
         <img src="images/c++.svg" height="100px"><br><br>
         <h5>C++</h5><br>
-        <h6>Programming language</h6>
-        C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".<br><br>
-    </a>
+        <h6>Programming language</h6><br>
+      </a>
     <?php
       $payment_selectioni_query_c_plus = "SELECT * FROM `payment` WHERE name = '$user' AND course_category = 'cc_plus'";
       $payment_selectioni_result_c_plus = mysqli_query($conn, $payment_selectioni_query_c_plus);
@@ -484,9 +480,9 @@ if ($ut == 'admin') {
         $days = $rows['days'];}
       $row_count = mysqli_num_rows($payment_selectioni_result_c_plus);
       if($row_count > 0) { 
-        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; margin-top: 100px; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
+        echo "<a href='c++/c++_category.php' style='text-decoration: none;'><button name='btn' id='btn' style='text-decoration: none; border: 2px dotted #333; background-color: white; font-family: Consolas; width: 100%; height: 50px; font-size: 20px; color: #333; '>Days Left:- $days</button></a>";
       } else { 
-        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; margin-top: 100px; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
+        echo "<a href='packages.php'><button name='btn' id='btn'value='Buy Course' style='text-decoration: none; border: 2px dotted white; background-color: #83c5be; width: 100%; height: 50px; font-size: 20px; color: white;'>Buy Course</button></a>";}        ?>
       </div></div> 
   </div>
   <br><br>
@@ -794,7 +790,7 @@ if ($ut == 'admin') {
     .carousel-cell {
       width: 26%;
       border: 1px solid #ccc;
-      height: 500px;
+      height: auto;
       background: #fff;
       margin-right: 40px;
       border-radius: 5px;

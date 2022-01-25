@@ -85,6 +85,7 @@
       $course_color = $rows['course_color'];
       $hints = $rows['hints'];
       $answer = $rows['answer'];
+      $iframe = $rows['iframe'];
     }
 ?>
 <?php
@@ -188,7 +189,11 @@ function myFunction() {
 <div id="answer" style="display: none;"><?php echo $answer; ?></div><br>
       </div>
       <div class="col">
-      <iframe src="https://jupyterlite.readthedocs.io/en/latest/_static/lab/index.html" width="100%" height="750px"></iframe></div>
+        <?php if ($iframe == "") {
+        echo '<iframe src="https://jupyterlite.readthedocs.io/en/latest/_static/lab/index.html" width="100%" height="750px"></iframe></div>';
+        } else {
+          echo "<iframe src='$iframe' width='100%' height='750px'></iframe></div>";
+        }?>
         <script src="../js/jquery.min.js"></script>
         <script src="../js/popper.js"></script>
         <script src="../js/bootstrap.min.js"></script>

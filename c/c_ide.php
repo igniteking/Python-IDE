@@ -189,7 +189,12 @@ function myFunction() {
 <div id="answer" style="display: none;"><?php echo $answer; ?></div><br>
       </div>
       <div class="col">
-      <iframe style="overflow: hidden;" src="c_compiler.html" width="100%" height="100%"  style="overflow-y : none;"></iframe>
+      <?php if ($iframe == "") {
+        echo '<iframe style="overflow: hidden;" src="c_compiler.html" width="100%" height="100%"  style="overflow-y : none;"></iframe>';
+        } else {
+          echo "<iframe src='$iframe' width='100%' height='750px'></iframe></div>";
+        }?>
+      
         </div>
         <script src="../js/jquery.min.js"></script>
         <script src="../js/popper.js"></script>

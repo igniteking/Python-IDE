@@ -36,7 +36,7 @@ while ($rows = mysqli_fetch_assoc($payment_selectioni_result_python)) {
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Forgot Password - GLOWEDU';
+        $mail->Subject = 'Weekly Challenge! - GLOWEDU';
         $mail->Body = "Dear learner!<br><Br>
 
         Do you know that it is said that, it takes 10,000 hours to master something!<br>

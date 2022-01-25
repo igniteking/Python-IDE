@@ -38,7 +38,7 @@ while ($rows = mysqli_fetch_assoc($payment_selectioni_result_python)) {
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Forgot Password - GLOWEDU';
+        $mail->Subject = 'Days left for your subscription to end! - GLOWEDU';
         $mail->Body = "Dear learner!
 
         You are important!<br>

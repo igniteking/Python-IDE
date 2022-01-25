@@ -203,17 +203,17 @@ use PHPMailer\PHPMailer\Exception;
                                 <select name="course_category" class="input_styler" id="course_category" style="padding: 10px; border: 1px solid #ccc; border-radius: 1px solid dotted; width: 100%;">
                                     <option>Select your desired package from here!</option>
                                     <option value="python30">Python Course / 1 Month / Rs. 199.00/-</option>
-                                    <option value="python30">Python Course / 3 Month / Rs. 597.00/-</option>
+                                    <option value="python90">Python Course / 3 Month / Rs. 597.00/-</option>
                                     <option value="python180">Python Course / 6 Month / Rs. 1,074.00/-</option>
                                     <option value="python360">Python Course / 12 Month / Rs. 1,910.00/-</option>
                                     <option value="javascript30">Javascript Course / 1 Month / Rs. 199.00/-</option>
-                                    <option value="javascript30">Javascript Course / 3 Month / Rs. 597.00/-</option>
+                                    <option value="javascript90">Javascript Course / 3 Month / Rs. 597.00/-</option>
                                     <option value="javascript180">Javascript Course / 6 Months / Rs. 1,074.00/-</option>
                                     <option value="javascript360">Javascript Course / 12 Months / Rs. 1,910.00/-</option>
-                                    <option value="c&c_plus30">C & C++ Course / 1 Month / Rs. 199.00/-</option>
-                                    <option value="c&c_plus30">C & C++ Course / 3 Month / Rs. 597.00/-</option>
-                                    <option value="c&c_plus180">C & C++ Course / 6 Months / Rs. 1,074.00/-</option>
-                                    <option value="c&c_plus360">C & C++ Course / 12 Months / Rs. 1,910.00/-</option>
+                                    <option value="cc_plus30">C & C++ Course / 1 Month / Rs. 199.00/-</option>
+                                    <option value="cc_plus90">C & C++ Course / 3 Month / Rs. 597.00/-</option>
+                                    <option value="cc_plus180">C & C++ Course / 6 Months / Rs. 1,074.00/-</option>
+                                    <option value="cc_plus360">C & C++ Course / 12 Months / Rs. 1,910.00/-</option>
                                 </select>
                             </div>
                             <div class="form-group">

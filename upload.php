@@ -19,6 +19,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style/css/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#txtEditor").Editor();
+			});
+		</script>
+		<link href="style/css/editor.css" type="text/css" rel="stylesheet"/>
+  
 </head>
 
 <body>
@@ -62,6 +70,7 @@
     $hints = @$_POST['hints'];
     $answer = @$_POST['answer'];
     $cat_id = @$_POST['cat_id'];
+    $iframe = @$_POST['iframe'];
     $course_topic = str_replace("'", "&#39;", $course_topic);
     $course_category = str_replace("'", "&#39;", $course_category);
     $course_data = str_replace("'", "&#39;", $course_data);
@@ -71,16 +80,16 @@
     if ($reg) {
       //Creating a connection
       //Inserting a record into the employee table
-      $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`, `cat_id`) VALUES (NULL, '$course_topic','$course_category','$course_data', '$course_color','$hints','$answer','$cat_id')";
+      $sql = "INSERT INTO courses(`id`, `course_topic`, `course_category`, `course_data`, `course_color`, `hints`, `answer`, `cat_id`, `iframe`) VALUES (NULL, '$course_topic','$course_category','$course_data', '$course_color','$hints','$answer','$cat_id', '$iframe')";
       mysqli_query($conn, $sql);
-      echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
+      // echo "<meta http-equiv=\"refresh\" content=\"0; url=# \">";
     }
     ?>
     <?php
     $qwerty = @$_POST['qwerty'];
     $numberedList = @$_POST['numberList'];
-    $numberedList_insert = $numberedList + 1;
     if ($qwerty) {
+      $numberedList_insert = $numberedList + 1;
       $sql_query_remove_AI = "ALTER TABLE `courses` CHANGE `id` `id` INT(11) NOT NULL;";
       $Query_Sql = mysqli_query($conn, $sql_query_remove_AI);
 
@@ -120,12 +129,10 @@
           </div>
         </div>
       </div>
-
       <div class="form-outline mb-4">
-        <textarea id="form6Example7" rows="4" name="course_data" class="editor form-control"><?php echo $course_data ?></textarea>
+      <textarea id="form6Example7" rows="4" name="course_data" class="editor form-control"><?php echo $course_data ?></textarea>
         <label class="form-label" for="form6Example7">Course Data</label>
       </div>
-
       <!-- Text input -->
       <div class="form-outline mb-4">
         <div class="form-outline">
@@ -151,7 +158,8 @@
               $cat_name = $rows['cat_name'];
               $cat_type = $rows['cat_type'];
             ?>
-              <option value="<?php echo $categoryid; ?>"><?php echo '0' . $categoryid, ' ' . $cat_name;} ?></option>
+              <option value="<?php echo $categoryid; ?>"><?php echo '0' . $categoryid, ' ' . $cat_name;
+                                                        } ?></option>
           </select>
           <label class="form-label" for="form6Example2">Course Category</label>
         </div>
@@ -163,11 +171,20 @@
       </div>
 
       <!-- Message input -->
+      <script>
+			$(document).ready(function() {
+				$("#txxtEditor").Editor();
+			});
+		</script>
       <div class="form-outline mb-4">
-        <textarea id="form6Example7" rows="4" name="answer" class="editor2 form-control"></textarea>
+      <textarea id="form6Example7" rows="4" name="answer" class="editor2 form-control"></textarea>
         <label class="form-label" for="form6Example7">Answer</label>
       </div>
 
+      <div class="form-outline mb-4">
+        <input type="text" id="form6Example4" class="form-control" name="iframe" />
+        <label class="form-label" for="form6Example4">Iframe</label>
+      </div>
       <div class="row mb-4">
         <div class="col">
           <div class="form-outline">
@@ -227,6 +244,7 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/editor.js"></script>
     <script src="js/build/ckeditor.js"></script>
     <script>
       ClassicEditor
